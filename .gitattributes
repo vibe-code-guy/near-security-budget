@@ -1,5 +1,7 @@
 # One byte representation on every platform, so file hashes match the committed blobs.
 * text=auto eol=lf
+*.ots binary
+*.gz binary
 *.png binary
 *.jpg binary
 *.woff2 binary
