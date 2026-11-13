@@ -1,0 +1,52 @@
+chain,rank,in_tests,protocol,slug,defillama_id,category,parent,listing_tvl_usd,total_tvl_usd,audits_flag,audit_links,defillama_url
+Near,1,yes,Rhea Lend,rhea-lend,1546,Lending,rhea-finance,132614369.87,132614369.87,2,2,https://defillama.com/protocol/rhea-lend
+Near,2,yes,NEAR Intents,near-intents,6225,Bridge,near-protocol,87357448.69,179312419.22,0,0,https://defillama.com/protocol/near-intents
+Near,3,yes,Meta Pool Near,meta-pool-near,557,Liquid Staking,meta-pool,74555567.46,74555582.57,2,1,https://defillama.com/protocol/meta-pool-near
+Near,4,yes,RHEA LST,rhea-lst,6985,Liquid Staking,rhea-finance,63174701.44,63174701.44,2,1,https://defillama.com/protocol/rhea-lst
+Near,5,yes,NEAR Bridge,near-bridge,3221,Canonical Bridge,near-protocol,44469910.88,106314642.84,0,0,https://defillama.com/protocol/near-bridge
+Near,6,yes,LiNEAR Protocol,linear-protocol,1740,Liquid Staking,,42819161.35,42819161.35,2,1,https://defillama.com/protocol/linear-protocol
+Near,7,yes,Rhea Dex,rhea-dex,541,Dexs,rhea-finance,20657536.55,20657536.55,0,0,https://defillama.com/protocol/rhea-dex
+Near,8,yes,Portal,portal,1541,Bridge,,4134876.49,1278506064.02,2,1,https://defillama.com/protocol/portal
+Near,9,yes,KAIO,kaio,5689,RWA,,3996228.70,34655757.11,0,0,https://defillama.com/protocol/kaio
+Near,10,yes,Jumbo Exchange,jumbo-exchange,1547,Dexs,,1009033.72,1009033.72,0,0,https://defillama.com/protocol/jumbo-exchange
+Near,11,no,HERE Wallet staking,here-wallet-staking,3312,Liquid Staking,,800840.30,800840.30,2,1,https://defillama.com/protocol/here-wallet-staking
+Solana,1,yes,Sanctum Validator LSTs,sanctum-validator-lsts,4371,Liquid Staking,sanctum,1410376477.88,1410376477.88,0,0,https://defillama.com/protocol/sanctum-validator-lsts
+Solana,2,yes,Kamino Lend,kamino-lend,3770,Lending,kamino-finance,1172015701.65,1172015701.65,2,2,https://defillama.com/protocol/kamino-lend
+Solana,3,yes,Jupiter Lend,jupiter-lend,6600,Lending,jupiter,940427702.28,940427702.28,0,0,https://defillama.com/protocol/jupiter-lend
+Solana,4,yes,Raydium AMM,raydium-amm,214,Dexs,raydium,902345735.07,902345735.07,2,1,https://defillama.com/protocol/raydium-amm
+Solana,5,yes,Binance Staked SOL,binance-staked-sol,5135,Liquid Staking,,850075143.95,850075143.95,2,2,https://defillama.com/protocol/binance-staked-sol
+Solana,6,yes,Jito Liquid Staking,jito-liquid-staking,2308,Liquid Staking,jito,803972332.51,803972332.51,2,2,https://defillama.com/protocol/jito-liquid-staking
+Solana,7,yes,Jupiter Perpetual Exchange,jupiter-perpetual-exchange,4077,Derivatives,jupiter,602482248.63,602482248.63,0,0,https://defillama.com/protocol/jupiter-perpetual-exchange
+Solana,8,yes,Jupiter Staked SOL,jupiter-staked-sol,4996,Liquid Staking,jupiter,401058067.26,401058067.26,0,0,https://defillama.com/protocol/jupiter-staked-sol
+Solana,9,yes,OnRe,onre,6432,RWA,,309110624.53,309110624.53,2,1,https://defillama.com/protocol/onre
+Solana,10,yes,Orca DEX,orca-dex,283,Dexs,orca,265370134.34,265378621.48,0,0,https://defillama.com/protocol/orca-dex
+Sui,1,yes,Suilend,suilend,4274,Lending,suilend-protocol,127331930.93,127331930.93,2,1,https://defillama.com/protocol/suilend
+Sui,2,yes,NAVI Lending,navi-lending,3323,Lending,navi-protocol,105617450.04,105617450.04,2,1,https://defillama.com/protocol/navi-lending
+Sui,3,yes,SpringSui,springsui,5311,Liquid Staking,suilend-protocol,52673380.60,52673380.60,2,1,https://defillama.com/protocol/springsui
+Sui,4,yes,Current,current,7603,Lending,,50342838.75,50342838.75,2,1,https://defillama.com/protocol/current
+Sui,5,yes,Ember,ember,6741,RWA,,34619528.76,89811754.66,2,1,https://defillama.com/protocol/ember
+Sui,6,yes,Haedal Protocol,haedal-protocol,3489,Liquid Staking,haedal,28428842.75,28428842.75,0,0,https://defillama.com/protocol/haedal-protocol
+Sui,7,yes,Bucket Protocol V2,bucket-protocol-v2,6686,CDP,bucket-protocol,24132819.99,24132819.99,0,0,https://defillama.com/protocol/bucket-protocol-v2
+Sui,8,yes,Cetus CLMM,cetus-clmm,2289,Dexs,cetus,22734483.60,22773165.81,0,0,https://defillama.com/protocol/cetus-clmm
+Sui,9,yes,Volo LST,volo-lst,6940,Liquid Staking,navi-protocol,22145350.33,22145350.33,0,0,https://defillama.com/protocol/volo-lst
+Sui,10,yes,Bucket CDP,bucket-cdp,3206,CDP,bucket-protocol,12665956.23,12665956.23,2,1,https://defillama.com/protocol/bucket-cdp
+Aptos,1,yes,Decibel,decibel,7467,Derivatives,,29247529.35,29247529.35,0,0,https://defillama.com/protocol/decibel
+Aptos,2,yes,KAIO,kaio,5689,RWA,,5680669.10,34655757.11,0,0,https://defillama.com/protocol/kaio
+Aptos,3,yes,Echelon Market,echelon-market,4367,Lending,,4373041.94,4389650.00,2,1,https://defillama.com/protocol/echelon-market
+Aptos,4,yes,Amnis Finance,amnis-finance,3667,Liquid Staking,,2544679.94,2544679.94,2,1,https://defillama.com/protocol/amnis-finance
+Aptos,5,yes,Propbase,propbase,6728,RWA,,1387613.38,1387613.38,2,2,https://defillama.com/protocol/propbase
+Aptos,6,yes,Thala LSD,thala-lsd,3804,Liquid Staking,thala-labs,1224778.58,1224778.58,2,1,https://defillama.com/protocol/thala-lsd
+Aptos,7,yes,TruStake,trustake,3287,Liquid Staking,trufin-protocol,1065675.49,2356174.88,2,1,https://defillama.com/protocol/trustake
+Aptos,8,yes,Yield AI,yield-ai,7707,AI Agents,,1034474.56,1034474.56,0,0,https://defillama.com/protocol/yield-ai
+Aptos,9,yes,Hyperion,hyperion,5480,Dexs,,975486.81,975486.81,2,1,https://defillama.com/protocol/hyperion
+Aptos,10,yes,PancakeSwap AMM,pancakeswap-amm,194,Dexs,pancakeswap,891708.85,1338239096.35,2,1,https://defillama.com/protocol/pancakeswap-amm
+Base,1,yes,Morpho Blue,morpho-blue,4025,Lending,morpho,4001671644.14,10372701712.03,2,1,https://defillama.com/protocol/morpho-blue
+Base,2,yes,Grove Finance,grove-finance,7583,Onchain Capital Allocator,,498865199.37,1107656309.09,0,0,https://defillama.com/protocol/grove-finance
+Base,3,yes,Aave V3,aave-v3,1599,Lending,aave,471613271.45,14411779887.60,2,1,https://defillama.com/protocol/aave-v3
+Base,4,yes,Spark Liquidity Layer,spark-liquidity-layer,5989,Onchain Capital Allocator,spark,350603461.68,2769124097.79,2,1,https://defillama.com/protocol/spark-liquidity-layer
+Base,5,yes,Uniswap V3,uniswap-v3,2198,Dexs,uniswap,303004469.80,1409915536.38,2,2,https://defillama.com/protocol/uniswap-v3
+Base,6,yes,Aero Slipstream,aero-slipstream,8691,Dexs,aero-protocol,90994295.82,122364773.91,0,0,https://defillama.com/protocol/aero-slipstream
+Base,7,yes,Uniswap V4,uniswap-v4,5690,Dexs,uniswap,87956517.02,1096372897.54,2,2,https://defillama.com/protocol/uniswap-v4
+Base,8,yes,Aerodrome Slipstream,aerodrome-slipstream,4524,Dexs,aero-protocol,71634577.60,71634577.60,3,0,https://defillama.com/protocol/aerodrome-slipstream
+Base,9,yes,Uniswap V2,uniswap-v2,2197,Dexs,uniswap,67368702.80,751752978.52,2,1,https://defillama.com/protocol/uniswap-v2
+Base,10,yes,Aera V3,aera-v3,6387,Onchain Capital Allocator,aera,60752688.95,165187983.08,0,0,https://defillama.com/protocol/aera-v3

@@ -1,0 +1,131 @@
+{
+ "files": {
+  "data/raw/defillama/chain_tvl_Aptos.json": {
+   "bytes": 53077,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T07:29:01Z",
+   "sha256": "7aa79839281cf318652c15ae8f5994fe45f2118adc012fbe29c489f3202b3b6d",
+   "source": "GET https://api.llama.fi/v2/historicalChainTvl/Aptos"
+  },
+  "data/raw/defillama/chain_tvl_Base.json": {
+   "bytes": 60365,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T07:29:02Z",
+   "sha256": "e20e22d6a56f04f1aca5a9f5546b2372b484e163b71a99c0a400ff77a62c12b7",
+   "source": "GET https://api.llama.fi/v2/historicalChainTvl/Base"
+  },
+  "data/raw/defillama/chain_tvl_Near.json": {
+   "bytes": 68068,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T07:28:58Z",
+   "sha256": "f6ace4033c4231fececd1bab275eb29ffab5b1bef6fc939dd99804795dc01519",
+   "source": "GET https://api.llama.fi/v2/historicalChainTvl/Near"
+  },
+  "data/raw/defillama/chain_tvl_Solana.json": {
+   "bytes": 76095,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T07:28:59Z",
+   "sha256": "ea254124ac639ea562c39e8f28c8cd18ad12970a1e2abfe4ec3c82ebe95e03c5",
+   "source": "GET https://api.llama.fi/v2/historicalChainTvl/Solana"
+  },
+  "data/raw/defillama/chain_tvl_Sui.json": {
+   "bytes": 46608,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T07:29:00Z",
+   "sha256": "c0f0570f7686bebee93795c038b1b39e405d63ddefb96eeef39e2ab0b5c840b8",
+   "source": "GET https://api.llama.fi/v2/historicalChainTvl/Sui"
+  },
+  "data/raw/defillama/chains.json": {
+   "bytes": 58132,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T07:28:57Z",
+   "sha256": "b106a159a54cd6c7c3e3d81f9f6f6cbd93cf53775aebdb4902c5cbe9d3727df0",
+   "source": "GET https://api.llama.fi/v2/chains"
+  },
+  "data/raw/defillama/fees/jumbo-exchange.json": {
+   "bytes": 121,
+   "http_status": 400,
+   "retrieved_at": "2026-11-13T07:29:11Z",
+   "sha256": "cb73f1ee51160c82871d8bdfade1cb0832110a211d6996c92c8837b0e240c3c8",
+   "source": "GET https://api.llama.fi/summary/fees/jumbo-exchange?dataType=dailyFees"
+  },
+  "data/raw/defillama/fees/kaio.json": {
+   "bytes": 51663,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T07:29:10Z",
+   "sha256": "a2d167ea8da2549fa6d615210a912e930a1268f6674f7940124c8741409f0f00",
+   "source": "GET https://api.llama.fi/summary/fees/kaio?dataType=dailyFees"
+  },
+  "data/raw/defillama/fees/linear-protocol.json": {
+   "bytes": 122,
+   "http_status": 400,
+   "retrieved_at": "2026-11-13T07:29:07Z",
+   "sha256": "b8a36866a66ca7d1194f4357a4315ef691718d71e600922e895b4b024cb6aa94",
+   "source": "GET https://api.llama.fi/summary/fees/linear-protocol?dataType=dailyFees"
+  },
+  "data/raw/defillama/fees/meta-pool-near.json": {
+   "bytes": 121,
+   "http_status": 400,
+   "retrieved_at": "2026-11-13T07:29:04Z",
+   "sha256": "cab164e8c4568293c3f8eee59d07ef32b5d57ed7f408661e6be5ad84e2d7d80b",
+   "source": "GET https://api.llama.fi/summary/fees/meta-pool-near?dataType=dailyFees"
+  },
+  "data/raw/defillama/fees/near-bridge.json": {
+   "bytes": 118,
+   "http_status": 400,
+   "retrieved_at": "2026-11-13T07:29:06Z",
+   "sha256": "d50f2264d2f51eeb67172d7d2cf723cdd9dfd53e812afd3d61263bd8348b24a7",
+   "source": "GET https://api.llama.fi/summary/fees/near-bridge?dataType=dailyFees"
+  },
+  "data/raw/defillama/fees/near-intents.json": {
+   "bytes": 39137,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T07:29:04Z",
+   "sha256": "562751003b4522fc0308537e0afe24e3fb1fca05a81f754a539ac64222f4c730",
+   "source": "GET https://api.llama.fi/summary/fees/near-intents?dataType=dailyFees"
+  },
+  "data/raw/defillama/fees/portal.json": {
+   "bytes": 364448,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T07:29:09Z",
+   "sha256": "69c40b64af58ac073c5ac2096c9d9bb20fecfce45aed4deef8e1ab44cdbe90f2",
+   "source": "GET https://api.llama.fi/summary/fees/portal?dataType=dailyFees"
+  },
+  "data/raw/defillama/fees/rhea-dex.json": {
+   "bytes": 48993,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T07:29:08Z",
+   "sha256": "406547b203ffb85a06cfd878154893123e89ee53baaa01b8f3960b3ebe0d6ef1",
+   "source": "GET https://api.llama.fi/summary/fees/rhea-dex?dataType=dailyFees"
+  },
+  "data/raw/defillama/fees/rhea-lend.json": {
+   "bytes": 35222,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T07:29:03Z",
+   "sha256": "028e6b1ed6ade047c607a3b2e2b7c70a4ec50beafb8aa716885448c7741cafb4",
+   "source": "GET https://api.llama.fi/summary/fees/rhea-lend?dataType=dailyFees"
+  },
+  "data/raw/defillama/fees/rhea-lst.json": {
+   "bytes": 18892,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T07:29:05Z",
+   "sha256": "b008ebdc4c658faaf2e857e2f494a67cd714ccfbff19beedc3a2790530c4ac17",
+   "source": "GET https://api.llama.fi/summary/fees/rhea-lst?dataType=dailyFees"
+  },
+  "data/raw/defillama/hacks.json": {
+   "bytes": 787696,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T07:28:56Z",
+   "sha256": "161de2f71c302313b288b5821ba85d6ed097bd34a50e0d18241ba696f931f826",
+   "source": "GET https://api.llama.fi/hacks"
+  },
+  "data/raw/defillama/protocols.json.gz": {
+   "bytes": 9603050,
+   "http_status": 200,
+   "note": "sha256 and bytes are of the uncompressed response",
+   "retrieved_at": "2026-11-13T07:28:54Z",
+   "sha256": "cf54146b1f0dc54bdd91e79d63ec1ab43d6b1102191a2c8e7bc0b3d560823def",
+   "source": "GET https://api.llama.fi/protocols"
+  }
+ }
+}

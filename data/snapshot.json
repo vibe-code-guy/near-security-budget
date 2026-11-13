@@ -1,0 +1,26 @@
+{
+ "eligible_totals": {
+  "Aptos": {
+   "eligible_listing_tvl_usd": "53030937.89",
+   "eligible_listings": 60
+  },
+  "Base": {
+   "eligible_listing_tvl_usd": "6821426911.40",
+   "eligible_listings": 709
+  },
+  "Near": {
+   "eligible_listing_tvl_usd": "477779899.57",
+   "eligible_listings": 30
+  },
+  "Solana": {
+   "eligible_listing_tvl_usd": "12300897822.19",
+   "eligible_listings": 336
+  },
+  "Sui": {
+   "eligible_listing_tvl_usd": "569457034.70",
+   "eligible_listings": 93
+  }
+ },
+ "protocols_retrieved_at": "2026-11-13T07:28:54Z",
+ "snapshot_date": "2026-11-13"
+}
