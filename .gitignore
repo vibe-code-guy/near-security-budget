@@ -1,0 +1,42 @@
+# Secrets and key material: never committed
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+id_rsa*
+id_ed25519*
+.near-credentials/
+access-key-file.json
+*credentials*.json
+*secret*
+
+# Hackathon submission payload contains personal data: never committed
+submission*.json
+payload*.json
+submission/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Node
+node_modules/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local tooling
+.claude/
+*.log
+tmp/
