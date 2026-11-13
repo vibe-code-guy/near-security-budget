@@ -1,0 +1,11 @@
+{
+ "near_above_median_lower": true,
+ "near_above_median_upper": true,
+ "near_lower": 3.908663,
+ "near_upper": 3.908663,
+ "note": "Sensitivity only. The registered C2 verdict uses headline TVL.",
+ "peer_median_lower": 1.398228,
+ "peer_median_upper": 1.723121,
+ "registered": false,
+ "same_rule_on_wide_base": "fails"
+}

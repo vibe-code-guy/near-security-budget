@@ -122,6 +122,18 @@ def fetch_defillama(m: Manifest) -> None:
     m.save()
 
 
+def fetch_sensitivity(m: Manifest) -> None:
+    """Chain TVL series that includes liquid staking and double-counted TVL (C2 sensitivity note only)."""
+    d = config.RAW / "defillama"
+    for chain in config.CHAINS:
+        path = f"/lite/charts/{chain}"
+        status, body = http_get(config.LLAMA + path)
+        assert status == 200, (path, status)
+        write_bytes(d / f"lite_charts_{chain}.json", body)
+        m.record(d / f"lite_charts_{chain}.json", "GET " + config.LLAMA + path, body, http_status=status)
+    m.save()
+
+
 def fetch_near(m: Manifest) -> None:
     """Run every view call listed in data/c3_targets.json and cache the answers."""
     if not TARGETS.exists():
@@ -161,6 +173,8 @@ def main(what: str = "all") -> None:
     m = Manifest()
     if what in ("all", "defillama"):
         fetch_defillama(m)
+    if what in ("all", "defillama", "sensitivity"):
+        fetch_sensitivity(m)
     if what in ("all", "near"):
         fetch_near(m)
     print("manifest:", MANIFEST)

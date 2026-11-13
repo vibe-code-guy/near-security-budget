@@ -410,7 +410,21 @@ registered.
 
 ## 10. Changes after registration
 
-None.
+Sections 1 to 8 are unchanged. Additions made after the registration commit
+`f84b548`, none of which alters a test or a kill criterion:
+
+1. **C2 denominator sensitivity (not registered, added 2026-11-13 after the C2
+   numbers were seen).** The registered verdict uses headline chain TVL and
+   stands as computed. Because NEAR's eligible listing TVL is about three times
+   its headline TVL, the same loss rates were also computed on a wider base: the
+   `tvl` series of `GET api.llama.fi/lite/charts/<Chain>`, which includes liquid
+   staking and double-counted TVL. Table: `data/tables/c2_sensitivity.csv`. The
+   outcome under the same rule is reported next to the registered verdict and
+   labelled as a sensitivity check.
+2. **Bounty table column.** `data/bounties.csv` has one extra input column,
+   `funds_at_risk_pct`, so that the registered rule min(cap, percentage x total
+   TVL) can be computed rather than typed in. It also carries the listing's
+   DefiLlama URL and TVL figures for the author's convenience.
 
 ## Appendix A. What was verified before registering (2026-11-13)
 

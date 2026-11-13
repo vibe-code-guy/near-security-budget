@@ -119,6 +119,41 @@
    "sha256": "161de2f71c302313b288b5821ba85d6ed097bd34a50e0d18241ba696f931f826",
    "source": "GET https://api.llama.fi/hacks"
   },
+  "data/raw/defillama/lite_charts_Aptos.json": {
+   "bytes": 214443,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T11:45:16Z",
+   "sha256": "4b94c4365374a8d8251732234cdd18a8c285f414624a1972e66d0d7c52cd4296",
+   "source": "GET https://api.llama.fi/lite/charts/Aptos"
+  },
+  "data/raw/defillama/lite_charts_Base.json": {
+   "bytes": 218816,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T11:45:18Z",
+   "sha256": "c9a22ed4ee9c6887796c6cfb404fdcf87d04e461cc09b3455146f061dceac20e",
+   "source": "GET https://api.llama.fi/lite/charts/Base"
+  },
+  "data/raw/defillama/lite_charts_Near.json": {
+   "bytes": 231094,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T11:45:11Z",
+   "sha256": "a002bbaf9e2205af27cfc1a8ff54f63ee5501751605832a3b27634778745cf4b",
+   "source": "GET https://api.llama.fi/lite/charts/Near"
+  },
+  "data/raw/defillama/lite_charts_Solana.json": {
+   "bytes": 350366,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T11:45:13Z",
+   "sha256": "7af7e8541320d80b297dd7de802d3517382350748470a9f597d6e1ee2122369d",
+   "source": "GET https://api.llama.fi/lite/charts/Solana"
+  },
+  "data/raw/defillama/lite_charts_Sui.json": {
+   "bytes": 190123,
+   "http_status": 200,
+   "retrieved_at": "2026-11-13T11:45:14Z",
+   "sha256": "c3621fe5af983df9e8348ecdb11542249e1e05a8febe40cb206169910e34a385",
+   "source": "GET https://api.llama.fi/lite/charts/Sui"
+  },
   "data/raw/defillama/protocols.json.gz": {
    "bytes": 9603050,
    "http_status": 200,

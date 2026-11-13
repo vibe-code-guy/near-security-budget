@@ -213,3 +213,41 @@ def losses_vs_fees() -> list:
             "hack_losses_in_fee_window_usd", "losses_over_fees", "hack_losses_24m_usd", "fee_chains"]
     write_csv(OUT / "near_losses_vs_fees.csv", rows, cols)
     return rows
+
+
+def sensitivity(per_chain: dict) -> dict:
+    """NOT REGISTERED (THESIS.md section 10). The same loss rates on a wider TVL base.
+
+    Wider base: the `tvl` series of GET /lite/charts/<Chain>, which includes liquid staking and
+    double-counted TVL. The registered base (headline) leaves both out.
+    """
+    snap = universe.snapshot()
+    start, end = window(snap["snapshot_date"])
+    headline_now = {c["name"]: float(c["tvl"]) for c in read_json(D / "chains.json")}
+    rows, rates = [], {}
+    for chain in config.CHAINS:
+        lite = read_json(D / f"lite_charts_{chain}.json")
+        wide = [{"date": int(t), "tvl": float(v)} for t, v in lite["tvl"]]
+        mean_wide, n = mean_tvl(wide, start, end)
+        pc = per_chain[chain]
+        eligible = float(snap["eligible_totals"][chain]["eligible_listing_tvl_usd"])
+        lo = loss_rate(pc["losses_lower_usd"], mean_wide)
+        up = loss_rate(pc["losses_upper_usd"], mean_wide)
+        rates[chain] = {"lower": lo, "upper": up}
+        rows.append({
+            "chain": chain, "eligible_listing_tvl_snapshot_usd": usd(eligible),
+            "headline_tvl_snapshot_usd": usd(headline_now[chain]),
+            "listing_over_headline": f"{eligible / headline_now[chain]:.2f}",
+            "mean_headline_tvl_usd": usd(pc["mean_headline_tvl_usd"]), "mean_wide_tvl_usd": usd(mean_wide),
+            "wide_over_headline_mean": f"{mean_wide / pc['mean_headline_tvl_usd']:.2f}", "wide_tvl_days": n,
+            "registered_rate_lower": f"{pc['loss_rate_lower_pct_per_year']:.4f}",
+            "registered_rate_upper": f"{pc['loss_rate_upper_pct_per_year']:.4f}",
+            "wide_base_rate_lower": f"{lo:.4f}", "wide_base_rate_upper": f"{up:.4f}",
+        })
+    v = verdict(rates[config.NEAR], [rates[c] for c in config.PEERS])
+    out = {"registered": False, "note": "Sensitivity only. The registered C2 verdict uses headline TVL.",
+           **{k: (round(x, 6) if isinstance(x, float) else x) for k, x in v.items()}}
+    out["same_rule_on_wide_base"] = out.pop("verdict")
+    write_csv(OUT / "c2_sensitivity.csv", rows, list(rows[0].keys()))
+    write_json(OUT / "c2_sensitivity.json", out)
+    return out
