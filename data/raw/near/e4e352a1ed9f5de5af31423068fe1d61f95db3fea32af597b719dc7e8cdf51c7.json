@@ -1,0 +1,68 @@
+{
+ "account_id": "e4e352a1ed9f5de5af31423068fe1d61f95db3fea32af597b719dc7e8cdf51c7",
+ "calls": [],
+ "retrieved_at": "2026-11-13T11:49:36Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359345,
+  "error": null,
+  "keys": [
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "sputnik-dao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:4nAj7yXuiFc84SmDDtqDM5EJA7K3hhUbAX1hasjM7yzi"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "0",
+       "method_names": [
+        "__wallet__metadata"
+       ],
+       "receiver_id": "e4e352a1ed9f5de5af31423068fe1d61f95db3fea32af597b719dc7e8cdf51c7"
+      }
+     }
+    },
+    "public_key": "ed25519:5XxXvDZEJ8PaecvTbZVQHVQUHNYVfZ7H33rLBALQA3p1"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "sputnik-dao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:BjLRNJMfJXdCQdB7KuKCAuwGZ2w3zQ6Jvq3vvDnErs61"
+   },
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:GQV12iogS5FUvpk9YTNYnzqjLZQFGtRfpikdzWPtqtwp"
+   }
+  ]
+ },
+ "view_account": {
+  "amount": "24717425609476238900000000",
+  "block_height": 224359345,
+  "code_hash": "11111111111111111111111111111111",
+  "locked": "0",
+  "storage_usage": 621
+ }
+}

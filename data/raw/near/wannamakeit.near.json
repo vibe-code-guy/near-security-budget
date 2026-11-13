@@ -1,0 +1,90 @@
+{
+ "account_id": "wannamakeit.near",
+ "calls": [],
+ "retrieved_at": "2026-11-13T11:50:45Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359467,
+  "error": null,
+  "keys": [
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:78iJd4ti3DuTPBTkoLinTSZ66PPgi9TsCt9XqqnYi4n"
+   },
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:7mhF6DdrpX87ULBNzEvuWqQ8JGsvpnrLGC2nLeDhmeT4"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:ExzB1bS2RRGv7mxSTX9XKwBQrWu5YxRHuPMJnuujvo3Z"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:FLt8yMnN7irScbR2csnnxeCffvTrwjjyYtUPDMUq7JoD"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "spot.spin-fi.near"
+      }
+     }
+    },
+    "public_key": "ed25519:Hf7mQ8F7kKioM5hucwqimjfGuAmhrvemzwkNcbNuKn8f"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:W25C2zMu43wJnCV4z7DsHCRUWjbQUyJM4qKWViz9NkW"
+   }
+  ]
+ },
+ "view_account": {
+  "amount": "898761623439048000000000",
+  "block_height": 224359464,
+  "code_hash": "11111111111111111111111111111111",
+  "locked": "0",
+  "storage_usage": 778
+ }
+}

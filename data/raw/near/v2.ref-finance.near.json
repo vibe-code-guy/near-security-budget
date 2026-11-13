@@ -1,0 +1,73 @@
+{
+ "account_id": "v2.ref-finance.near",
+ "calls": [
+  {
+   "args": {},
+   "block_height": 224359460,
+   "method": "get_owner",
+   "value": "ref-finance.sputnik-dao.near"
+  },
+  {
+   "args": {},
+   "block_height": 224359463,
+   "method": "metadata",
+   "value": {
+    "admin_fee_bps": 2000,
+    "auto_whitelisted_postfix": [
+     ".tknx.near",
+     ".qlyphs.near",
+     ".launch.shoremarkets.near",
+     ".launchpad.justhoot.near",
+     ".meme-cooking.near",
+     ".tkn.near"
+    ],
+    "boost_farm_id": "boostfarm.ref-labs.near",
+    "burrowland_id": "contract.main.burrow.near",
+    "cumulative_info_record_interval_sec": 720,
+    "guardians": [
+     "bim.near",
+     "doublerose.near"
+    ],
+    "owner": "ref-finance.sputnik-dao.near",
+    "pool_count": 9018,
+    "state": "Running",
+    "version": "1.9.21",
+    "wnear_id": "wrap.near"
+   }
+  },
+  {
+   "args": {},
+   "block_height": 224359463,
+   "method": "get_guardians",
+   "value": [
+    "bim.near",
+    "doublerose.near"
+   ]
+  },
+  {
+   "args": {},
+   "block_height": 224359464,
+   "error": "wasm execution failed with error: MethodResolveError(MethodNotFound)",
+   "method": "contract_source_metadata"
+  }
+ ],
+ "retrieved_at": "2026-11-13T11:50:41Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359460,
+  "error": null,
+  "keys": []
+ },
+ "view_account": {
+  "amount": "32621727551387578352644591869",
+  "block_height": 224359459,
+  "code_hash": "GZmkbfVLcN7ErxU9RDxP24YTaKmoVixhM6XyycP15Qvi",
+  "locked": "0",
+  "storage_usage": 111357105
+ }
+}

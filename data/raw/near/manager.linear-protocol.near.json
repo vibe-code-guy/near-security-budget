@@ -1,0 +1,44 @@
+{
+ "account_id": "manager.linear-protocol.near",
+ "calls": [],
+ "retrieved_at": "2026-11-13T11:50:02Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359391,
+  "error": null,
+  "keys": [
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": null,
+       "method_names": [
+        "update_weights"
+       ],
+       "receiver_id": "linear-protocol.near"
+      }
+     }
+    },
+    "public_key": "ed25519:EzKexxVY5skV9ysB4HxgLDcMz9YyAAtEZmdGP7mDrB53"
+   },
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:ZW6FBgjaL5XXLridN7SwFL9tR14PRCqxAMSafqpRMk7"
+   }
+  ]
+ },
+ "view_account": {
+  "amount": "1765427008628971298378481",
+  "block_height": 224359391,
+  "code_hash": "11111111111111111111111111111111",
+  "locked": "0",
+  "storage_usage": 311
+ }
+}

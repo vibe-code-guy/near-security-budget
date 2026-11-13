@@ -1,0 +1,126 @@
+{
+ "account_id": "sputnik-dao.near",
+ "calls": [
+  {
+   "args": {},
+   "block_height": 224359449,
+   "method": "get_owner",
+   "value": "sputnik-dao.near"
+  },
+  {
+   "args": {},
+   "block_height": 224359449,
+   "method": "get_default_code_hash",
+   "value": "DtHZA1mUmGYeScEaUoUZYQGGFHSMpnjMCvkr5U9hJXuF"
+  },
+  {
+   "args": {},
+   "block_height": 224359449,
+   "method": "get_default_version",
+   "value": [
+    3,
+    2
+   ]
+  },
+  {
+   "args": {},
+   "block_height": 224359453,
+   "method": "get_contracts_metadata",
+   "value": [
+    [
+     "8RMeZ5cXDap6TENxaJKtigRYf3n139iHmTRe8ZUNey6N",
+     {
+      "changelog_url": null,
+      "commit_id": "c2cf1553b070d04eed8f659571440b27d398c588",
+      "version": [
+       2,
+       0
+      ]
+     }
+    ],
+    [
+     "8jmhwSkNeAWCRqsr2KoD7d8BzDYorEz3a3iHuM9Gykrg",
+     {
+      "changelog_url": null,
+      "commit_id": "UNOFFICIAL_SCRIPT_DATA",
+      "version": [
+       2,
+       1
+      ]
+     }
+    ],
+    [
+     "2Zof1Tyy4pMeJM48mDSi5ww2QQhTz97b9S8h6W6r4HnK",
+     {
+      "changelog_url": null,
+      "commit_id": "86cc77a0808a92770c2562fc832c7e56d6de0de2",
+      "version": [
+       3,
+       0
+      ]
+     }
+    ],
+    [
+     "4zSoHkLjJWZm34Psd4Eq2WUXHELt6LxtKmUXpsZWAECp",
+     {
+      "changelog_url": null,
+      "commit_id": "3d568f9517a8c7a6510786d978bb25b180501841",
+      "version": [
+       3,
+       1
+      ]
+     }
+    ],
+    [
+     "DtHZA1mUmGYeScEaUoUZYQGGFHSMpnjMCvkr5U9hJXuF",
+     {
+      "changelog_url": null,
+      "commit_id": "2b0f34a3860460f285307ec2ccf36345acbe05a2",
+      "version": [
+       3,
+       2
+      ]
+     }
+    ]
+   ]
+  }
+ ],
+ "retrieved_at": "2026-11-13T11:50:35Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359449,
+  "error": null,
+  "keys": [
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:2gtDEwdLuUBawzFLAnCS9gUso3Ph76bRzMpVrtb66f3J"
+   },
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:3z2MnvQqD3dsUPynZpV8CFtyXhFiTksjZhjDr26isEXv"
+   },
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:7ReZXfft58fzSLyCB6A5qQ719DCaDo8etYrat75KFXp3"
+   }
+  ]
+ },
+ "view_account": {
+  "amount": "121366701486467892950729614",
+  "block_height": 224359445,
+  "code_hash": "BXd5idTXSnC7WRfxHmi7z4crw2F5WXQJ6MZUEv8DfnnY",
+  "locked": "0",
+  "storage_usage": 2998967
+ }
+}

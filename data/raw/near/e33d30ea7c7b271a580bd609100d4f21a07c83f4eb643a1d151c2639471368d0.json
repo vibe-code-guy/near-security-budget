@@ -1,0 +1,94 @@
+{
+ "account_id": "e33d30ea7c7b271a580bd609100d4f21a07c83f4eb643a1d151c2639471368d0",
+ "calls": [],
+ "retrieved_at": "2026-11-13T11:49:36Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359341,
+  "error": null,
+  "keys": [
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "0",
+       "method_names": [
+        "__wallet__metadata"
+       ],
+       "receiver_id": "e33d30ea7c7b271a580bd609100d4f21a07c83f4eb643a1d151c2639471368d0"
+      }
+     }
+    },
+    "public_key": "ed25519:2gKpXTCBB1b2LSECFAW8z1nkkLTprP7ie3wffRa3vtfs"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:3UWegRVKzRYb3xTGcRijU5BCnsxMQ5YZuGnm5JVHVpX3"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "0",
+       "method_names": [
+        "__wallet__metadata"
+       ],
+       "receiver_id": "e33d30ea7c7b271a580bd609100d4f21a07c83f4eb643a1d151c2639471368d0"
+      }
+     }
+    },
+    "public_key": "ed25519:7UqJijgdQY4Te8F1Qb3fVPt21Bmf1ry5sGG3JdkPp8gq"
+   },
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:A9dMY8r9rAkixi3QRZpoZvkEwAxrKQ3UKixs9fYmR5Lq"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:Acp7PUwK1HvDHrpDPBNWBJhQnDq7yT2iwDbU1PFbYR8d"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:EDFgoL4dpSpSHtJ95rVtQ5LhQoYuJ2ZST8i5bRxAEo8h"
+   }
+  ]
+ },
+ "view_account": {
+  "amount": "4077610665898897000000000",
+  "block_height": 224359341,
+  "code_hash": "11111111111111111111111111111111",
+  "locked": "0",
+  "storage_usage": 922
+ }
+}

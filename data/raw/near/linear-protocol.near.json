@@ -1,0 +1,54 @@
+{
+ "account_id": "linear-protocol.near",
+ "calls": [
+  {
+   "args": {},
+   "block_height": 224359371,
+   "method": "get_owner_id",
+   "value": "linear.sputnik-dao.near"
+  },
+  {
+   "args": {},
+   "block_height": 224359373,
+   "method": "get_managers",
+   "value": [
+    "owner.linear-protocol.near",
+    "manager.linear-protocol.near"
+   ]
+  },
+  {
+   "args": {},
+   "block_height": 224359373,
+   "method": "version",
+   "value": "1.6.2"
+  },
+  {
+   "args": {},
+   "block_height": 224359374,
+   "method": "contract_source_metadata",
+   "value": {
+    "link": "https://github.com/linear-protocol/LiNEAR",
+    "version": "1.6.2"
+   }
+  }
+ ],
+ "retrieved_at": "2026-11-13T11:49:50Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359370,
+  "error": null,
+  "keys": []
+ },
+ "view_account": {
+  "amount": "1091196826739994526936188871948",
+  "block_height": 224359370,
+  "code_hash": "5LiDVDd1gh7ofVNbiA9VXrWwkv2m8tw46jZqYeuoC3SG",
+  "locked": "0",
+  "storage_usage": 13349127
+ }
+}

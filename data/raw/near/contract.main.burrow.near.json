@@ -1,0 +1,73 @@
+{
+ "account_id": "contract.main.burrow.near",
+ "calls": [
+  {
+   "args": {},
+   "block_height": 224359320,
+   "method": "get_config",
+   "value": {
+    "boost_suppress_factor": 1000,
+    "booster_decimals": 18,
+    "booster_token_id": "token.burrow.near",
+    "contract_mode": "Running",
+    "dcl_id": "dclv2.ref-labs.near",
+    "enable_price_oracle": false,
+    "enable_pyth_oracle": true,
+    "force_closing_enabled": true,
+    "lp_tokens_info_valid_duration_sec": 600,
+    "max_num_assets": 20,
+    "maximum_recency_duration_sec": 90,
+    "maximum_staking_duration_sec": 7776000,
+    "maximum_staleness_duration_sec": 90,
+    "minimum_staking_duration_sec": 2592000,
+    "oracle_account_id": "priceoracle.near",
+    "owner_id": "burrow.sputnik-dao.near",
+    "pause_operator_id": null,
+    "pyth_oracle_account_id": "aggregate-oracle.near",
+    "pyth_price_valid_duration_sec": 60,
+    "ref_exchange_id": "v2.ref-finance.near",
+    "x_booster_multiplier_at_maximum_staking_duration": 30000
+   }
+  },
+  {
+   "args": {},
+   "block_height": 224359323,
+   "method": "get_version",
+   "value": "0.16.2"
+  },
+  {
+   "args": {},
+   "block_height": 224359323,
+   "method": "get_guardians",
+   "value": [
+    "nicktrust.near",
+    "doublerose.near"
+   ]
+  },
+  {
+   "args": {},
+   "block_height": 224359324,
+   "error": "wasm execution failed with error: MethodResolveError(MethodNotFound)",
+   "method": "contract_source_metadata"
+  }
+ ],
+ "retrieved_at": "2026-11-13T11:49:23Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359320,
+  "error": null,
+  "keys": []
+ },
+ "view_account": {
+  "amount": "11023033142260863927307954904",
+  "block_height": 224359319,
+  "code_hash": "6Nek1MZ8cwJJ2xMQAUWup9V5AToYS9rkTxJfwo6BCpFa",
+  "locked": "0",
+  "storage_usage": 53710534
+ }
+}

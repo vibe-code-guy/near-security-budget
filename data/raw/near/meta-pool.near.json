@@ -1,0 +1,42 @@
+{
+ "account_id": "meta-pool.near",
+ "calls": [
+  {
+   "args": {},
+   "block_height": 224359395,
+   "method": "get_owner_id",
+   "value": "stnear.sputnik-dao.near"
+  },
+  {
+   "args": {},
+   "block_height": 224359395,
+   "method": "get_operator_account_id",
+   "value": "operator.meta-pool.near"
+  },
+  {
+   "args": {},
+   "block_height": 224359398,
+   "error": "wasm execution failed with error: MethodResolveError(MethodNotFound)",
+   "method": "contract_source_metadata"
+  }
+ ],
+ "retrieved_at": "2026-11-13T11:50:04Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359394,
+  "error": null,
+  "keys": []
+ },
+ "view_account": {
+  "amount": "415060454278764475477413130404",
+  "block_height": 224359391,
+  "code_hash": "J6pS9R23vzbwxGB8eMq4qrn8UhciEYHsVbR9UJPyLNxh",
+  "locked": "0",
+  "storage_usage": 8756692
+ }
+}

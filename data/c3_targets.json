@@ -1,0 +1,437 @@
+{
+ "_comment": "Accounts read by `make data` for the C3 control trace. View calls only. Keys of every account are read with view_access_key_list.",
+ "accounts": {
+  "400d1c029b9575ab98af5fae579046d8c5d0bc9341263b6b797839815532dbe7": {
+   "calls": [],
+   "role": "holder"
+  },
+  "5024319f62e6f45f1b2364e6b92c58413d5279d20730cb2e616a613967cb692c": {
+   "calls": [],
+   "role": "holder"
+  },
+  "8043294d1468f766cba17a7cb6ee9e5355afa791e0640d6ede036c48e49ec312": {
+   "calls": [],
+   "role": "holder"
+  },
+  "8e69c33b572dad1f2da6f744c834705e651d3784af2471b58949f2fefd5b55d3": {
+   "calls": [],
+   "role": "holder"
+  },
+  "9600c0ec4de7a77f828965528c8c6028ba3aa430e4537cd25b7865d9430f63ae": {
+   "calls": [],
+   "role": "holder"
+  },
+  "ac39364aae9f15438b575f677768c2cf4a7cc74b7dcd198980e8618f003ff538": {
+   "calls": [],
+   "role": "holder"
+  },
+  "aldrich.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "b530f2243673f233b2e12e526c500101b76139c032b1b8f1c6f0ef88fcd4dc25": {
+   "calls": [],
+   "role": "holder"
+  },
+  "b6be09281567fc42ee6a453c6156445deeb8f09723d769a751646216c5ea00fc": {
+   "calls": [],
+   "role": "holder"
+  },
+  "b94b3558971e4dedf18c3c187534f3929c8c62b1cb92d59245537224dcb477b6": {
+   "calls": [],
+   "role": "holder"
+  },
+  "bim.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "brhost.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "bridge-ops.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "brrrb.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "burrow.sputnik-dao.near": {
+   "calls": [
+    {
+     "method": "get_policy"
+    },
+    {
+     "method": "get_factory_info"
+    },
+    {
+     "method": "version"
+    }
+   ],
+   "role": "dao"
+  },
+  "c98fb45fe2941904f763ff4c2fa2b621b5eb9a57f8daf420679957c08c1a1c34": {
+   "calls": [],
+   "role": "holder"
+  },
+  "contract.main.burrow.near": {
+   "calls": [
+    {
+     "method": "get_config"
+    },
+    {
+     "method": "get_version"
+    },
+    {
+     "method": "get_guardians"
+    },
+    {
+     "method": "contract_source_metadata"
+    }
+   ],
+   "role": "contract"
+  },
+  "ctl-intents.near": {
+   "calls": [
+    {
+     "method": "acl_get_permissioned_accounts"
+    },
+    {
+     "method": "pa_all_paused"
+    },
+    {
+     "method": "up_get_delay_status"
+    },
+    {
+     "method": "up_staged_code_hash"
+    },
+    {
+     "method": "contract_source_metadata"
+    },
+    {
+     "method": "version"
+    }
+   ],
+   "role": "controller"
+  },
+  "dclv2.ref-labs.near": {
+   "calls": [
+    {
+     "method": "get_metadata"
+    },
+    {
+     "method": "contract_source_metadata"
+    }
+   ],
+   "role": "contract"
+  },
+  "defipapa.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "doublerose.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "e33d30ea7c7b271a580bd609100d4f21a07c83f4eb643a1d151c2639471368d0": {
+   "calls": [],
+   "role": "holder"
+  },
+  "e4e352a1ed9f5de5af31423068fe1d61f95db3fea32af597b719dc7e8cdf51c7": {
+   "calls": [],
+   "role": "holder"
+  },
+  "ec0fe8a0e723f121997d4ceea4b1abdbb07fcca3d18d9f9e7b62e441deb9966e": {
+   "calls": [],
+   "role": "holder"
+  },
+  "farbread8025.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "gcohen.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "hos-root.sputnik-dao.near": {
+   "calls": [
+    {
+     "method": "get_factory_info"
+    },
+    {
+     "method": "version"
+    }
+   ],
+   "role": "nested_dao_member"
+  },
+  "intents.near": {
+   "calls": [
+    {
+     "method": "acl_get_permissioned_accounts"
+    },
+    {
+     "method": "pa_all_paused"
+    },
+    {
+     "method": "up_get_delay_status"
+    },
+    {
+     "method": "up_staged_code_hash"
+    },
+    {
+     "method": "contract_source_metadata"
+    }
+   ],
+   "role": "contract"
+  },
+  "intents.sputnik-dao.near": {
+   "calls": [
+    {
+     "method": "get_policy"
+    },
+    {
+     "method": "get_factory_info"
+    },
+    {
+     "method": "version"
+    }
+   ],
+   "role": "dao"
+  },
+  "linear-protocol.near": {
+   "calls": [
+    {
+     "method": "get_owner_id"
+    },
+    {
+     "method": "get_managers"
+    },
+    {
+     "method": "version"
+    },
+    {
+     "method": "contract_source_metadata"
+    }
+   ],
+   "role": "contract"
+  },
+  "linear.sputnik-dao.near": {
+   "calls": [
+    {
+     "method": "get_policy"
+    },
+    {
+     "method": "get_factory_info"
+    },
+    {
+     "method": "version"
+    }
+   ],
+   "role": "dao"
+  },
+  "lst.rhealab.near": {
+   "calls": [
+    {
+     "method": "acl_get_permissioned_accounts"
+    },
+    {
+     "method": "pa_all_paused"
+    },
+    {
+     "method": "up_get_delay_status"
+    },
+    {
+     "method": "up_staged_code_hash"
+    },
+    {
+     "method": "contract_source_metadata"
+    },
+    {
+     "method": "get_owner_id"
+    },
+    {
+     "method": "get_version"
+    }
+   ],
+   "role": "contract"
+  },
+  "manager.linear-protocol.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "meta-pool.near": {
+   "calls": [
+    {
+     "method": "get_owner_id"
+    },
+    {
+     "method": "get_operator_account_id"
+    },
+    {
+     "method": "contract_source_metadata"
+    }
+   ],
+   "role": "contract"
+  },
+  "n1-gov.sputnik-dao.near": {
+   "calls": [
+    {
+     "method": "get_factory_info"
+    },
+    {
+     "method": "version"
+    }
+   ],
+   "role": "nested_dao_member"
+  },
+  "narwallets.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "nearhispano.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "nf_temp_key.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "nicktrust.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "omni.bridge.near": {
+   "calls": [
+    {
+     "method": "acl_get_permissioned_accounts"
+    },
+    {
+     "method": "pa_all_paused"
+    },
+    {
+     "method": "up_get_delay_status"
+    },
+    {
+     "method": "up_staged_code_hash"
+    },
+    {
+     "method": "contract_source_metadata"
+    }
+   ],
+   "role": "contract"
+  },
+  "operator.meta-pool.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "owner.linear-protocol.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "pm.bridge.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "rainbowbridge.sputnik-dao.near": {
+   "calls": [
+    {
+     "method": "get_policy"
+    },
+    {
+     "method": "get_factory_info"
+    },
+    {
+     "method": "version"
+    }
+   ],
+   "role": "dao"
+  },
+  "ref-finance.sputnik-dao.near": {
+   "calls": [
+    {
+     "method": "get_policy"
+    },
+    {
+     "method": "get_factory_info"
+    },
+    {
+     "method": "version"
+    }
+   ],
+   "role": "dao"
+  },
+  "refchef.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "relay-key-manager.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "rhealab.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "root.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "sputnik-dao.near": {
+   "calls": [
+    {
+     "method": "get_owner"
+    },
+    {
+     "method": "get_default_code_hash"
+    },
+    {
+     "method": "get_default_version"
+    },
+    {
+     "method": "get_contracts_metadata"
+    }
+   ],
+   "role": "factory"
+  },
+  "stnear.sputnik-dao.near": {
+   "calls": [
+    {
+     "method": "get_policy"
+    },
+    {
+     "method": "get_factory_info"
+    },
+    {
+     "method": "version"
+    }
+   ],
+   "role": "dao"
+  },
+  "v2.ref-finance.near": {
+   "calls": [
+    {
+     "method": "get_owner"
+    },
+    {
+     "method": "metadata"
+    },
+    {
+     "method": "get_guardians"
+    },
+    {
+     "method": "contract_source_metadata"
+    }
+   ],
+   "role": "contract"
+  },
+  "wannamakeit.near": {
+   "calls": [],
+   "role": "holder"
+  },
+  "zzxbzz.near": {
+   "calls": [],
+   "role": "holder"
+  }
+ }
+}

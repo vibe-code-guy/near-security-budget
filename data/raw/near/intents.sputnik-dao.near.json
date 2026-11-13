@@ -1,0 +1,134 @@
+{
+ "account_id": "intents.sputnik-dao.near",
+ "calls": [
+  {
+   "args": {},
+   "block_height": 224359367,
+   "method": "get_policy",
+   "value": {
+    "bounty_bond": "100000000000000000000000",
+    "bounty_forgiveness_period": "604800000000000",
+    "default_vote_policy": {
+     "quorum": "0",
+     "threshold": [
+      1,
+      2
+     ],
+     "weight_kind": "RoleWeight"
+    },
+    "proposal_bond": "100000000000000000000000",
+    "proposal_period": "604800000000000",
+    "roles": [
+     {
+      "kind": {
+       "Group": [
+        "400d1c029b9575ab98af5fae579046d8c5d0bc9341263b6b797839815532dbe7",
+        "8e69c33b572dad1f2da6f744c834705e651d3784af2471b58949f2fefd5b55d3",
+        "5024319f62e6f45f1b2364e6b92c58413d5279d20730cb2e616a613967cb692c",
+        "9600c0ec4de7a77f828965528c8c6028ba3aa430e4537cd25b7865d9430f63ae",
+        "ac39364aae9f15438b575f677768c2cf4a7cc74b7dcd198980e8618f003ff538"
+       ]
+      },
+      "name": "council",
+      "permissions": [
+       "*:*"
+      ],
+      "vote_policy": {
+       "add_member_to_role": {
+        "quorum": "0",
+        "threshold": "3",
+        "weight_kind": "RoleWeight"
+       },
+       "call": {
+        "quorum": "0",
+        "threshold": "3",
+        "weight_kind": "RoleWeight"
+       },
+       "config": {
+        "quorum": "0",
+        "threshold": "3",
+        "weight_kind": "RoleWeight"
+       },
+       "remove_member_from_role": {
+        "quorum": "0",
+        "threshold": "3",
+        "weight_kind": "RoleWeight"
+       },
+       "set_vote_token": {
+        "quorum": "0",
+        "threshold": "3",
+        "weight_kind": "RoleWeight"
+       },
+       "transfer": {
+        "quorum": "0",
+        "threshold": "3",
+        "weight_kind": "RoleWeight"
+       },
+       "upgrade_remote": {
+        "quorum": "0",
+        "threshold": "3",
+        "weight_kind": "RoleWeight"
+       },
+       "upgrade_self": {
+        "quorum": "0",
+        "threshold": "3",
+        "weight_kind": "RoleWeight"
+       },
+       "vote": {
+        "quorum": "0",
+        "threshold": "3",
+        "weight_kind": "RoleWeight"
+       }
+      }
+     },
+     {
+      "kind": "Everyone",
+      "name": "all",
+      "permissions": [
+       "add_member_to_role:AddProposal",
+       "config:AddProposal",
+       "call:AddProposal",
+       "policy:AddProposal",
+       "remove_member_from_role:AddProposal"
+      ],
+      "vote_policy": {}
+     }
+    ]
+   }
+  },
+  {
+   "args": {},
+   "block_height": 224359367,
+   "method": "get_factory_info",
+   "value": {
+    "auto_update": true,
+    "factory_id": "sputnik-dao.near"
+   }
+  },
+  {
+   "args": {},
+   "block_height": 224359367,
+   "method": "version",
+   "value": "2.3.1"
+  }
+ ],
+ "retrieved_at": "2026-11-13T11:49:48Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359366,
+  "error": null,
+  "keys": []
+ },
+ "view_account": {
+  "amount": "17559500355576577230249269747",
+  "block_height": 224359364,
+  "code_hash": "4zSoHkLjJWZm34Psd4Eq2WUXHELt6LxtKmUXpsZWAECp",
+  "locked": "0",
+  "storage_usage": 1451507
+ }
+}

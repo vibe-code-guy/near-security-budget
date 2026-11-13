@@ -1,0 +1,51 @@
+{
+ "account_id": "dclv2.ref-labs.near",
+ "calls": [
+  {
+   "args": {},
+   "block_height": 224359337,
+   "method": "get_metadata",
+   "value": {
+    "farming_contract_id": "boostfarm.ref-labs.near",
+    "next_owner_accept_deadline": null,
+    "next_owner_id": null,
+    "operators": [
+     "doublerose.near",
+     "bim.near"
+    ],
+    "owner_id": "ref-finance.sputnik-dao.near",
+    "pool_count": "6648",
+    "protocol_fee_rate": 2000,
+    "state": "Running",
+    "user_count": "8144",
+    "version": "2.4.2",
+    "wnear_id": "wrap.near"
+   }
+  },
+  {
+   "args": {},
+   "block_height": 224359338,
+   "error": "wasm execution failed with error: MethodResolveError(MethodNotFound)",
+   "method": "contract_source_metadata"
+  }
+ ],
+ "retrieved_at": "2026-11-13T11:49:30Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359334,
+  "error": null,
+  "keys": []
+ },
+ "view_account": {
+  "amount": "9687242405395233870138405638",
+  "block_height": 224359334,
+  "code_hash": "3G34Nhjmir5JPYPtijaA9iCNnHDPR7h3wfC9H77woEGo",
+  "locked": "0",
+  "storage_usage": 28192065
+ }
+}

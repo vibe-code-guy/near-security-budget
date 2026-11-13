@@ -1,0 +1,80 @@
+{
+ "account_id": "bridge-ops.near",
+ "calls": [],
+ "retrieved_at": "2026-11-13T11:49:16Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359308,
+  "error": null,
+  "keys": [
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "9824067867985943800000000",
+       "method_names": [],
+       "receiver_id": "zcash-connector.bridge.near"
+      }
+     }
+    },
+    "public_key": "ed25519:6vUjqpo23zVVLyemakHJFsHgdVaj1713sHKK12TBNjZe"
+   },
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:9dgapftKa4JFvVwKb1u8mVZMYP7dkzPJHQQSUxidt7Eq"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "0",
+       "method_names": [
+        "__wallet__metadata"
+       ],
+       "receiver_id": "bridge-ops.near"
+      }
+     }
+    },
+    "public_key": "ed25519:BRa5Eidg5m3aZt5GdpQ83zCijPbM1aRqyNc2KyXzicTS"
+   },
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:DCJ5iNy3j6hQM21WvUGQAWNmTGz32LW7P5XbXtpWRz2x"
+   },
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:DUJwSzYbFgYdkCNPoPvSwcywz4whQbdxjkRtusF6QgJy"
+   },
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:GQV12iogS5FUvpk9YTNYnzqjLZQFGtRfpikdzWPtqtwp"
+   },
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:GtVHcVFpCwh2WW5egqfEURRVgxeFEjS24ECFJSqrbsZ7"
+   }
+  ]
+ },
+ "view_account": {
+  "amount": "2123490499264025182578131247",
+  "block_height": 224359308,
+  "code_hash": "11111111111111111111111111111111",
+  "locked": "0",
+  "storage_usage": 788
+ }
+}

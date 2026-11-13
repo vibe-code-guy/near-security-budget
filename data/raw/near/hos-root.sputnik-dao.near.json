@@ -1,0 +1,39 @@
+{
+ "account_id": "hos-root.sputnik-dao.near",
+ "calls": [
+  {
+   "args": {},
+   "block_height": 224359356,
+   "method": "get_factory_info",
+   "value": {
+    "auto_update": true,
+    "factory_id": "sputnik-dao.near"
+   }
+  },
+  {
+   "args": {},
+   "block_height": 224359356,
+   "method": "version",
+   "value": "2.3.1"
+  }
+ ],
+ "retrieved_at": "2026-11-13T11:49:42Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359353,
+  "error": null,
+  "keys": []
+ },
+ "view_account": {
+  "amount": "29940397274358580899999971",
+  "block_height": 224359352,
+  "code_hash": "4zSoHkLjJWZm34Psd4Eq2WUXHELt6LxtKmUXpsZWAECp",
+  "locked": "0",
+  "storage_usage": 2966993
+ }
+}

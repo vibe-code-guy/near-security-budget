@@ -1,0 +1,88 @@
+{
+ "account_id": "defipapa.near",
+ "calls": [],
+ "retrieved_at": "2026-11-13T11:49:34Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359341,
+  "error": null,
+  "keys": [
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:37hgfffro22C9g3eQmxLVgQ1B7NnbWp3vvNmLEpVy5WX"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": null,
+       "method_names": [],
+       "receiver_id": "asset-manager.orderly-network.near"
+      }
+     }
+    },
+    "public_key": "ed25519:4jo1Z1C3GQXVXUh8pP3cmTtxYXJ3QsW8tfaXbxSbfTwF"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": null,
+       "method_names": [
+        "find_grants",
+        "insert_grant",
+        "delete_grant"
+       ],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:5VKGDhvxN2MJeRpMDgxD8n9LPt6FqzFNGGLdE9sStUJw"
+   },
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:6eRmuwE1JtZaNF35NrPF1LptQnr7WCny8w6JzhqUgdQL"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": null,
+       "method_names": [],
+       "receiver_id": "sputnik-dao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:9uH4ngFMPCWbBCTiahdMXaZM7LNrrgJnuYcPjN1UiaBo"
+   },
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:DbG3ewqvu1idsjocx25eAtyQy2YfSwnqeuyPswedxoZ6"
+   }
+  ]
+ },
+ "view_account": {
+  "amount": "4012268151703375600000000",
+  "block_height": 224359338,
+  "code_hash": "11111111111111111111111111111111",
+  "locked": "0",
+  "storage_usage": 763
+ }
+}

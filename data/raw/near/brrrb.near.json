@@ -1,0 +1,30 @@
+{
+ "account_id": "brrrb.near",
+ "calls": [],
+ "retrieved_at": "2026-11-13T11:49:17Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359309,
+  "error": null,
+  "keys": [
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:JDcJMU9bFgk8W4wY8LXT7NcK945639vgwkR8mqEskFGT"
+   }
+  ]
+ },
+ "view_account": {
+  "amount": "1789403765170729763161202",
+  "block_height": 224359309,
+  "code_hash": "11111111111111111111111111111111",
+  "locked": "0",
+  "storage_usage": 182
+ }
+}

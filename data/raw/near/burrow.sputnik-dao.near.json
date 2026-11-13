@@ -1,0 +1,80 @@
+{
+ "account_id": "burrow.sputnik-dao.near",
+ "calls": [
+  {
+   "args": {},
+   "block_height": 224359312,
+   "method": "get_policy",
+   "value": {
+    "bounty_bond": "1000000000000000000000000",
+    "bounty_forgiveness_period": "86400000000000",
+    "default_vote_policy": {
+     "quorum": "0",
+     "threshold": [
+      1,
+      2
+     ],
+     "weight_kind": "RoleWeight"
+    },
+    "proposal_bond": "1000000000000000000000000",
+    "proposal_period": "604800000000000",
+    "roles": [
+     {
+      "kind": {
+       "Group": [
+        "farbread8025.near",
+        "nicktrust.near",
+        "brrrb.near",
+        "brhost.near",
+        "wannamakeit.near"
+       ]
+      },
+      "name": "council",
+      "permissions": [
+       "*:VoteReject",
+       "*:VoteRemove",
+       "*:VoteApprove",
+       "*:AddProposal",
+       "*:Finalize"
+      ],
+      "vote_policy": {}
+     }
+    ]
+   }
+  },
+  {
+   "args": {},
+   "block_height": 224359316,
+   "method": "get_factory_info",
+   "value": {
+    "auto_update": false,
+    "factory_id": "sputnik-dao.near"
+   }
+  },
+  {
+   "args": {},
+   "block_height": 224359316,
+   "method": "version",
+   "value": "2.3.1"
+  }
+ ],
+ "retrieved_at": "2026-11-13T11:49:18Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359312,
+  "error": null,
+  "keys": []
+ },
+ "view_account": {
+  "amount": "1546248229006287246360520462",
+  "block_height": 224359312,
+  "code_hash": "4zSoHkLjJWZm34Psd4Eq2WUXHELt6LxtKmUXpsZWAECp",
+  "locked": "0",
+  "storage_usage": 2906125
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "account_id": "b6be09281567fc42ee6a453c6156445deeb8f09723d769a751646216c5ea00fc",
+ "calls": [],
+ "retrieved_at": "2026-11-13T11:49:11Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359298,
+  "error": null,
+  "keys": [
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:DJMGdu45r9ihidB7EgSV4JhKKJs6rhhZuddsyM4ix7co"
+   }
+  ]
+ },
+ "view_account": {
+  "amount": "1998766128232985299999998",
+  "block_height": 224359298,
+  "code_hash": "11111111111111111111111111111111",
+  "locked": "0",
+  "storage_usage": 182
+ }
+}

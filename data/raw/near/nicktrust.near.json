@@ -1,0 +1,120 @@
+{
+ "account_id": "nicktrust.near",
+ "calls": [],
+ "retrieved_at": "2026-11-13T11:50:14Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359409,
+  "error": null,
+  "keys": [
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:6sJqhnUjbuN1PHii5X2eoHJQUTgXJFnvphPJFLYhzuim"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:7SzfZaVUic4qFDCzxqkBXfjMFbBypYqTHTJRJkacoZh6"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:7T5nbfDP7mEoUu41QtmcxZ9wu5fTmqWyYoUVWpYHuZ97"
+   },
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:8qtfHKqyyEjwkjAhJJPt51DcTchpKMo4PRP2V89HgGkc"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:8v5UF84AU8rAoBJhJ5Z5JiM8r4VH2XzT7pzMSCPBgGBN"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "0",
+       "method_names": [
+        "__wallet__metadata"
+       ],
+       "receiver_id": "nicktrust.near"
+      }
+     }
+    },
+    "public_key": "ed25519:9bxzK3i4bFeTe8ZjvL4idWmVGwSYnHMJ9H9yYFXogUHS"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [
+        "find_grants",
+        "insert_grant",
+        "delete_grant"
+       ],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:BZdbksPAtbTa5KTRuGPM59c69F1fCcpHhKSJzufhUhdD"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:EJyVU2oJ8iqRB68trLVJiCw94o24iFRFjkFNJbvMYvAu"
+   }
+  ]
+ },
+ "view_account": {
+  "amount": "1756508120331478900000000",
+  "block_height": 224359409,
+  "code_hash": "11111111111111111111111111111111",
+  "locked": "0",
+  "storage_usage": 1080
+ }
+}

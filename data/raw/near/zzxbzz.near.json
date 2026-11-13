@@ -1,0 +1,900 @@
+{
+ "account_id": "zzxbzz.near",
+ "calls": [],
+ "retrieved_at": "2026-11-13T11:50:47Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359467,
+  "error": null,
+  "keys": [
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": null,
+       "method_names": [],
+       "receiver_id": "ref-finance.sputnik-dao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:14ChMLbTj2QNy3fJuGCNSfEQCxC3KK872VtjudVwswF8"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:2KUDJxyYVFT1k2UGHJNZR3YAUtMsDvUhi5pq99hyvJyt"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:2KngVMHrcDfEXvR3Yq4NmhN22di6WCWWWZX9vC2JPXPM"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:2LxryGv8hW7hU9uUntdKwq7nRn8Ydk7DKMnYAJCycc51"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:2XRqaiJYnFWzsGfEsJkKHz4koG4sLmsMS9HYwXHqXJiv"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:2qTt1JohgFoFmvtZ5uWMP5xnxcMGBkDu7pC2o58K6b6u"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:3CTRujELNUtF2ypcAvPgxr69NyorBdCPms6R6S2TyF3q"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:3FctdfQHXXBfk1ME9EQ49n7nZiHkRemB1phcnc2ZwmrA"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:3va2o4G2S3A6B27tuF1nHHi8yWXb9qV9SyVabbPFDZTv"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:46s3TDqaWS33NscxDrkSCQifjqX2J9mPVSHR3tdhmaGi"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:4FgDD841YSP7SUhaVPVtSw3RdQV4zwC2APcK2gb7mKxJ"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:4HF5wmEpwuXa7zMauJoHKg6j6CtYmH38E92Yb56oCCFH"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:4LuebsffPoAeUs884XeBSFXAW8JNtAST212SZNzsEMiv"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:4N2pBt4RK7qkLjMGmBdKTRYHgDyhH7J7cAarAseRK2w4"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:4NJFaFJmLUduN3riPvHmFk3nMfrQvss28uRFHjFTP4HZ"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:4b3zuknJ74GNjPLvexXy9qeu3eYNCKzGnpj9otXant8g"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:4wVas1indWosr3iRP35ybzAyZY7Z34cHxTGqbt57sFE3"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:5MFVdjBbHKS2MUNrVZC2ZbXQHP2xcH8Kse5McxF1tJ7C"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:5P4FetZJhVzBo1mEbFvZoUVNK2xbLsiKmq64351KZwhi"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:5ewpddLoVjKBZNeQn7UH35JhLQnDbcuDaqPxJpBrnVyA"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:5yEe4a6A1mjxZQmBr8ZLrQy4PS2wNRSJB6Ba1W7hYXWp"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:6FovXgPQ4aJYvefxkGc7D1n37jCb66tGpFDfhBQmn12j"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:6NCZ6TQcygDZ6RN5rtkkkiBHP7FVGqNwYQrXHzo2cPW9"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:6rpn3CzFBiMkcddFWifYJMFQ73m6RF9Nb9Gzyk9wMuG4"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:78yTm1pYzu9w1SJw8fdJKsD9A8bpQw815LbVjAg1DzBX"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:7CCSrEbD7pik5ZW8kJokEfwUoYG2miEyMYn5qtc3W33a"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:7UVAU6pi2mAzuiPfgBnFAfrXnzp8cDFKMjcUHvRWWwFT"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:7UgCiyabPYLReN515S4qF6HrDQ7YEtjW35t3935Nxsjz"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:7ZuoTjYbD1BY4jL7wPfFunY3CStfKoBrwZ75uREucm9x"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": null,
+       "method_names": [],
+       "receiver_id": "ref-finance.sputnik-dao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:8B2KZ54wJrgCW8Sqx9Y18qtwL5uGY9gXL4ua1TeMsyxs"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:8B45SgVrUUFWUfyk4GxB7NmfCtW68cGMFXrTYmq6i362"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:8LnfhN2X3ZNU1agaHN75oJUA1qEvcaBFLqZx2Vj4jvX7"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:8cLk1LXJns1nQcrYdVp6iiBixTvSuCHYYqXqi87LvYRs"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:8fjqtSVMrfpFRC6L7Hy4pKXbctSEVx1chp928hSRydg8"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:8fr3FTWbLFsBQDeej6Lkegnft2zJUnRjaBNuh66cXe6o"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:8gYAr3VytPEkNtKhNXxr79aEKAaPmguTDbomm7QRmCqv"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:8uiaqB5cyShCxvFJsgc8VQXCpjxwSnMDigJwHdTrRtYJ"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:9r6BKMPpqbELVShyCNzSaJFePmnavKBCfse6MSXiCfQf"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:A4uaqSDjbKUGZTtppmqXcQEXXibw4B2PUdCjrdiKyA6r"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:AKzpkx7DQQLYtmWyJfEAoXhyb9MRqYBXXPfta3BGg5ce"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:AMbiZbs1CoC1EaoesEidPXJ4hSBoywVyMdfZV7DpGs1f"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": null,
+       "method_names": [],
+       "receiver_id": "ref-finance.sputnik-dao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:ATr35cHAn6L6Hppa2XhsCm1RHQCvwArDBtiN6ocoM9hP"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:AmSmsaWf9WjMNfqNtRXticR4Pru2KFhovwWqvjYCjxQw"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:B4y9imQFVeJhaTCMU7zvnxWjaMkt8ommkkEaC29topQQ"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:BDXABkq4Q8esZdPkV1BnvQnnEe9Yu3jSvy2a1r5ATe4S"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:BWx2iAozMnVw4KxsVfdyRK6wYa5LZfPsQLX7bmaom6mA"
+   },
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:BpoZuVBaPNHHCGkQusAC7GvSyjfDfnEFtQd2yfSUwhPR"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:CHFFSZMP3SwDcU9NLdbQy9m1YojtN7bhDGHKWPF4CwVn"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:CRrQSaLjDDNDdLunWd6LtPRhSUfYsmPSW9cgQox5QKAU"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:CU5Yx4tS4vVkEx5MdXmPdUNrbkJMFsJGHdDTzGLmQxbb"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:Cmw3Vmdc4iJHcYvkxPon2n5WGK2hvPL9ooPBAovrh4UQ"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:DLX37Cer7Wa4iDHSFsEM914BwLbnL4DmhvjtoKtvF3H9"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:DWvZNeZZBxcmJxJCasgaX92PFN3TtU7KE7tv5oxnqJEU"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:DjJtFKHokq1vFS3LqTX7nxP8iVbSAsbJGVyJfimfH1er"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:EVRG9H7Uc2E1R3CNb65Qk34KZphF6PhHiRrionwP5cgL"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": null,
+       "method_names": [],
+       "receiver_id": "ref-finance.sputnik-dao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:EZHHugVQLywnQqhcCt6YTbxQ2ejupkFkyKD2ciek4FuC"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:FAg5NFX5jnwpj2DRyYfu91ekuMeozPjPP2CMMuJtU8ry"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:FAo8C2z6eAvgk8vb8wW5dgDHAAGy1BTYoBNWnPGa21vM"
+   },
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:FacPkrJSf4ajrUrxpyPicsbbvp8k7AoaMgAHHnNML8jB"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": null,
+       "method_names": [],
+       "receiver_id": "ref-finance.sputnik-dao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:FbjoaaQiC6wUfUuZf85MakZyPEwshjPsJApWpYT4iprE"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:FotTAJVHmFb6Ed7Hqjshk7TEM253tiG7TvYgjEKjLpQA"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:FznqcTU8CxwyJixLr4sZxKfEdKJx3SwVP5unjccvhur5"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:G8WRYn4FX9koPUezKRnWXLLqC6ZYfysqiFU4gZjmyGjN"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:GNPFJuXUsx34gcpA6KaZZzmZq8eGWTARCJczmq265UkK"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:GWXwkpKT9b3vUHK7vedtWU6FW3T6RTVAmanBwfWVSuEt"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:HG4dcYxCwae5jTajf9wvUbqLGnAYfwJkGMtHAqN6AoT7"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": null,
+       "method_names": [],
+       "receiver_id": "ref-finance.sputnik-dao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:HZHdwz9SVDNy45xMdcZ6kbtcGWp3RuXU5c1U1LSxbSGB"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:HfRkwYWpZoZMnyGF4RH4wGRmjgfVQWtgPHBMDmb1LLve"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:JAehizDh6DFrAWk79zyciNPvRi2WTXdL9EfGddjZfCU3"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": null,
+       "method_names": [],
+       "receiver_id": "ref-finance.sputnik-dao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:JDAE2u26oPbaD89t8nfuoo5ctH6GMYRQGDUXy5nFBPS2"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:KCs77bCyMXus8XRJ6r6VBGTxfCTY6ciN6avqni8W3sB"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": null,
+       "method_names": [],
+       "receiver_id": "ref-finance.sputnik-dao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:a8tXPZQpEYFUf7xuTgpgwQGmbg2vvytjvh81MjQvwfu"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:gy5Khu2ow3etqLn2kMWeuqtxQgy6c8GU3JeiYcprMh7"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:wMS7dhMcNM3VT9S8BwsVSaXcLNFSKAGDu8ekpGaracL"
+   }
+  ]
+ },
+ "view_account": {
+  "amount": "1367511391604978600000000",
+  "block_height": 224359467,
+  "code_hash": "11111111111111111111111111111111",
+  "locked": "0",
+  "storage_usage": 8768
+ }
+}

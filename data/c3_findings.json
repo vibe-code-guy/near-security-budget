@@ -1,0 +1,123 @@
+{
+ "_comment": "Hand-read control trace for C3 (THESIS.md section 5). Each entry says who holds the upgrade power and where that was read. pipeline/c3.py checks every 'expect' against the cached view calls in data/raw/near/ and computes thresholds, key counts and the factory path from that raw data, not from this file.",
+ "sources": {
+  "sputnikdao2_v3_1": "near-daos/sputnik-dao-contract commit 3d568f9517a8c7a6510786d978bb25b180501841, sputnikdao2/src/upgrade.rs update(): accepts a call from the factory when auto_update is true and deploys the code passed as input, with no proposal. policy.rs to_weight(): ratio threshold = min(num*total/denom + 1, total).",
+  "sputnikdao2_v3_2": "near-daos/sputnik-dao-contract commit 2b0f34a3860460f285307ec2ccf36345acbe05a2, sputnikdao2/src/upgrade.rs update(): same check; deploys the global contract whose hash is the SHA-256 of the input.",
+  "sputnikdao2_v2_0": "near-daos/sputnik-dao-contract commit c2cf1553b070d04eed8f659571440b27d398c588: no upgrade.rs, no update() and no factory info in lib.rs.",
+  "sputnikdao2_main": "near-daos/sputnik-dao-contract commit 5434a59dec23ee0c49df8c8c4350c208a7e75b0b: update() adds a two-week proposal gate for factory auto-updates (PR #233, merged 2026-03-24). Not the code any DAO in this trace runs.",
+  "code_hash_to_commit": "The mapping from a DAO's code hash to a commit is the factory's own get_contracts_metadata answer. The builds were not reproduced.",
+  "near_plugins": "near/near-plugins, near-plugins/src/upgradable.rs: the staging duration defaults to zero until up_init_staging_duration is called, and staged code can then be deployed immediately."
+ },
+ "protocols": [
+  {
+   "slug": "near-intents",
+   "contracts": ["intents.near"],
+   "readable": true,
+   "source": "near/intents commit fce0936b1699e0591204ce152a78afc1c1338b35, contracts/defuse/src/contract/{mod,upgrade,admin_call,admin}.rs. Deployed code hash not matched to a commit.",
+   "upgrade": [
+    {"holder": "intents.sputnik-dao.near", "kind": "dao", "proposal_kind": "call", "how": "Role DAO may call upgrade(code); the new code is deployed in the same call. Role DAO may also call admin_call (arbitrary function calls and transfers from the contract) and add_full_access_key."}
+   ],
+   "restricted_paths": [
+    {"holder": "ctl-intents.near", "how": "Role Upgrader on intents.near. The controller (aurora-is-near/aurora-controller-factory, tag 0.3.3, contract/src/lib.rs) lets its Updater role (one implicit account with one key) deploy only a release the DAO has registered, and only with a higher version than the deployed one. Its Downgrader role (two accounts) can deploy the registered downgrade hash. unrestricted_upgrade, add_release_info and delegate_execution are DAO only. Not counted as a one-signer upgrade path because the code must be approved by the DAO first."}
+   ],
+   "pause": "Role PauseManager: seven accounts, each with one full-access key (six implicit accounts and pm.bridge.near). One signer can pause. Unpause needs role DAO (UnpauseManager has no grantee).",
+   "delay": {"enforced": false, "evidence": "up_get_delay_status is MethodNotFound on intents.near; upgrade() deploys in the same call. Known before registration (THESIS.md section 3)."},
+   "expect": [
+    {"account": "intents.near", "call": "acl_get_permissioned_accounts", "path": ["roles", "DAO", "grantees"], "equals": ["intents.sputnik-dao.near"]},
+    {"account": "intents.near", "call": "acl_get_permissioned_accounts", "path": ["roles", "Upgrader", "grantees"], "equals": ["ctl-intents.near"]},
+    {"account": "ctl-intents.near", "call": "acl_get_permissioned_accounts", "path": ["roles", "DAO", "grantees"], "equals": ["intents.sputnik-dao.near"]},
+    {"account": "ctl-intents.near", "call": "acl_get_permissioned_accounts", "path": ["roles", "Releaser", "grantees"], "equals": []}
+   ]
+  },
+  {
+   "slug": "rhea-lend",
+   "contracts": ["contract.main.burrow.near"],
+   "readable": true,
+   "source": "ref-finance/burrowland commit 2110c7047f2d72a9189abcbaad5eafb4e4a87f9e, contracts/contract/src/upgrade.rs: upgrade() asserts the caller is the owner. The contract publishes no source metadata; deployed version 0.16.2 not matched to a commit.",
+   "upgrade": [
+    {"holder": "burrow.sputnik-dao.near", "kind": "dao", "proposal_kind": "call", "how": "get_config.owner_id; upgrade() is owner only."}
+   ],
+   "pause": "Guardians nicktrust.near and doublerose.near exist (get_guardians). What they can do was not read in the time box.",
+   "delay": {"enforced": false, "evidence": "upgrade() deploys in the same call; a Sputnik proposal executes on the approving vote."},
+   "expect": [
+    {"account": "contract.main.burrow.near", "call": "get_config", "path": ["owner_id"], "equals": "burrow.sputnik-dao.near"}
+   ]
+  },
+  {
+   "slug": "meta-pool-near",
+   "contracts": ["meta-pool.near"],
+   "readable": true,
+   "source": "Meta-Pool/liquid-staking-contract commit e9855e283fb167d5ad01fbc6b76cc86f8cce4182, metapool/src/lib.rs upgrade(): asserts the caller is owner_account_id. The contract publishes no source metadata; deployed code not matched to a commit.",
+   "upgrade": [
+    {"holder": "stnear.sputnik-dao.near", "kind": "dao", "proposal_kind": "call", "how": "get_owner_id; upgrade() is owner only."}
+   ],
+   "pause": "operator.meta-pool.near (one full-access key) or the owner can pause staking and set parameters (metapool/src/owner.rs). The operator cannot upgrade.",
+   "delay": {"enforced": false, "evidence": "upgrade() deploys in the same call."},
+   "expect": [
+    {"account": "meta-pool.near", "call": "get_owner_id", "path": [], "equals": "stnear.sputnik-dao.near"}
+   ]
+  },
+  {
+   "slug": "rhea-lst",
+   "contracts": ["lst.rhealab.near"],
+   "readable": true,
+   "source": "ref-finance/rnear-contract commit 341cd8c970895e1b6bcb433699b20253922d621d, contracts/lst/src/lib.rs: near-plugins Upgradable with code_stagers(UpgradableCodeStager, DAO) and code_deployers(UpgradableCodeDeployer, DAO). The contract's own metadata points at rhea-finance/rnear-contract commit c04e9008, which returned 404 on 2026-11-13, so the deployed source is not verified.",
+   "upgrade": [
+    {"holder": "ref-finance.sputnik-dao.near", "kind": "dao", "proposal_kind": "call", "how": "Holds roles UpgradableCodeDeployer and DAO and is the only super-admin. bim.near and refchef.near can stage code but not deploy it."}
+   ],
+   "pause": "PauseManager and UnpauseManager: rhealab.near (one full-access key).",
+   "other_powers": "get_owner_id is rhealab.near (one full-access key). In owner.rs the owner can change the owner and set beneficiaries of staking rewards up to the full reward. That redirects future rewards, not deposited principal, and is not counted as moving user funds here.",
+   "delay": {"enforced": false, "evidence": "up_get_delay_status.staging_duration is null: no staging duration was initialised, so staged code can be deployed immediately."},
+   "expect": [
+    {"account": "lst.rhealab.near", "call": "acl_get_permissioned_accounts", "path": ["roles", "UpgradableCodeDeployer", "grantees"], "equals": ["ref-finance.sputnik-dao.near"]},
+    {"account": "lst.rhealab.near", "call": "acl_get_permissioned_accounts", "path": ["roles", "DAO", "grantees"], "equals": ["ref-finance.sputnik-dao.near"]},
+    {"account": "lst.rhealab.near", "call": "acl_get_permissioned_accounts", "path": ["super_admins"], "equals": ["ref-finance.sputnik-dao.near"]},
+    {"account": "lst.rhealab.near", "call": "up_get_delay_status", "path": ["staging_duration"], "equals": null}
+   ]
+  },
+  {
+   "slug": "near-bridge",
+   "contracts": ["omni.bridge.near"],
+   "readable": true,
+   "source": "Near-One/omni-bridge commit 83e3ac1eeef6b1330744f53d68dd037fa53aab0f (the commit named in the contract's own source metadata), near/omni-bridge/src/lib.rs: near-plugins Upgradable with code_stagers(UpgradableCodeStager, DAO) and code_deployers(UpgradableCodeDeployer, DAO).",
+   "upgrade": [
+    {"holder": "rainbowbridge.sputnik-dao.near", "kind": "dao", "proposal_kind": "call", "how": "Holds role DAO and is the only super-admin. UpgradableCodeDeployer has no grantee. omni.bridge.near also holds role DAO on itself, which only its own code can use. bridge-ops.near (five full-access keys) can stage code but not deploy it."}
+   ],
+   "pause": "PauseManager: bridge-ops.near (five full-access keys) and the DAO. Unpause: role DAO.",
+   "delay": {"enforced": false, "evidence": "up_get_delay_status.staging_duration is null: no staging duration was initialised."},
+   "expect": [
+    {"account": "omni.bridge.near", "call": "acl_get_permissioned_accounts", "path": ["roles", "DAO", "grantees"], "equals": ["omni.bridge.near", "rainbowbridge.sputnik-dao.near"]},
+    {"account": "omni.bridge.near", "call": "acl_get_permissioned_accounts", "path": ["roles", "UpgradableCodeDeployer", "grantees"], "equals": []},
+    {"account": "omni.bridge.near", "call": "acl_get_permissioned_accounts", "path": ["super_admins"], "equals": ["rainbowbridge.sputnik-dao.near"]},
+    {"account": "omni.bridge.near", "call": "up_get_delay_status", "path": ["staging_duration"], "equals": null}
+   ]
+  },
+  {
+   "slug": "linear-protocol",
+   "contracts": ["linear-protocol.near"],
+   "readable": true,
+   "source": "linear-protocol/LiNEAR commit 63cd09aabbc3c28ca39ca4266647c24315ae3975, contracts/linear/src/upgrade.rs: upgrade() asserts the caller is the owner; owner.rs: pause and resume are owner only. The contract's metadata names the repository but no commit.",
+   "upgrade": [
+    {"holder": "linear.sputnik-dao.near", "kind": "dao", "proposal_kind": "call", "how": "get_owner_id; upgrade() is owner only."}
+   ],
+   "pause": "Owner only (the DAO). Managers owner.linear-protocol.near and manager.linear-protocol.near (one full-access key each) cannot upgrade.",
+   "delay": {"enforced": false, "evidence": "upgrade() deploys in the same call."},
+   "expect": [
+    {"account": "linear-protocol.near", "call": "get_owner_id", "path": [], "equals": "linear.sputnik-dao.near"}
+   ]
+  },
+  {
+   "slug": "rhea-dex",
+   "contracts": ["v2.ref-finance.near", "dclv2.ref-labs.near"],
+   "readable": false,
+   "source": "Not found in the time box: ref-finance/ref-contracts and ref-finance/ref-dcl returned 404 on 2026-11-13 and neither contract publishes source metadata. View calls show the owner of both is ref-finance.sputnik-dao.near and neither account has an access key, but what the owner, guardians and operators can do could not be read.",
+   "upgrade": [],
+   "pause": "Not read.",
+   "delay": {"enforced": null, "evidence": "Source unreadable."},
+   "expect": [
+    {"account": "v2.ref-finance.near", "call": "get_owner", "path": [], "equals": "ref-finance.sputnik-dao.near"},
+    {"account": "dclv2.ref-labs.near", "call": "get_metadata", "path": ["owner_id"], "equals": "ref-finance.sputnik-dao.near"}
+   ]
+  }
+ ]
+}

@@ -1,0 +1,42 @@
+{
+ "account_id": "farbread8025.near",
+ "calls": [],
+ "retrieved_at": "2026-11-13T11:49:38Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359348,
+  "error": null,
+  "keys": [
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:3w1jVgtzZCQw3SqzTb78cjay3VNiT4AwQaQy5BPBYBvx"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:HURdQXWkUsNYwYhyyPNazbvCEyReAKhrhy4iWSQiED1X"
+   }
+  ]
+ },
+ "view_account": {
+  "amount": "4995935568789193000000000",
+  "block_height": 224359348,
+  "code_hash": "11111111111111111111111111111111",
+  "locked": "0",
+  "storage_usage": 300
+ }
+}

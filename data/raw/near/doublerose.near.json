@@ -1,0 +1,23 @@
+{
+ "account_id": "doublerose.near",
+ "calls": [],
+ "retrieved_at": "2026-11-13T11:49:36Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": null,
+  "error": "{\"cause\": {\"info\": {\"block_hash\": \"2kHTtLWoU1aMRDR2cG6b3SBUo7fyt7Mah7FWNdeZ7oJu\", \"block_height\": 224359341, \"limit\": 100, \"requested_account_id\": \"doublerose.near\"}, \"name\": \"TOO_MANY_ACCESS_KEYS\"}, \"code\": -32000, \"data\": \"Account doublerose.near has more than 100 access keys; use a paginated view_access_key_list request\", \"message\": \"Server error\", \"name\": \"HANDLER_ERROR\"}",
+  "keys": []
+ },
+ "view_account": {
+  "amount": "11891428984522535802851592",
+  "block_height": 224359341,
+  "code_hash": "11111111111111111111111111111111",
+  "locked": "0",
+  "storage_usage": 14092
+ }
+}

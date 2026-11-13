@@ -1,0 +1,258 @@
+{
+ "account_id": "narwallets.near",
+ "calls": [],
+ "retrieved_at": "2026-11-13T11:50:10Z",
+ "rpc_head": {
+  "chain_id": "mainnet",
+  "latest_block_height": 224359282,
+  "latest_block_time": "2026-11-13T11:48:59.927638172Z",
+  "rpc": "https://free.rpc.fastnear.com"
+ },
+ "view_access_key_list": {
+  "block_height": 224359403,
+  "error": null,
+  "keys": [
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "sputnik-dao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:2cFga5MQT8NxDGK3JWfFc3GPysREGPRNzkVhdkHJKhB8"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "sputnik-dao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:2uCkM11ToR3TatQdXvoij5EkeJfsJbRz5hkMoYeffC7X"
+   },
+   {
+    "access_key": {
+     "permission": "FullAccess"
+    },
+    "public_key": "ed25519:2vdSfKqWybyTAXB9ayKNV2qT7KuTD9oQ44rSvRqBEBh8"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "sputnik-dao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:4TAtcm4zK1TManE9E897XjfJEyfUc1WQkd7Rh9zk6GMH"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "pixelparty.near"
+      }
+     }
+    },
+    "public_key": "ed25519:7dKdD93TraQKkayXG339KFtFDbAaDQY9AWN8shZvohqu"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "sputnik-dao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:84ya2aVZJTxdJTPw8Z9BKVHPnjghsURLZ6BNymajeZWm"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "linear-protocol.near"
+      }
+     }
+    },
+    "public_key": "ed25519:99UjznaXCJDa5zQxpKZjwZzoMqwQLfaCyQTkgEQhxBHd"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "sputnik-dao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:Asb8HdydoR1t2LZLrKbqHwZVziatRH9VAmn4xDqhUnA9"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": null,
+       "method_names": [],
+       "receiver_id": "meteor-points.near"
+      }
+     }
+    },
+    "public_key": "ed25519:CE5ucHmXZ4spyRMG7CFG65gxcRWeL5WTfVhmj1exkVJM"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "meta-pool.near"
+      }
+     }
+    },
+    "public_key": "ed25519:D1Quj4zzaz8TMJyUmgUS4RVUo7AqasFR5sx9wCDxW6L7"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [
+        "find_grants",
+        "insert_grant",
+        "delete_grant"
+       ],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:EC5TBRFEM6R6YBhqW9aqUCqkVBL4ADNWnEgodzfrHHKa"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": null,
+       "method_names": [
+        "find_grants",
+        "insert_grant",
+        "delete_grant"
+       ],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:EQ6AgntFbm8i7oLVhbfWVeD3Q8EpTeivnqTUuuLUBbiR"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "factory.bridge.near"
+      }
+     }
+    },
+    "public_key": "ed25519:Eyhrn9KggKuhjdp4YXwP9Lh6RM51c1pQoJbm7PrMrGnu"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "sputnikdao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:FLmyrKJ7aFWpbjpspCUAFKB4rqZFa3XWNXizSrPHtSje"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "contract.paras.near"
+      }
+     }
+    },
+    "public_key": "ed25519:HNdjmTHrBtVYsKCiQY67A7bRFXhuiC3asz3mLnhJumk5"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "contract.paras.near"
+      }
+     }
+    },
+    "public_key": "ed25519:HQz1uyYSU9NNhuHBaB1Ddd8shcgoAsW6E16yyTk3s9QH"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [
+        "find_grants",
+        "insert_grant",
+        "delete_grant"
+       ],
+       "receiver_id": "social.near"
+      }
+     }
+    },
+    "public_key": "ed25519:HSvM75wjfBuqZhN3W5VYY5geMJjn97qsYhxrDtDbWcEn"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "247900598094443600000000",
+       "method_names": [],
+       "receiver_id": "meta-pool.near"
+      }
+     }
+    },
+    "public_key": "ed25519:SHaxi1M5aReoYbZ4pASJD8YeELvv5rxb2m6rSXGmSeT"
+   },
+   {
+    "access_key": {
+     "permission": {
+      "FunctionCall": {
+       "allowance": "250000000000000000000000",
+       "method_names": [],
+       "receiver_id": "sputnik-dao.near"
+      }
+     }
+    },
+    "public_key": "ed25519:zWqfbsuqYu5ZoMonbHAPCmALLKBk4DNxwWKzQVJxfTH"
+   }
+  ]
+ },
+ "view_account": {
+  "amount": "13614839302157263600268524",
+  "block_height": 224359402,
+  "code_hash": "11111111111111111111111111111111",
+  "locked": "0",
+  "storage_usage": 2499
+ }
+}

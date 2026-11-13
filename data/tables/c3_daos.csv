@@ -1,0 +1,7 @@
+protocol,dao,votes_needed,council_size,council_role,dao_code,dao_reported_version,dao_full_access_keys,auto_update,factory,factory_full_access_keys,factory_path_signers
+Rhea Lend,burrow.sputnik-dao.near,3,5,council,4zSoHkLjJWZm34Psd4Eq2WUXHELt6LxtKmUXpsZWAECp,2.3.1,0,False,sputnik-dao.near,,
+NEAR Intents,intents.sputnik-dao.near,3,5,council,4zSoHkLjJWZm34Psd4Eq2WUXHELt6LxtKmUXpsZWAECp,2.3.1,0,True,sputnik-dao.near,3,1
+Meta Pool Near,stnear.sputnik-dao.near,3,4,council,DtHZA1mUmGYeScEaUoUZYQGGFHSMpnjMCvkr5U9hJXuF,2.3.1,0,True,sputnik-dao.near,3,1
+RHEA LST,ref-finance.sputnik-dao.near,3,5,council,4zSoHkLjJWZm34Psd4Eq2WUXHELt6LxtKmUXpsZWAECp,2.3.1,0,False,sputnik-dao.near,,
+NEAR Bridge,rainbowbridge.sputnik-dao.near,3,5,council,8RMeZ5cXDap6TENxaJKtigRYf3n139iHmTRe8ZUNey6N,2.0.0,0,,,,
+LiNEAR Protocol,linear.sputnik-dao.near,3,5,Council,4zSoHkLjJWZm34Psd4Eq2WUXHELt6LxtKmUXpsZWAECp,2.3.1,0,True,sputnik-dao.near,3,1
