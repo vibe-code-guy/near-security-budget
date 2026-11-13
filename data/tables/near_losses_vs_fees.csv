@@ -1,0 +1,11 @@
+protocol,slug,fee_data,fee_window_start,fee_window_end,fees_usd,hack_losses_in_fee_window_usd,losses_over_fees,hack_losses_24m_usd,fee_chains
+Rhea Lend,rhea-lend,yes,2025-05-19,2026-11-13,5629233.00,18400000.00,3.2687,18400000.00,Near
+NEAR Intents,near-intents,yes,2025-05-10,2026-11-13,60504499.98,3800000.00,0.0628,3800000.00,Near
+Meta Pool Near,meta-pool-near,no,,,,,,0.00,
+RHEA LST,rhea-lst,yes,2026-01-16,2026-11-13,51618.90,0.00,0.0000,0.00,Near
+NEAR Bridge,near-bridge,no,,,,,,0.00,
+LiNEAR Protocol,linear-protocol,no,,,,,,0.00,
+Rhea Dex,rhea-dex,yes,2024-11-14,2026-11-13,5293714.00,0.00,0.0000,0.00,Near
+Portal,portal,yes,2025-05-05,2026-11-13,1004165.00,0.00,0.0000,0.00,Ink|Kaia|Celo|Mantle|World Chain|Fantom|Ethereum|Berachain|Scroll|Unichain|Polygon|OP Mainnet|Arbitrum|Base|BSC|Avalanche|Moonbeam|Mezo|Solana|Sonic|Linea|Hyperliquid L1|Plume Mainnet|XRPL EVM|Sui|Monad|MegaETH|Aptos
+KAIO,kaio,yes,2026-05-18,2026-11-13,232310.00,0.00,0.0000,0.00,Injective|Ethereum|Polygon|Avalanche|Sui|Near|Aptos|Solana|XDC|Immutable zkEVM|Hedera
+Jumbo Exchange,jumbo-exchange,no,,,,,,0.00,

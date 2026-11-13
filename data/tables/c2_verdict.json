@@ -1,0 +1,12 @@
+{
+ "claim": "C2",
+ "near_above_median_lower": true,
+ "near_above_median_upper": true,
+ "near_lower": 8.378968,
+ "near_upper": 8.378968,
+ "peer_median_lower": 2.374327,
+ "peer_median_upper": 2.765235,
+ "snapshot_date": "2026-11-13",
+ "verdict": "fails",
+ "window_days": 730
+}

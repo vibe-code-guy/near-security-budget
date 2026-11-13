@@ -1,0 +1,6 @@
+chain,listings,with_audit_flag_or_link,share_by_count_pct,share_by_listing_tvl_pct,mean_audit_links,listings_with_zero_links
+Near,10,5,50.0,66.8,0.60,5
+Solana,10,5,50.0,52.7,0.80,5
+Sui,10,6,60.0,79.7,0.60,4
+Aptos,10,7,70.0,25.7,0.80,3
+Base,10,7,70.0,89.2,0.80,4

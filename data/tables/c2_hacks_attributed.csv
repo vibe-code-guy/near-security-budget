@@ -1,0 +1,138 @@
+chain,date,name,amount_usd,returned_funds_usd,bound,route,in_24m_window,target_type,chain_tags,defillama_id,id_route_chain,technique
+Near,2021-08-15,Ref Finance,3203000.00,,lower,tag_single,no,DeFi Protocol,NEAR,,,Missing Input Validation
+Near,2022-11-02,Skyward Finance,3000000.00,,lower,tag_single,no,DeFi Protocol,Near,,,Missing Input Validation
+Near,2026-04-16,Rhea Lend,18400000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Near,1546,Near,Spot Price Manipulation
+Near,2026-04-29,Sweat Foundation,3500000.00,,lower,tag_single,yes,DeFi Protocol,Near,,,Withdrawal Logic Flaw
+Near,2026-10-01,NEAR Intents,3800000.00,,lower,protocol_id,yes,DeFi Protocol,BSC,6225,Near,Bridge Logic Flaw
+Solana,2020-09-20,Soda Protocol,160000.00,,lower,protocol_id,no,DeFi Protocol,Ethereum,940,Solana,Withdrawal Logic Flaw
+Solana,2021-08-19,Solend,16000.00,,lower,tag_single,no,DeFi Protocol,Solana,,,Improper Access Control
+Solana,2021-12-23,Monkey Kingdom,1300000.00,,lower,tag_single,no,NFTfi,Solana,,,Phishing
+Solana,2022-02-02,Portal,326000000.00,326000000.00,lower,tag_single,no,DeFi Protocol,Solana,1541,Ethereum,Signature Verification Flaw
+Solana,2022-03-23,Cashio,52800000.00,,lower,tag_single,no,DeFi Protocol,Solana,793,,Missing Input Validation
+Solana,2022-05-11,Drift Trade,14500000.00,14500000.00,lower,protocol_id+tag_single,no,DeFi Protocol,Solana,970,Solana,Risk Parameter Abuse
+Solana,2022-07-02,Crema Finance,8800000.00,,lower,protocol_id+tag_single,no,DeFi Protocol,Solana,1412,Solana,Improper Access Control
+Solana,2022-07-28,Nirvana V1,3500000.00,,lower,tag_single,no,DeFi Protocol,Solana,1825,,Spot Price Manipulation
+Solana,2022-08-02,Slope Wallet,4100000.00,,lower,tag_single,no,Wallet,Solana,,,Key Stored Publicly
+Solana,2022-10-11,Mango Markets V3,115000000.00,,lower,tag_single,no,DeFi Protocol,Solana,286,,Spot Price Manipulation
+Solana,2022-11-01,Save,1026000.00,,lower,protocol_id+tag_single,no,DeFi Protocol,Solana,458,Solana,Risk Parameter Abuse
+Solana,2022-11-02,Save,1260000.00,,lower,protocol_id+tag_single,no,DeFi Protocol,Solana,458,Solana,Spot Price Manipulation
+Solana,2022-12-03,Ratio Finance,,,lower,tag_single,no,DeFi Protocol,Solana,1841,,Key Brute Forced
+Solana,2022-12-16,Raydium AMM,4400000.00,,lower,protocol_id+tag_single,no,DeFi Protocol,Solana,214,Solana,Malware
+Solana,2023-08-07,Cypher,1035000.00,,lower,tag_single,no,DeFi Protocol,Solana,2575,,Spot Price Manipulation
+Solana,2023-10-19,Synthetify,230000.00,,lower,tag_single,no,DeFi Protocol,Solana,731,,Malicious Proposal
+Solana,2024-01-07,MangoFarmSol,2000000.00,,lower,tag_single,no,DeFi Protocol,Solana,,,Admin Drain
+Solana,2024-01-25,Saga,65800.00,,lower,tag_single,no,DeFi Protocol,Solana,4639,,Private Key Compromised
+Solana,2024-03-29,Solareum,1400000.00,,lower,tag_single,no,DeFi Protocol,Solana,,,Social Account Takeover
+Solana,2024-05-16,pump.fun,1900000.00,,lower,tag_single,no,DeFi Protocol,Solana,4449,,Private Key Compromised
+Solana,2024-11-04,MetaWin,4400000.00,,upper,tag_multi,no,Gaming,Ethereum|Solana,,,Key Leaked via Infrastructure
+Solana,2024-11-16,DEXX,21000000.00,,lower,tag_single,yes,Wallet,Solana,,,Private Key Compromised
+Solana,2025-01-01,NoOnes,7900000.00,,upper,tag_multi,yes,DeFi Protocol,Ethereum|Binance|Solana|Tron,,,Cross-Chain Message Spoofing
+Solana,2025-01-28,DogWifTools,10000000.00,,lower,tag_single,yes,Other,Solana,,,Key Stored Publicly
+Solana,2025-04-26,Loopscale,5800000.00,,lower,tag_single,yes,DeFi Protocol,Solana,,,Spot Price Manipulation
+Solana,2025-07-09,Texture,2200000.00,,lower,tag_single,yes,DeFi Protocol,Solana,,,Improper Access Control
+Solana,2025-09-14,Yala,7640000.00,,upper,tag_multi,yes,Token,Solana|Ethereum,6147,Bitcoin,Deployer Key Compromised
+Solana,2025-10-21,DoodiPals,171000.00,,lower,tag_single,yes,Token,Solana,,,Private Key Compromised
+Solana,2025-10-30,Garden,11400000.00,,upper,tag_multi,yes,DeFi Protocol,Ethereum|Arbitrum|Base|Solana,4086,,Key Leaked via Infrastructure
+Solana,2025-12-25,Trust Wallet Wallet,8500000.00,,upper,tag_multi,yes,Wallet,Ethereum|Bitcoin|Solana,5577,,Supply Chain Attack
+Solana,2026-01-17,Meteora DAMM V2,1500000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Solana,6288,Solana,Impersonation Scam
+Solana,2026-01-31,Step Finance,40000000.00,,lower,tag_single,yes,DeFi Protocol,Solana,4837,,Private Key Compromised
+Solana,2026-03-11,BONK Fun,30000.00,,lower,tag_single,yes,ICO,Solana,,,DNS Hijack
+Solana,2026-03-28,GoonFi,254000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Solana,6556,Solana,Swap Logic Flaw
+Solana,2026-04-01,Drift Trade,295000000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Solana,970,Solana,Proxy Upgrade Hijack
+Solana,2026-05-11,Huma,101400.00,,lower,protocol_id,yes,DeFi Protocol,Polygon,7930,Solana,Improper Access Control
+Solana,2026-06-10,Raydium AMM,1340000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Solana,214,Solana,Infinite Mint
+Solana,2026-07-06,BonkDAO,20000000.00,,lower,tag_single,yes,Token,Solana,,,Malicious Proposal
+Solana,2026-07-16,DefiTuna Lending,580000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Solana,6653,Solana,Swap Logic Flaw
+Solana,2026-07-17,Across,4500000.00,,lower,tag_single,yes,DeFi Protocol,Solana,1207,Ethereum,Spoofed Event Log
+Solana,2026-07-19,Allbridge Core,1650000.00,,lower,tag_single,yes,DeFi Protocol,Solana,3944,,Withdrawal Logic Flaw
+Solana,2026-07-21,FlashTrade,98000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Solana,4107,Solana,Missing Input Validation
+Solana,2026-08-06,Hyperliquid Malaysia,,,lower,tag_single,yes,Wallet,Solana,,,Private Key Compromised
+Solana,2026-08-28,Avici,500859.00,,lower,tag_single,yes,Crypto Card,Solana,8034,,Withdrawal Logic Flaw
+Solana,2026-08-31,Aquifer,2469729.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Solana,6884,Solana,Arbitrary External Call
+Solana,2026-09-10,Dominion,,,lower,tag_single,yes,DeFi Protocol,Solana,,,Private Key Compromised
+Solana,2026-10-13,Gamdom,4208000.00,,upper,tag_multi,yes,Gambling Platform,Ethereum|BSC|Polygon|Arbitrum|Optimism|Solana|TRON|Bitcoin,,,Key Leaked via Infrastructure
+Solana,2026-10-18,Coffer,0.70,,lower,protocol_id+tag_single,yes,DeFi Protocol,Solana,7798,Solana,Rounding Error
+Solana,2026-10-22,WAX Multi-Chain Bridge,90500.00,,upper,tag_multi,yes,DeFi Protocol,Solana|Ethereum|WAX,,,Missing Input Validation
+Solana,2026-10-26,Bloom Trading Bot,953000.00,,lower,tag_single,yes,Wallet,Solana,5806,,Supply Chain Attack
+Solana,2026-11-05,Loopscale Lending,,,lower,protocol_id+tag_single,yes,DeFi Protocol,Solana,6461,Solana,Unknown
+Sui,2025-05-22,Cetus CLMM,223000000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Sui,2289,Sui,Arithmetic Error
+Sui,2025-09-08,Nemo Yield Trading,2590000.00,,lower,tag_single,yes,DeFi Protocol,Sui,6313,,Improper Access Control
+Sui,2025-10-15,Typus Perp,3440000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Sui,6014,Sui,Oracle Misconfiguration
+Sui,2026-04-21,Volo Vault,3500000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Sui,3711,Sui,Private Key Compromised
+Sui,2026-04-26,Scallop Lend,142000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Sui,1961,Sui,Reward Logic Flaw
+Sui,2026-04-29,Aftermath Perps,1140000.00,,lower,tag_single,yes,DeFi Protocol,Sui,7540,,Withdrawal Logic Flaw
+Sui,2026-07-11,BlueMove DEX,529000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Sui,2941,Sui,Incorrect Share Accounting
+Sui,2026-08-29,Full Sail,,,lower,protocol_id+tag_single,yes,DeFi Protocol,Sui,6413,Sui,Oracle Misconfiguration
+Aptos,2024-11-15,ThalaSwap,25500000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Aptos,2795,Aptos,Missing Input Validation
+Base,2020-10-26,Harvest Finance,24000000.00,,lower,protocol_id,no,DeFi Protocol,Ethereum,112,Base,Spot Price Manipulation
+Base,2022-02-08,Superfluid,8700000.00,,lower,protocol_id,no,DeFi Protocol,Polygon,693,Base,Missing Input Validation
+Base,2023-08-01,LeetSwap,620000.00,,lower,tag_single,no,DeFi Protocol,Base,2745,Op_Bnb,Improper Access Control
+Base,2023-08-02,Bald,23000000.00,,lower,tag_single,no,DeFi Protocol,Base,,,Liquidity Rug
+Base,2023-08-15,RocketSwap Base,865000.00,,lower,protocol_id+tag_single,no,DeFi Protocol,Base,3314,Base,Key Leaked via Infrastructure
+Base,2023-08-18,Exactly,7600000.00,,lower,protocol_id,no,DeFi Protocol,Optimism,2385,Base,Improper Access Control
+Base,2023-08-25,Magnate Finance,6500000.00,,lower,tag_single,no,DeFi Protocol,Base,3342,,Treasury Misappropriation
+Base,2023-11-22,KyberSwap Elastic,48000000.00,,upper,tag_multi,no,DeFi Protocol,Ethereum|Base|Polygon|Optimism|Arbitrum,2615,Linea,Rounding Error
+Base,2024-04-12,Sumer.money,350000.00,,lower,tag_single,no,DeFi Protocol,Base,3814,Berachain,Reentrancy
+Base,2024-04-15,Grand Base,1700000.00,,lower,tag_single,no,DeFi Protocol,Base,,,Phishing
+Base,2024-04-23,Magpie Protocol,129000.00,,upper,tag_multi,no,DeFi Protocol,Ethereum|Polygon|BSC|Blast|Avalanche|Arbitrum|Optimism|Base|zkSync Era|Polygon zkEVM,,,Missing Input Validation
+Base,2024-05-10,Tsuru,410000.00,,lower,tag_single,no,DeFi Protocol,Base,,,Unknown
+Base,2024-05-15,Sonne Finance,20000000.00,,lower,protocol_id,no,DeFi Protocol,Optimism,2142,Base,Donation Attack
+Base,2024-05-26,NORMIE,881686.00,,lower,tag_single,no,Token,Base,,,Unknown
+Base,2024-07-22,ETHTrustFund,2100000.00,,lower,tag_single,no,DeFi Protocol,Base,,,Treasury Misappropriation
+Base,2024-10-25,Base Lending,1000000.00,,lower,tag_single,no,DeFi Protocol,Base,,,Deposit Logic Flaw
+Base,2024-12-01,Clipper,450000.00,,upper,tag_multi,yes,DeFi Protocol,Optimism|Base,622,Ethereum,Deposit Logic Flaw
+Base,2024-12-10,Clober Liquidity Vault,500000.00,,lower,tag_single,yes,DeFi Protocol,Base,5315,Monad,Reentrancy
+Base,2024-12-17,GemPad,1900000.00,,upper,tag_multi,yes,DeFi Protocol,Ethereum|Base|BSC,,,Reentrancy
+Base,2024-12-27,Bizness,15700.00,,lower,tag_single,yes,DeFi Protocol,Base,,,Reentrancy
+Base,2024-12-29,Fegex,1070000.00,,upper,tag_multi,yes,DeFi Protocol,Ethereum|BSC|Base,672,,Cross-Chain Message Spoofing
+Base,2025-03-28,Alkimiya,95500.00,,lower,protocol_id,yes,DeFi Protocol,Ethereum,6344,Base,Arithmetic Error
+Base,2025-04-01,Zapper,,,upper,tag_multi,yes,DeFi Protocol,Ethereum|Arbitrum|Optimism|Polygon|Base,,,DNS Hijack
+Base,2025-04-14,KiloEx,7500000.00,6750000.00,upper,tag_multi,yes,DeFi Protocol,BSC|Base|Taiko,3329,Binance,Spot Price Manipulation
+Base,2025-04-26,Impermax V3,300000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Base,5981,Base,Incorrect Fee Accounting
+Base,2025-05-26,Dexodus Finance,300000.00,300000.00,lower,protocol_id+tag_single,yes,DeFi Protocol,Base,5428,Base,Stale Oracle Price
+Base,2025-07-15,Arcadia V2,2500000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Base,4455,Base,Reentrancy
+Base,2025-08-25,Panoptic V1.1,0.00,,upper,tag_multi,yes,DeFi Protocol,Base|Unichain|Ethereum,6230,,Hash Collision
+Base,2025-10-27,402bridge,17693.00,,lower,tag_single,yes,DeFi Protocol,Base,,,Key Stored Publicly
+Base,2025-10-30,Garden,11400000.00,,upper,tag_multi,yes,DeFi Protocol,Ethereum|Arbitrum|Base|Solana,4086,,Key Leaked via Infrastructure
+Base,2025-11-03,Balancer V2,128000000.00,,upper,tag_multi,yes,DeFi Protocol,Ethereum|Arbitrum|Base|Polygon|Sonic|Optimism,2611,Ethereum,Rounding Error
+Base,2025-11-04,Moonwell Lending,1000000.00,,lower,protocol_id,yes,DeFi Protocol,Base|Optimism,1853,Base,Spot Price Manipulation
+Base,2025-11-11,Impermax V3,380000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Base,5981,Base,Liquidation Logic Flaw
+Base,2025-11-21,Aerodrome V1,700000.00,,lower,protocol_id,yes,DeFi Protocol,Ethereum|Optimism,3450,Base,DNS Hijack
+Base,2026-01-01,PRXVT,97000.00,,lower,tag_single,yes,DeFi Protocol,Base,,,Staking Logic Flaw
+Base,2026-01-06,IPOR Fusion,336000.00,336000.00,lower,protocol_id,yes,DeFi Protocol,Arbitrum,5145,Base,Arbitrary External Call
+Base,2026-01-20,SynapLogic,144000.00,,lower,tag_single,yes,DeFi Protocol,Base,,,Unknown
+Base,2026-01-25,Aperture LM,3670000.00,,upper,tag_multi,yes,DeFi Protocol,Ethereum|Base|BSC,1582,Avalanche,Token Approval Abuse
+Base,2026-01-25,Matcha,13430000.00,,upper,tag_multi,yes,DeFi Protocol,Base|Ethereum,7555,,Frontend Compromise
+Base,2026-01-29,Revert Lend,50000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Base,6216,Base,Staking Logic Flaw
+Base,2026-02-15,Moonwell Lending,1780000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Base,1853,Base,Oracle Misconfiguration
+Base,2026-02-21,Veil Cash,5000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Base,6117,Base,Proof Verifier Bug
+Base,2026-02-23,DGLD,250000.00,,lower,tag_single,yes,DeFi Protocol,Base,,,Infinite Mint
+Base,2026-03-02,FOOM Cash,2260000.00,,upper,tag_multi,yes,DeFi Protocol,Ethereum|Base,6908,,Forged Proof
+Base,2026-03-07,Molt EVM,127000.00,,lower,tag_single,yes,Other,Base,,,Improper Access Control
+Base,2026-03-12,Stake DAO Yield,176000.00,,upper,tag_multi,yes,DeFi Protocol,Arbitrum|Base,249,Ethereum,Caller Impersonation
+Base,2026-04-07,SquidMulticall,517000.00,,upper,tag_multi,yes,DeFi Protocol,Arbitrum|BNB Chain|Avalanche|Optimism|Base,,,Improper Access Control
+Base,2026-04-12,Hyperbridge,2500000.00,,upper,tag_multi,yes,DeFi Protocol,Ethereum|Base|BSC|Arbitrum,,,Forged Proof
+Base,2026-04-12,SubQuery Network,134000.00,,lower,tag_single,yes,DeFi Protocol,Base,,,Improper Access Control
+Base,2026-04-22,Kipseli,72350.00,,lower,tag_single,yes,DeFi Protocol,Base,,,Missing Input Validation
+Base,2026-04-27,Singularity Finance,413000.00,,lower,tag_single,yes,DeFi Protocol,Base,6670,Ethereum,Oracle Misconfiguration
+Base,2026-04-27,ZetaChain,333868.00,,upper,tag_multi,yes,Chain,Ethereum|Base|Polygon|Arbitrum|Avalanche|BSC,4556,,Token Approval Abuse
+Base,2026-04-29,Syndicate,380000.00,380000.00,lower,tag_single,yes,DeFi Protocol,Base,,,Bridge Logic Flaw
+Base,2026-04-30,Wasabi Perps,5500000.00,,lower,protocol_id,yes,DeFi Protocol,Ethereum|Base|Berachain|Blast,2900,Base,Deployer Key Compromised
+Base,2026-05-04,SquidRouterModule,3200000.00,,upper,tag_multi,yes,DeFi Protocol,Ethereum|Base,,,Improper Access Control
+Base,2026-05-10,Renegade,209000.00,209000.00,lower,protocol_id,yes,DeFi Protocol,Arbitrum,5103,Base,Uninitialized Proxy
+Base,2026-05-15,THORChain DEX,10700000.00,,upper,tag_multi,yes,Chain,Bitcoin|Ethereum|Base|BSC,412,Thorchain,Bridge Logic Flaw
+Base,2026-05-19,Bankr,170000.00,,lower,tag_single,yes,AI Agent,Base,,,Session Key Compromised
+Base,2026-05-25,Bitmor,6000.00,,lower,tag_single,yes,DeFi Protocol,Base,,,Token Approval Abuse
+Base,2026-05-25,New Market Trading,3980000.00,,upper,tag_multi,yes,Other,Ethereum|Base|Arbitrum,,,Improper Access Control
+Base,2026-07-25,Bankr,479885.00,,lower,tag_single,yes,Wallet,Base,,,Social Account Takeover
+Base,2026-07-26,Garden,450000.00,,upper,tag_multi,yes,DeFi Protocol,Ethereum|Base|Arbitrum|BSC,4086,,Database Breach
+Base,2026-08-06,Panther Protocol,7578.00,,lower,tag_single,yes,DeFi Protocol,Base,3988,Polygon,Malicious Proposal
+Base,2026-08-19,Allbridge,191000.00,,lower,tag_single,yes,DeFi Protocol,Base,parent#allbridge,,Bridge Logic Flaw
+Base,2026-08-22,The Sandbox,675000.00,,upper,tag_multi,yes,DeFi Protocol,Base|BSC|Ethereum,1065,,Improper Access Control
+Base,2026-08-27,Moonwell Lending,8700000.00,,lower,protocol_id+tag_single,yes,DeFi Protocol,Base,1853,Base,Spot Price Manipulation
+Base,2026-09-21,The Internet Token,16380.00,,lower,tag_single,yes,Token,Base,,,Arbitrary External Call
+Base,2026-09-24,Limit Break Payment Processor,1800000.00,,upper,tag_multi,yes,NFTfi,Ethereum|ApeChain|Polygon|Base,,,Token Approval Abuse
+Base,2026-10-02,GoldPesa,114900.00,,lower,tag_single,yes,DeFi Protocol,Base,,,Incorrect Share Accounting
+Base,2026-10-14,UNCX Network V2,86000.00,,upper,tag_multi,yes,DeFi Protocol,Ethereum|Base|BSC|Robinhood Chain,1765,Ethereum,Incorrect Share Accounting
+Base,2026-10-21,Swell,,,upper,tag_multi,yes,DeFi Protocol,Ethereum|Arbitrum|Base|Hyperliquid L1,,,Hot Wallet Key Compromised
+Base,2026-11-08,ACryptoS,665429.00,,upper,tag_multi,yes,DeFi Protocol,Arbitrum|BSC|Polygon|Base|Optimism,208,Binance,Missing Input Validation
