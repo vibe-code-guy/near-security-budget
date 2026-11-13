@@ -2,9 +2,9 @@
 
 **Status: pre-registration.** This file was written and committed on 2026-11-13,
 before any bounty terms, hack totals, fee totals or control data were pulled for
-analysis. Sections 1 to 8 are fixed at the registration commit. Section 9
-(evidence and verdicts) is empty on purpose and is filled in later; the git
-history shows the order. Any later change to sections 1 to 8 is listed in
+analysis, apart from what section 3 lists. Sections 1 to 8 are fixed at the
+registration commit. Section 9 (evidence and verdicts) is empty on purpose and
+is filled in later; the git history shows the order. Any later change to sections 1 to 8 is listed in
 section 10 with its reason.
 
 To check the registered text: `git show <registration commit>:THESIS.md | sha256sum`.
@@ -23,6 +23,12 @@ competes with. Three claims test whether that is true today. Each is written as
 
 Peers: Solana, Sui, Aptos, Base.
 
+The peers were chosen before any data was pulled: Solana and Base as the large
+incumbents, Sui and Aptos as L1s closer to NEAR's size. For an investor the
+outcome is a discount or its absence. If the claims hold, NEAR's
+settlement-layer case needs no security discount against these peers. If one
+fails, the gap is the discount, and section 7 says what would close it.
+
 ## 2. Conflict of interest
 
 The author is a bug bounty hunter and would benefit from higher bounties on
@@ -33,11 +39,29 @@ listed in section 3.
 
 ## 3. Known before registering
 
-From the author, before this project started:
+From the author, before registering:
 
-- The maximum payout of the NEAR Intents bug bounty programme. The figure is not
-  restated here; it is recorded with its source in `data/bounties.csv`.
-- That NEAR Intents was exploited on 2026-10-01 for about $3.8M.
+- HackenProof's "NEAR Intents: Smart Contracts" page listed a critical ceiling
+  of $300,000, with High and Critical rewards capped at 10% of affected funds,
+  and the company entitled to pay in NEAR vested over one year
+  (https://hackenproof.com/programs/near-intents-smart-contracts, seen via
+  search results, not re-read today).
+- Rekt's write-up noted that the "NEAR Intents: Bridges" page shows $300,000 in
+  its reward table and $100,000 in its written rules
+  (https://rekt.news/near-intents-rekt).
+- The loss of about $3.8M on 2026-10-01 and the "fixed within an hour of
+  detection" claim came from news reports of Illia Polosukhin's statement
+  (https://cryptonews.net/news/security/33526432/).
+- A public claim by another hackathon project, Docket
+  (https://github.com/aditi3175/docket): full-access keys on the Sputnik factory
+  `sputnik-dao.near` can replace the code of auto-updating DAOs without a vote,
+  including the DAOs behind Meta Pool and LiNEAR, and the fix
+  (near-daos/sputnik-dao-contract PR #233) was merged but not deployed. Not
+  checked here yet. Part of C3a's answer was therefore claimed in public before
+  registration.
+
+Live programme pages are re-read at the data stage, and `data/bounties.csv`
+records what they show then, with retrieval dates.
 
 Seen while checking that the endpoints work (2026-11-13, between 04:54 and
 06:15 UTC; DefiLlama protocols and hacks pulled at 04:54 UTC, NEAR RPC at block
@@ -75,8 +99,9 @@ Seen while checking that the endpoints work (2026-11-13, between 04:54 and
   - `up_get_delay_status` does not exist on `intents.near`. The contract does
     not use the near-plugins upgrade module, so there is no staging delay.
 
-No bounty figure, ratio, loss rate or peer comparison had been computed when
-this file was committed.
+No ratio, loss rate or peer comparison had been computed when this file was
+committed. No bounty page and no Sputnik DAO or factory state beyond the
+`get_policy` result above had been read for this project.
 
 ## 4. Universe and data rules
 
@@ -138,13 +163,25 @@ GitHub `SECURITY.md`. `checked_sources` lists what was checked.
   exists but is closed or does not cover this listing. Counts as zero.
 - `undetermined`: a programme exists but its terms are not public.
 
-`max_critical_usd` is the published maximum payout for a critical finding, in
-USD, after the programme's cap rule (for "10% of funds at risk, capped at X" it
-is X). If the terms give a percentage of funds at risk with no cap, it is that
-percentage of the listing's total TVL at the snapshot, and the row is flagged as
-derived. If no USD figure can be read from the published terms, the row is
-`undetermined`. Payout token and vesting are recorded and reported. Payouts are
-not discounted for them.
+`max_critical_usd` is the effective maximum payout for a critical finding, in
+USD:
+
+- Where the terms state a fixed maximum, it is that figure.
+- Where the terms tie the payout to funds at risk with a cap, it is
+  min(cap, percentage x the listing's total TVL at the snapshot). The row is
+  flagged as derived when the percentage leg binds. It is not simply the cap.
+- Where the terms give a percentage of funds at risk with no cap, it is that
+  percentage of the listing's total TVL at the snapshot, flagged as derived.
+- If several live programmes cover a listing, the highest maximum among those
+  in scope is used and the others are noted.
+- If a programme page contradicts itself, the higher figure is used and both
+  are recorded.
+- If no USD figure can be read from the published terms, the row is
+  `undetermined`.
+
+The rules on several programmes and on contradictions favour the protocol on
+every chain, which is the right direction given section 2. Payout token and
+vesting are recorded and reported. Payouts are not discounted for them.
 
 **C1a, coverage share.** For each chain: listing TVL of top-10 protocols with
 `status = live`, divided by top-10 listing TVL.
@@ -241,9 +278,23 @@ documentation, and confirmed with `view_account`.
   What each role can do is confirmed in the open source code.
 - What each holder is, traced until it ends in one of: access keys (counted); a
   Sputnik DAO (`get_policy`: members and threshold for the relevant proposal
-  kind); a multisig contract (its confirmation count); or a contract whose
-  source cannot be read (marked unreadable). Controller contracts such as
-  `ctl-intents.near` are traced the same way, down to keys or DAO thresholds.
+  kind, then the factory check below); a multisig contract (its confirmation
+  count); or a contract whose source cannot be read (marked unreadable).
+  Controller contracts such as `ctl-intents.near` are traced the same way, down
+  to keys or DAO thresholds.
+- A Sputnik DAO is not the end of a trace. For every Sputnik DAO in a control
+  path, including `intents.sputnik-dao.near`, the trace also records whether
+  the DAO's own code can be replaced without a proposal:
+  - `get_factory_info` on the DAO (`factory_id`, `auto_update`);
+  - `get_owner` on that factory, and the factory account's access keys;
+  - the update path as read in `near-daos/sputnik-dao-contract`: `update` in
+    `sputnikdao2`, and `update` and `store` in `sputnikdao-factory2`;
+  - which code version each DAO actually runs, from its code hash. The `main`
+    branch is not assumed to be what is deployed.
+
+  A path through the factory counts toward minimum signers in C3a. Where this
+  confirms the claim made by Docket (section 3), Docket is credited. View calls
+  only.
 - Minimum signers for each of pause, upgrade and move funds: the smallest number
   of distinct keys, over all paths, that is enough to do it.
 - Enforced delay on upgrades: a non-zero minimum time between an upgrade being
@@ -267,8 +318,8 @@ already known (section 3).
 closed-source or their roles cannot be read.
 
 **The trade-off.** An immediate upgrade path cuts both ways. The author's
-understanding, to be confirmed or corrected with sourced timestamps in the case
-study, is that the same-call upgrade is what allowed the 2026-10-01 patch to
+understanding, from the report cited in section 3 and to be confirmed or
+corrected with sourced timestamps in the case study, is that the same-call upgrade is what allowed the 2026-10-01 patch to
 land within the hour. A delay that protects users from an unwanted upgrade also
 slows a wanted one. C3b measures whether a delay exists; it does not say that a
 delay is always better.
@@ -320,6 +371,9 @@ delay is always better.
 - A published maximum is a ceiling, not what is paid. Paid amounts are mostly
   not public.
 - "None found" means not found in the listed sources on the retrieval date.
+- Bands are coarse. Within a band the ratio still falls with size, which favours
+  the smaller listings; NEAR's largest sit at the low end of the $100M to $1B
+  band.
 - TVL is a snapshot for C1 and C3. Bands and ranks would move with the market.
 - DefiLlama's hack list is curated by hand: coverage, amounts and chain tags are
   theirs. The NEAR Intents exploit is tagged `BSC`, which is why the protocol-id
@@ -336,6 +390,10 @@ delay is always better.
   code hash; whether the two match is checked where a reproducible build
   exists, and stated as unverified where it does not.
 - Control findings describe who can act, not whether they would.
+- If the control trace finds what looks like an unintended privilege rather than
+  a documented design choice, it is reported to the project first and left out
+  of the published results until resolved, and section 10 records that
+  something was withheld.
 - Read-only. No keys, no transactions, no testing of any vulnerability, nothing
   sent to any contract.
 
@@ -369,6 +427,7 @@ None.
 | `acl_get_super_admins(skip, limit)`, `acl_get_grantees(role, skip, limit)`, `acl_get_admins(role, skip, limit)`, `acl_get_permissioned_accounts()`, `acl_role_variants()`, `pa_all_paused()` | Signatures read in `near/near-plugins` (`access_controllable.rs`, `pausable.rs`); all return on `intents.near` |
 | `up_get_delay_status()` | Signature read in near-plugins `upgradable.rs`; `MethodNotFound` on `intents.near` |
 | `get_policy()` | Read in `near-daos/sputnik-dao-contract`, `sputnikdao2/src/views.rs`; returns on `intents.sputnik-dao.near` |
+| Sputnik DAO `get_factory_info()` and `update()`; factory `get_owner()`, `update(account_id, code_hash)`, `store()`, `get_default_code_hash()` | Names read in `near-daos/sputnik-dao-contract` at commit `5434a59dec23ee0c49df8c8c4350c208a7e75b0b` (`sputnikdao2/src/lib.rs`, `sputnikdao2/src/upgrade.rs`, `sputnikdao-factory2/src/lib.rs`). Not called on chain yet, and what they allow has not been analysed |
 | `near/intents`, commit `fce0936b1699e0591204ce152a78afc1c1338b35` | `contracts/defuse/src/contract/mod.rs`, `admin_call.rs`, `admin.rs`, `upgrade.rs` read for the roles in section 3 |
 | L2BEAT Stage 1 requirements | Read at `forum.l2beat.com/t/the-stages-framework/291` and in `l2beat/l2beat` at commit `d0e66842`, `packages/config/src/common/stages/getRollupStage.ts` |
 
