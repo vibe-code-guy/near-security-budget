@@ -103,7 +103,6 @@ DAOs run accepts a code replacement from the factory, with no vote, when
 | Where a number came from | `data/raw/manifest.json`: source URL or view call, retrieval time, SHA-256, block height |
 | How a verdict is computed | `pipeline/c1.py`, `pipeline/c2.py`, `pipeline/c3.py`; rules unit-tested in `tests/` |
 | Who can upgrade what on NEAR | `data/c3_findings.json` (hand-read trace) and `data/raw/near/` (cached chain state) |
-| The demo post and video script | [`docs/submission-kit.md`](docs/submission-kit.md) |
 
 ### Track
 
@@ -237,7 +236,6 @@ from disk with no server.
 | `site/index.html`, `site/data.js` | Static dashboard; `data.js` is generated |
 | `site/vendor/echarts/` | Apache ECharts 5.5.1 (Apache-2.0), vendored with its licence |
 | `docs/first-screen.png`, `docs/screens/` | Screenshots: first screen, and one per section |
-| `docs/submission-kit.md` | Demo post drafts and demo script |
 | `pipeline/` | `fetch.py` (`make data`), `universe.py`, `c1.py`, `c2.py`, `c3.py`, `timeline.py`, `site.py`, `build.py` |
 | `tests/` | 36 unit tests of the attribution, band, threshold and verdict rules |
 | `data/universe.csv` | The 51 listings, frozen at the first data pull |
