@@ -155,6 +155,18 @@ def compute(rows: list) -> dict:
                          "none_found": sum(1 for r in top if r["status"] == "none_found"),
                          "undetermined": sum(1 for r in top if r["status"] == "undetermined")})
     v = claim_verdict(coverage, undet, score)
+    all_peers = [r for r in rows if r["chain"] != config.NEAR]
+    peer_tvl = sum(r["listing_tvl_usd"] for r in all_peers)
+    share = lambda st: round(100.0 * sum(r["listing_tvl_usd"] for r in all_peers if r["status"] == st) / peer_tvl, 2)
+    v["peer_listings"] = {  # descriptive, not NEAR-specific: how common a live public bounty is among peers
+        "total": len(all_peers), "listing_tvl_usd": usd(peer_tvl),
+        "live": sum(1 for r in all_peers if r["status"] == "live"), "live_tvl_pct": share("live"),
+        "none_found": sum(1 for r in all_peers if r["status"] == "none_found"), "none_found_tvl_pct": share("none_found"),
+        "undetermined": sum(1 for r in all_peers if r["status"] == "undetermined"), "undetermined_tvl_pct": share("undetermined")}
+    live_caps = [r["effective_max"] for r in near if r["status"] == "live"]
+    v["near_live_caps_usd"] = {"min": usd(min(live_caps)), "max": usd(max(live_caps)), "count": len(live_caps)}
+    v["zero_bar_bands"] = sum(1 for k in bars if bars[k] == 0)
+    v["bands_total"] = len(groups)
     v.update({"claim": "C1", "near_zero_bar_cases": zero_bar,
               "near_undetermined_pct": round(undet[config.NEAR], 2),
               "peer_chains_over_20pct_undetermined": [c for c in config.PEERS if undet[c] > 20.0],

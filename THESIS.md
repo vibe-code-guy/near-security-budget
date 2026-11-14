@@ -360,6 +360,22 @@ delay is always better.
   this sample (for example, peers with higher bounty ratios did not lose less),
   that is reported as evidence against the framing of the thesis.
 
+**Added on 2026-11-14, after the results (section 10, item 10). What would
+close the gap:**
+
+1. An enforced upgrade delay. For RHEA LST and the bridge this is one call:
+   initialise the near-plugins staging duration that is already in their code.
+   The owner-upgraded contracts and `intents.near` would need the equivalent.
+   Pausing can stay fast; it is the upgrade that needs the delay.
+2. Removing the factory path: deploy the DAO code that gates factory updates
+   behind a proposal (PR #233), or turn `auto_update` off on the three DAOs
+   that have it on. Either makes the 3-vote council the shortest path again.
+3. As a lesser point, a larger critical cap. NEAR's caps clear the size-matched
+   bar today, mostly because the bar is zero; they are small in dollars.
+
+The loss record (C2) closes only with time: 24 months without a comparable
+loss would bring NEAR's rate under today's peer median.
+
 ## 8. Limits
 
 - Fifty-one listings and five chains. Nothing here shows that a bounty, an audit
@@ -399,19 +415,156 @@ delay is always better.
 
 ## 9. Evidence and verdicts
 
-Not written yet. No data had been pulled for analysis when this file was
-registered.
+Written on 2026-11-14 from the tables in `data/tables/`. Every figure below is
+produced by `make all` from the cached raw data. The snapshot date is
+2026-11-13.
 
-| Claim | Evidence for | Evidence against | Verdict (holds / fails / can't tell) |
+**What the data shows.** On bounty coverage NEAR is at or above these peers.
+The gap is in the loss record (C2 fails, with Sui worse than NEAR) and in
+control (C3 fails: a one-signer path and no upgrade delay). The security
+discount comes from those two, not from bounty spending.
+
+| Claim | Verdict | Deciding numbers | Bar |
 |---|---|---|---|
-| C1 | | | |
-| C2 | | | |
-| C3 | | | |
+| C1 Bounty coverage | **Holds** (can't tell under the stricter reading; the peer bar is zero in two of three size bands) | coverage 89.06% of top-10 TVL; size-matched score 98.92% | peer median 41.79% minus 10 points; 50% |
+| C2 Incident record | **Fails** | 8.38% of average TVL lost per year, on both bounds | peer median 2.37% (lower bound), 2.77% (upper bound) |
+| C3 Control | **Fails** (C3a fails, C3b fails) | `intents.near` minimum signers: 1; one-signer path on 44.0% of assessed TVL; enforced upgrade delay on 0% | no one-signer path on `intents.near` or on more than 30%; delay on more than 50% |
+
+By the rule in section 7 the thesis is not supported on this measure today:
+two of the three claims fail.
+
+### C1. Bounty coverage: holds, with a caveat that matters
+
+1. **The result.** NEAR's coverage share is 89.06% of top-10 listing TVL,
+   against a peer median of 41.79% (Solana 34.59%, Sui 48.98%, Aptos 0.00%,
+   Base 82.13%). NEAR's size-matched score is 98.92%, against a bar of 50%.
+   Undetermined rows hold 1.08% of NEAR's top-10 TVL and at most 17.87% on any
+   peer (Base), so the can't-tell rule is not triggered. Both tests hold.
+2. **This is the opposite of what the author expected.** Section 7 records the
+   prior that C1 fails, drawn from what section 3 lists. That prior was wrong.
+3. **The score comes mostly from zero bars.** After the registered merge of the
+   thinnest band there are three bands. In two of them (under $100M, and $100M
+   to $1B) the median peer has no live public bounty, so the bar is 0.0000% and
+   any listing clears it. LiNEAR Protocol (paused programme) and KAIO (none
+   found) clear it with no bounty at all. Meta Pool's maximum of $5,000 against
+   $74.6M of TVL, 0.0067%, clears only because the bar is zero. Only the over
+   $1B band has a positive bar (0.0241%, set by 7 peers), and the one NEAR
+   listing in it, Portal, was not checked. Without LiNEAR and KAIO the score
+   would equal the coverage share, 89.06%.
+4. **Rule 2 was decided after seeing the data and favours NEAR.** Section 10,
+   item 4: paused, invite-only, announced, out-of-scope and dead-link programmes
+   count as zero, and so do three peer rows where the search was incomplete.
+   Most of the rows this touches are on peer chains, which lowers the peer bar
+   and peer coverage.
+5. **Sensitivity.** With the three incomplete searches and Jito counted as
+   undetermined instead of zero, undetermined rows hold 40.02% of Solana's
+   top-10 TVL and 75.20% of Aptos's, so the registered rule gives **can't
+   tell**. In that run the two tests still read "holds" (the $100M to $1B bar
+   rises to 0.0324% and all three NEAR listings in the band clear it), but the
+   verdict under the rule is can't tell.
+6. **In dollars NEAR's caps are small.** NEAR's live programmes offer $250,000
+   to $300,000 for a critical finding (and $5,000 at Meta Pool), against
+   $2,500,000 at Morpho and $15,500,000 for Uniswap V4. They clear the bar
+   because NEAR's protocols are small: as a share of TVL, NEAR's covered
+   listings other than Meta Pool run from 0.17% to 1.21%, inside the range of
+   covered peers in the same bands (0.02% to 4.39%).
+
+Descriptive, not NEAR-specific: across the 40 peer listings, 14 have a live
+public bounty (55.08% of peer listing TVL), 15 have none found or none that is
+live (36.94%), and 11 were not checked (7.98%). A live public bounty is not the
+norm among the largest protocols on these four chains.
+
+Also descriptive: the three HackenProof programmes covering NEAR listings
+(Rhea, NEAR Intents, NEAR Intents: Bridges) reserve the right to pay in NEAR
+vested over one year. Payouts are not discounted for this (section 5).
+
+Limits specific to this result: the table was filled by an AI assistant, 24 of
+51 rows were entered as "not checked", and only the four NEAR programme pages
+were opened by the author (section 10, item 3).
+
+### C2. Incident record: fails
+
+- **For the claim failing.** Over the 730 days to 2026-11-13 NEAR lost $25.7M
+  in three hacks (Rhea Lend $18.4M, NEAR Intents $3.8M, Sweat Foundation
+  $3.5M) against a mean headline TVL of $153.4M: 8.38% per year. The peer
+  median is 2.37% on the lower bound and 2.77% on the upper. NEAR is above it
+  on both, which is the kill criterion.
+- **Against reading too much into it.** Sui is worse than NEAR (9.97%, almost
+  all from one hack, Cetus, $223M). Solana is 2.62% to 2.87%, Aptos 2.13%,
+  Base 0.30% to 2.66%. NEAR's figure rests on three events, and one of them is
+  72% of the total. The NEAR Intents loss was returned in full according to the
+  postmortem; the registered rule does not net returned funds, and DefiLlama
+  records none for that row.
+- **Sensitivity (not registered, section 10 item 1).** On a TVL base that
+  includes liquid staking and double-counted TVL, NEAR's rate is 3.91% and the
+  peer median 1.40% to 1.72%. The same rule still gives "fails". The verdict
+  does not depend on the denominator.
+- **Descriptive.** Rhea Lend lost 3.27 times the fees it collected over the
+  same window; NEAR Intents lost 0.06 times its fees. DefiLlama lists an audit
+  flag or link for 5 of NEAR's top 10 (66.8% by TVL), in the middle of the
+  peers (25.7% to 89.2%).
+
+### C3. Control: fails on both tests
+
+- **C3a, signers: fails.** No assessed contract account has a full-access key,
+  and every upgrade power is held by a Sputnik DAO that needs 3 council votes
+  (3 of 5, or 3 of 4 for Meta Pool). That is not the shortest path. The factory
+  account `sputnik-dao.near` has 3 full-access keys, and the DAO code deployed
+  for `intents.sputnik-dao.near`, `stnear.sputnik-dao.near` and
+  `linear.sputnik-dao.near` accepts a code replacement from the factory, with
+  no proposal, because their `auto_update` flag is true. One factory key can
+  therefore replace the DAO that owns `intents.near`, Meta Pool and LiNEAR.
+  That is a one-signer path for `intents.near` and for 44.0% of the $465.6M
+  assessed, either of which fails the test.
+- **C3b, delay: fails.** Of the $378.3M assessed outside `intents.near`, 0%
+  sits behind an enforced upgrade delay (5.5%, Rhea Dex, is unreadable). The
+  two contracts that use the near-plugins upgrade module (RHEA LST and the
+  bridge) never initialised a staging duration. The others deploy in the call
+  that the DAO approves.
+- **What cuts the other way.** The factory behaviour is documented as a design
+  choice in the source, and a fix (PR #233, a two-week proposal gate) was merged
+  in March 2026; it is not deployed on any DAO in this trace. Rhea Lend, RHEA
+  LST, Rhea Dex and the bridge are behind DAOs where the factory path is closed
+  (`auto_update` false, or code without it). The single Updater key on the
+  intents upgrade controller can only deploy a release the DAO has registered.
+  A key seen on chain may be a hardware wallet or a shared key; chain state
+  cannot tell. The claim about Meta Pool and LiNEAR was first made publicly by
+  Docket; this trace confirms it and finds the same for NEAR Intents.
+- **Against the L2BEAT yardstick (descriptive).** The comparison column
+  announced in section 6 was not built. From `data/tables/c3_daos.csv`: none of
+  the six controlling DAOs has 8 members (five have 5, one has 4), and five of
+  the six need 3 of 5 votes, 60%, below the 75% L2BEAT asks of a Stage 1
+  Security Council. None gives users an exit window. Identities and entity
+  diversity were not assessed.
+- **Rhea Dex is unreadable**: its source repository could not be found. It is
+  4.4% of assessed TVL and does not change either test.
+
+### Case study: 1 October 2026
+
+Sources for every row are in `data/tables/timeline.csv`.
+
+- The attacker's withdrawals ran for 39 h 50 min before the problem was
+  identified (postmortem times).
+- The contract was paused 29 minutes after detection, by one PauseManager
+  account holding a single key.
+- The fix reached mainnet 36 h 27 min after detection: the DAO registered the
+  release and one Updater key deployed it 5 h 43 min later.
+- **Correction to section 5.** The trade-off paragraph there repeats a report
+  that the exploit was "fixed within an hour". That is not what the chain or
+  the postmortem shows. What happened within the hour was the pause. The
+  one-signer pause is what made the response fast; the same-call upgrade was
+  not used for speed. The trade-off still exists in principle, but this
+  incident is not evidence for it.
+- The postmortem says a further critical bug in the same feature was reported
+  through the bug bounty on 7 October and paid $300,000, the programme maximum.
 
 ## 10. Changes after registration
 
-Sections 1 to 8 are unchanged. Additions made after the registration commit
-`f84b548`, none of which alters a test or a kill criterion:
+Sections 1 to 8 are unchanged apart from the dated addition at the end of
+section 7 (item 10 below). Everything else made after the registration commit
+`f84b548` is listed here. None of it alters a registered test or kill
+criterion; items 4 to 6 decide how rows the registration did not foresee are
+counted, and say which way that leans.
 
 1. **C2 denominator sensitivity (not registered, added 2026-11-13 after the C2
    numbers were seen).** The registered verdict uses headline chain TVL and
@@ -472,6 +625,25 @@ Sections 1 to 8 are unchanged. Additions made after the registration commit
    C3, names that repository and a commit, so the row counts as covered. The
    metadata is self-reported; the build was not reproduced. `pipeline/c1.py`
    re-checks this against the cached call.
+8. **The author's prior on C1 was wrong.** Section 7 records the expectation
+   that C1 fails. It holds under the registered rule (and is "can't tell" in
+   the sensitivity run of item 5). The verdict is reported as computed, always
+   together with its caveat: can't tell under the stricter reading; the peer
+   bar is zero in two of three size bands.
+9. **Correction to the trade-off paragraph in section 5.** It repeats a report
+   that the 1 October exploit was "fixed within an hour". The chain and the
+   postmortem show the pause came 29 minutes after detection and the fix 36 h
+   27 min after. The paragraph is left as registered; section 9 carries the
+   correction.
+10. **Addition to section 7 (2026-11-14).** A dated block, "What would close
+    the gap", was added at the end of section 7 after the results were known.
+    The registered text of section 7 above it is unchanged.
+11. **L2BEAT comparison.** The per-control-set column announced in section 6
+    was not built in the time available. Section 9 gives the comparison in
+    words from the DAO table instead.
+12. **Case-study data source.** The timeline's on-chain rows come from the
+    explorer API `api.nearblocks.io`, which was not among the sources verified
+    before registration. The responses are cached in `data/raw/nearblocks/`.
 
 ## Appendix A. What was verified before registering (2026-11-13)
 

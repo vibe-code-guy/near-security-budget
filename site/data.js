@@ -47,10 +47,16 @@ window.DATA = {
   }
  ],
  "c1": {
+  "bands_total": 3,
   "c1a": "holds",
   "c1b": "holds",
   "claim": "C1",
   "near_coverage_pct": 89.06,
+  "near_live_caps_usd": {
+   "count": 6,
+   "max": "300000.00",
+   "min": "5000.00"
+  },
   "near_score_pct": 98.92,
   "near_undetermined_pct": 1.08,
   "near_zero_bar_cases": [
@@ -58,6 +64,16 @@ window.DATA = {
    "KAIO"
   ],
   "peer_chains_over_20pct_undetermined": [],
+  "peer_listings": {
+   "listing_tvl_usd": "14190817236.71",
+   "live": 14,
+   "live_tvl_pct": 55.08,
+   "none_found": 15,
+   "none_found_tvl_pct": 36.94,
+   "total": 40,
+   "undetermined": 11,
+   "undetermined_tvl_pct": 7.98
+  },
   "peer_median_coverage_pct": 41.79,
   "rows_by_rule": {
    "a": [
@@ -102,7 +118,8 @@ window.DATA = {
    }
   },
   "verdict": "holds",
-  "without_the_cant_tell_rule": "holds"
+  "without_the_cant_tell_rule": "holds",
+  "zero_bar_bands": 2
  },
  "c1_bands": [
   {
@@ -1736,6 +1753,7 @@ window.DATA = {
     "peers_with_a_bounty": 5
    }
   ],
+  "bands_total": 3,
   "c1a": "holds",
   "c1b": "holds",
   "claim": "C1",
@@ -1787,6 +1805,11 @@ window.DATA = {
    }
   ],
   "near_coverage_pct": 89.06,
+  "near_live_caps_usd": {
+   "count": 6,
+   "max": "300000.00",
+   "min": "5000.00"
+  },
   "near_score_pct": 98.92,
   "near_undetermined_pct": 1.08,
   "near_zero_bar_cases": [
@@ -1798,6 +1821,16 @@ window.DATA = {
    "Solana",
    "Aptos"
   ],
+  "peer_listings": {
+   "listing_tvl_usd": "14190817236.71",
+   "live": 14,
+   "live_tvl_pct": 55.08,
+   "none_found": 11,
+   "none_found_tvl_pct": 15.14,
+   "total": 40,
+   "undetermined": 15,
+   "undetermined_tvl_pct": 29.78
+  },
   "peer_median_coverage_pct": 41.79,
   "registered": false,
   "rows_changed": [
@@ -1807,7 +1840,8 @@ window.DATA = {
    "Solana/jito-liquid-staking"
   ],
   "verdict": "can't tell",
-  "without_the_cant_tell_rule": "holds"
+  "without_the_cant_tell_rule": "holds",
+  "zero_bar_bands": 1
  },
  "c2": {
   "claim": "C2",

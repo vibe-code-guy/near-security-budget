@@ -12,17 +12,28 @@ and a pipeline anyone can re-run without credentials.
 > and who can stop or change the contracts, relative to the value they secure.
 
 Three claims, each written as "NEAR meets the peer bar" (peers: Solana, Sui,
-Aptos, Base), were fixed with kill criteria **before** the data was pulled:
+Aptos, Base), were fixed with kill criteria **before** the data was pulled.
 
-| Claim | Question | Status |
-|---|---|---|
-| C1 Bounty coverage | Are NEAR's ten largest protocols covered by public bug bounties as well as peers', size for size? | computed, with a sensitivity run (lookups are incomplete, see below) |
-| C2 Incident record | Has NEAR lost no more to hacks over 24 months, relative to the value it held? | computed |
-| C3 Control | Can a single signer upgrade or drain `intents.near` or the largest NEAR protocols, and is there an upgrade delay? | computed |
+## What the data shows
 
-The claims, tests, limits and the author's conflict of interest are in
-[`THESIS.md`](THESIS.md). Verdicts are the registered kill criteria applied by
-code to the numbers; nothing is scored by hand.
+On bounty coverage NEAR is at or above these peers. The gap is in the loss
+record and in control. The security discount comes from those two, not from
+bounty spending.
+
+| Claim | Verdict | Deciding number | Bar it was tested against |
+|---|---|---|---|
+| C1 Bounty coverage | **HOLDS**, with a caveat: can't tell under the stricter reading; the peer bar is zero in two of three size bands | 89.06% of NEAR's top-10 TVL has a live public bounty; size-matched score 98.92% | peer median 41.79% minus 10 points; 50% |
+| C2 Incident record | **FAILS** | NEAR lost 8.38% of its average TVL per year over 24 months | peer median 2.37% to 2.77% (Sui is worse than NEAR at 9.97%) |
+| C3 Control | **FAILS** | one key on the Sputnik factory can replace the DAO that owns `intents.near`; that one-signer path covers 44.0% of assessed TVL; 0% sits behind an enforced upgrade delay | no one-signer path; delay on more than 50% |
+
+What would close the gap: an enforced upgrade delay; removing the Sputnik
+factory path (deploy the merged fix, or turn `auto_update` off on the three
+DAOs that have it on); and, as a lesser point, a larger critical bounty cap.
+
+The author expected C1 to fail. It did not. The claims, tests, evidence for and
+against, limits, the author's conflict of interest and every change made after
+registration are in [`THESIS.md`](THESIS.md). Verdicts are the registered kill
+criteria applied by code to the numbers; nothing is scored by hand.
 
 ## The problem
 
