@@ -4010,7 +4010,8 @@ window.DATA = {
    "Addition to section 7 (2026-11-14)",
    "L2BEAT comparison",
    "Case-study data source",
-   "Author line"
+   "Author line",
+   "No separate notice about the Sputnik factory path"
   ],
   "limits": [
    "Fifty-one listings and five chains. Nothing here shows that a bounty, an audit or a delay causes fewer losses.",

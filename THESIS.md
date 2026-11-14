@@ -648,6 +648,14 @@ counted, and say which way that leans.
     before registration. The responses are cached in `data/raw/nearblocks/`.
 13. **Author line.** The line "Author: Vibe Code Guy, bug bounty hunter" was
     added under the title on 2026-11-14. The registered text named no author.
+14. **No separate notice about the Sputnik factory path.** The author notified
+    nobody before publication. The mechanism was already public: the
+    hackathon project Docket had described it, and the fix is the public pull
+    request near-daos/sputnik-dao-contract #233 (merged 2026-03-24). The source
+    itself describes factory updates as a design choice. Section 8 says an
+    apparently unintended privilege is reported to the project first and
+    withheld until resolved; nothing was withheld here, because this is a
+    documented and already public design choice, not a new finding.
 
 ## Appendix A. What was verified before registering (2026-11-13)
 

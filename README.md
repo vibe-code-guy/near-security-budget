@@ -171,7 +171,10 @@ the `.md` and `.ots` files on https://opentimestamps.org.
 | `registration/` | The registered text and its OpenTimestamps proof |
 
 GitHub Pages can serve the dashboard from the `site/` folder once the
-repository is public; it is not enabled.
+repository is public. The workflow `.github/workflows/pages.yml` does it, and
+stays idle until the owner turns it on: set Pages' source to "GitHub Actions"
+in the repository settings, then either add the repository variable
+`PAGES_ENABLED = true` or run the workflow by hand.
 
 ## Libraries used
 
