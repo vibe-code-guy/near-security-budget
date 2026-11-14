@@ -11,7 +11,7 @@ def main() -> None:
     print("C2 sensitivity (not registered), same rule on the wider base:", sens["same_rule_on_wide_base"])
     c2.audits()
     c2.losses_vs_fees()
-    for name in ("c1", "c3", "site"):
+    for name in ("c1", "c3", "timeline", "site"):
         try:
             mod = __import__(f"pipeline.{name}", fromlist=["run"])
         except ModuleNotFoundError:

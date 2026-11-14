@@ -1,0 +1,34 @@
+{
+ "dao_release_registration_to_mainnet_upgrade_minutes": 343,
+ "detection_to_fix_deployed_minutes": 2187,
+ "detection_to_pause_minutes": 29,
+ "first_withdrawal_to_detection_minutes": 2390,
+ "fix_caller": "8e69c33b572dad1f2da6f744c834705e651d3784af2471b58949f2fefd5b55d3",
+ "inputs": {
+  "detected": "2026-10-01 08:04 (postmortem)",
+  "first_withdrawal": "2026-09-29 16:14 (postmortem)",
+  "fix": "2026-10-02 20:31:41 (chain)",
+  "pause": "2026-10-01 08:33:13 (chain)",
+  "release_registered": "2026-10-02 14:48:31 (chain)"
+ },
+ "pause_caller": "c98fb45fe2941904f763ff4c2fa2b621b5eb9a57f8daf420679957c08c1a1c34",
+ "sources": {
+  "chain": {
+   "label": "NEAR mainnet transaction",
+   "url": "https://nearblocks.io/txns/"
+  },
+  "postmortem": {
+   "label": "Official postmortem by the NEAR Intents GM (X article)",
+   "note": "Published 2026-10-16 15:56:53 UTC (post timestamp). Read in a browser on 2026-11-14. It gives times without a timezone; its 08:33 pause, 11:20 unpause, 20:31 fix and 20:38 unpause match on-chain transactions in UTC to the minute, so its times are read as UTC.",
+   "url": "https://x.com/AlexAuroraDev/status/2111124226962870770"
+  },
+  "return_request": {
+   "label": "GM's public message to the attacker",
+   "url": "https://x.com/AlexAuroraDev/status/2105814573152661894"
+  },
+  "statement": {
+   "label": "First public statement by @near_intents",
+   "url": "https://x.com/near_intents/status/2105642219357241796"
+  }
+ }
+}

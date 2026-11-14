@@ -539,6 +539,30 @@
    "retrieved_at": "2026-11-13T11:50:47Z",
    "sha256": "a1e98b9f97d18fc428e63896fca02e4f1ba2a544465b471a8b10e9da7df078a9",
    "source": "NEAR RPC view calls on zzxbzz.near via https://free.rpc.fastnear.com"
+  },
+  "data/raw/nearblocks/ctl-intents.near_txns.json": {
+   "bytes": 35591,
+   "http_status": 200,
+   "note": "Explorer API, used only for the case-study timeline. Retrieved once by hand; `make data` does not refresh it.",
+   "retrieved_at": "2026-11-13T11:53:53Z",
+   "sha256": "1a176c81ad92c5887bbc24c302ab6d46ea028fc75ab935d785928261b04d13e8",
+   "source": "GET https://api.nearblocks.io/v1/account/ctl-intents.near/txns?per_page=25&order=desc"
+  },
+  "data/raw/nearblocks/intents.near_pa_pause_feature.json": {
+   "bytes": 17373,
+   "http_status": 200,
+   "note": "Explorer API, used only for the case-study timeline. Retrieved once by hand; `make data` does not refresh it.",
+   "retrieved_at": "2026-11-13T11:53:56Z",
+   "sha256": "eed2820f988fee4e2169aa25a8c6083b670a74bd482685090f8b5d6059905bbf",
+   "source": "GET https://api.nearblocks.io/v1/account/intents.near/txns?method=pa_pause_feature&per_page=25&order=desc"
+  },
+  "data/raw/nearblocks/intents.near_pa_unpause_feature.json": {
+   "bytes": 8281,
+   "http_status": 200,
+   "note": "Explorer API, used only for the case-study timeline. Retrieved once by hand; `make data` does not refresh it.",
+   "retrieved_at": "2026-11-13T11:53:58Z",
+   "sha256": "51c9805de0da5b65a132ec1684edc5bb5d5db53f70fa1832b246264811007dc0",
+   "source": "GET https://api.nearblocks.io/v1/account/intents.near/txns?method=pa_unpause_feature&per_page=25&order=desc"
   }
  }
 }

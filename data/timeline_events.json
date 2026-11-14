@@ -1,0 +1,32 @@
+{
+ "_comment": "Case study: the 2026-10-01 NEAR Intents exploit. Rows with 'tx' take their time, method, caller and receiver from the cached explorer responses in data/raw/nearblocks/ (pipeline/timeline.py); the hand-written part is only the description. Rows with 'time' are copied from the named source. All times UTC.",
+ "sources": {
+  "postmortem": {"label": "Official postmortem by the NEAR Intents GM (X article)", "url": "https://x.com/AlexAuroraDev/status/2111124226962870770",
+                 "note": "Published 2026-10-16 15:56:53 UTC (post timestamp). Read in a browser on 2026-11-14. It gives times without a timezone; its 08:33 pause, 11:20 unpause, 20:31 fix and 20:38 unpause match on-chain transactions in UTC to the minute, so its times are read as UTC."},
+  "statement": {"label": "First public statement by @near_intents", "url": "https://x.com/near_intents/status/2105642219357241796"},
+  "return_request": {"label": "GM's public message to the attacker", "url": "https://x.com/AlexAuroraDev/status/2105814573152661894"},
+  "chain": {"label": "NEAR mainnet transaction", "url": "https://nearblocks.io/txns/"}
+ },
+ "events": [
+  {"time": "2026-01-13", "precision": "day", "source": "postmortem", "what": "A bug bounty report about a similar third-party call feature is submitted; the postmortem says it was fixed on mainnet within two days and not exploited (13 to 15 January)."},
+  {"time": "2026-09-29 16:14", "precision": "minute", "source": "postmortem", "what": "First attacker withdrawal through the Omni infrastructure. The postmortem dates the withdrawals from 29 Sep 16:14 to 1 Oct 05:54, about $3.8M in total, after 23 failing deposit transactions had created unbacked balances. Not checked against chain data here."},
+  {"time": "2026-10-01 05:54", "precision": "minute", "source": "postmortem", "what": "Last attacker withdrawal."},
+  {"time": "2026-10-01 08:04", "precision": "minute", "source": "postmortem", "what": "The problem with withdrawals is identified."},
+  {"tx": "GXpc6rSvxPh42btjginXPsPQnfTGfUuPCp4voA2pKQLr", "file": "intents.near_pa_pause_feature.json", "receiver": "intents.near", "what": "intents.near is paused (all features) by one PauseManager account holding a single key. The postmortem gives 08:33."},
+  {"time": "2026-10-01 08:40", "precision": "minute", "source": "postmortem", "what": "near.com, the main frontend, goes into maintenance mode."},
+  {"tx": "5bGtxP8B3K7YGRHY4PsQyeN1U9oharvrTot8rwWdxE5z", "file": "intents.near_pa_unpause_feature.json", "receiver": "intents.near", "what": "The DAO unpauses the contract and keeps the deposit notification path paused. The postmortem gives 11:20 and says the affected routes stayed paused."},
+  {"time": "2026-10-01 12:53:20", "precision": "second", "source": "statement", "what": "First public statement: services were stopped after a security incident; preliminary loss about $3.8M; users to be compensated in full."},
+  {"time": "2026-10-01 14:00", "precision": "minute", "source": "postmortem", "what": "near.com leaves maintenance mode."},
+  {"time": "2026-10-02 00:18:13", "precision": "second", "source": "return_request", "what": "The GM publicly tells the attacker they have been identified and asks for the funds back."},
+  {"tx": "5yuL92bZ5Z5w2FW4Zu8Ewy2NrzmHDA49Tm2iFMsS5Wmu", "file": "ctl-intents.near_txns.json", "receiver": "ctl-intents.near", "what": "The DAO registers a new contract release on the upgrade controller. The staging contract is upgraded to it 18 minutes later."},
+  {"tx": "44S4bXMiGkrhVcz9avSrxJFWKRbkBaNr3LHLuD31TitH", "file": "ctl-intents.near_txns.json", "receiver": "ctl-intents.near", "what": "The DAO registers a second release on the controller."},
+  {"time": "2026-10-02", "precision": "day", "source": "postmortem", "what": "All funds are returned by the attacker after investigation and negotiation. The postmortem gives no time of day; it says recovery was complete within 36 hours of detection."},
+  {"tx": "FPLaCtdyhKMHBFB6GZB1sexi4e1fJAAyFWSkjJ7XyqrN", "file": "ctl-intents.near_txns.json", "receiver": "ctl-intents.near", "what": "The fix is deployed: one Updater account with a single key calls the controller, which upgrades intents.near to the release the DAO registered. The postmortem gives 20:31."},
+  {"tx": "2BsTYZM5uT5FZhR5DvzMxgLguPYyVjz2zGcdc1SX4bJk", "file": "intents.near_pa_unpause_feature.json", "receiver": "intents.near", "what": "The contract side of deposits is unpaused. The postmortem gives 20:38."},
+  {"tx": "8zkRSZzVmgX1Kdo39dw5zSRajFEfaoa9DVgZeJyyd6fS", "file": "intents.near_pa_pause_feature.json", "receiver": "intents.near", "what": "The deposit notification path is paused again. The postmortem says another critical bug in the same feature was reported on 7 October through the bug bounty and paid $300,000."},
+  {"tx": "4uPKyNQTmTAa3ijieWxYyLXMHBb1ASaRokEm82HmhWFD", "file": "ctl-intents.near_txns.json", "receiver": "ctl-intents.near", "what": "The DAO registers the release that removes the feature."},
+  {"tx": "f9Ujs8ZxFQLRQDfxvf1q1cp29u3CSXB4zPiWELQTivU", "file": "ctl-intents.near_txns.json", "receiver": "ctl-intents.near", "what": "intents.near is upgraded to that release by the same single Updater key. The postmortem says the feature was removed the same day."},
+  {"tx": "5HPJSEW6gbnYVqd9KbHpiY9N61gmySMSC4NfNBr6sEKF", "file": "intents.near_pa_unpause_feature.json", "receiver": "intents.near", "what": "The paused path is unpaused after the upgrade."},
+  {"time": "2026-10-16 15:56:53", "precision": "second", "source": "postmortem", "what": "The postmortem is published. It says the bug was in the NEAR Intents contract, not in Omni, and that monitoring now compares user balances with the contract's holdings and pauses automatically if they diverge."}
+ ]
+}
