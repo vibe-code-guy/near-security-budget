@@ -44,6 +44,7 @@ def run() -> None:
         "universe": universe.load(),
         "c1": opt_json("c1_verdict.json"), "c1_rows": opt_csv("c1_protocols.csv"),
         "c1_bands": opt_csv("c1_bands.csv"), "c1_coverage": opt_csv("c1_coverage.csv"),
+        "c1_sensitivity": opt_json("c1_sensitivity.json"),
         "c2": opt_json("c2_verdict.json"), "c2_rates": opt_csv("c2_loss_rates.csv"),
         "c2_hacks": [r for r in (opt_csv("c2_hacks_attributed.csv") or []) if r["in_24m_window"] == "yes"],
         "c2_sensitivity": opt_json("c2_sensitivity.json"), "c2_sensitivity_rows": opt_csv("c2_sensitivity.csv"),

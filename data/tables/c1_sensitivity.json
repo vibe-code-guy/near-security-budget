@@ -1,0 +1,100 @@
+{
+ "bands": [
+  {
+   "band": "under $100M",
+   "near_at_or_above": "Meta Pool Near, RHEA LST, LiNEAR Protocol, Rhea Dex, KAIO",
+   "near_below": "Jumbo Exchange (undetermined)",
+   "peer_bar_pct": "0.0000",
+   "peers": 10,
+   "peers_with_a_bounty": 4
+  },
+  {
+   "band": "$100M to $1B",
+   "near_at_or_above": "Rhea Lend, NEAR Intents, NEAR Bridge",
+   "near_below": "",
+   "peer_bar_pct": "0.0324",
+   "peers": 9,
+   "peers_with_a_bounty": 5
+  },
+  {
+   "band": "over $1B",
+   "near_at_or_above": "",
+   "near_below": "Portal (undetermined)",
+   "peer_bar_pct": "0.0547",
+   "peers": 6,
+   "peers_with_a_bounty": 5
+  }
+ ],
+ "c1a": "holds",
+ "c1b": "holds",
+ "claim": "C1",
+ "coverage": [
+  {
+   "chain": "Near",
+   "coverage_pct": "89.06",
+   "live": 6,
+   "none_found": 2,
+   "top10_tvl_usd": "474788835.15",
+   "undetermined": 2,
+   "undetermined_pct": "1.08"
+  },
+  {
+   "chain": "Solana",
+   "coverage_pct": "34.59",
+   "live": 4,
+   "none_found": 3,
+   "top10_tvl_usd": "7657234168.10",
+   "undetermined": 3,
+   "undetermined_pct": "40.02"
+  },
+  {
+   "chain": "Sui",
+   "coverage_pct": "48.98",
+   "live": 5,
+   "none_found": 4,
+   "top10_tvl_usd": "480692581.98",
+   "undetermined": 1,
+   "undetermined_pct": "10.96"
+  },
+  {
+   "chain": "Aptos",
+   "coverage_pct": "0.00",
+   "live": 0,
+   "none_found": 4,
+   "top10_tvl_usd": "48425658.00",
+   "undetermined": 6,
+   "undetermined_pct": "75.20"
+  },
+  {
+   "chain": "Base",
+   "coverage_pct": "82.13",
+   "live": 5,
+   "none_found": 0,
+   "top10_tvl_usd": "6004464828.63",
+   "undetermined": 5,
+   "undetermined_pct": "17.87"
+  }
+ ],
+ "near_coverage_pct": 89.06,
+ "near_score_pct": 98.92,
+ "near_undetermined_pct": 1.08,
+ "near_zero_bar_cases": [
+  "LiNEAR Protocol",
+  "KAIO"
+ ],
+ "note": "Sensitivity only: rows under rule b, and Jito, counted as undetermined instead of zero.",
+ "peer_chains_over_20pct_undetermined": [
+  "Solana",
+  "Aptos"
+ ],
+ "peer_median_coverage_pct": 41.79,
+ "registered": false,
+ "rows_changed": [
+  "Solana/sanctum-validator-lsts",
+  "Solana/binance-staked-sol",
+  "Aptos/decibel",
+  "Solana/jito-liquid-staking"
+ ],
+ "verdict": "can't tell",
+ "without_the_cant_tell_rule": "holds"
+}

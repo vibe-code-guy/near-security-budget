@@ -425,6 +425,53 @@ Sections 1 to 8 are unchanged. Additions made after the registration commit
    `funds_at_risk_pct`, so that the registered rule min(cap, percentage x total
    TVL) can be computed rather than typed in. It also carries the listing's
    DefiLlama URL and TVL figures for the author's convenience.
+3. **Who filled the bounty table (2026-11-14).** Sections 4 and 5 say the table
+   is filled by hand by the author. It was not. It was filled on 2026-11-14 by
+   an AI assistant with web access. The author opened four programme pages
+   himself (Rhea Finance, NEAR Intents: Smart Contracts, NEAR Intents: Bridges,
+   Meta Pool) and the maximums in the table match them. No other row was
+   checked by a person. The registered lookup order (Immunefi, HackenProof,
+   Cantina, Sherlock, HackerOne, security page, `SECURITY.md`) was not completed
+   on every row; `checked_sources` and `notes` say what was actually covered per
+   row, and 24 of 51 rows were entered as "not checked".
+4. **How unfinished and not-live rows count in C1 (decided 2026-11-14, after
+   the table was seen).** Applied the same way on every chain; the rows are in
+   `data/bounty_status_rules.json`.
+   - **Rule a. Not a live public bounty, counts as zero:** a paused programme
+     (LiNEAR Protocol on NEAR), an invite-only programme (Haedal Protocol,
+     Bucket Protocol V2 and Bucket CDP on Sui), a programme announced as coming
+     soon (Echelon Market on Aptos), a programme whose scope does not include
+     the row's chain (TruStake and PancakeSwap AMM on Aptos), and a programme
+     link that returns 404 (Jito Liquid Staking on Solana).
+   - **Rule b. Nothing found, but one source not covered, counts as zero and is
+     labelled "none found, search incomplete":** Sanctum Validator LSTs and
+     Binance Staked SOL on Solana, Decibel on Aptos.
+   - **Rule c. Every other row entered as "not checked" is undetermined for the
+     can't-tell rule, never zero:** Portal, Jumbo Exchange and HERE Wallet
+     staking on NEAR; SpringSui on Sui; Amnis Finance, Propbase, Thala LSD,
+     Yield AI and Hyperion on Aptos; Grove Finance, Spark Liquidity Layer, Aero
+     Slipstream, Aerodrome Slipstream and Aera V3 on Base. (For Spark Liquidity
+     Layer the only note is that the SparkLend programme's scope page did not
+     list Base; that is a different product's programme, so the row is left
+     undetermined rather than zeroed under rule a.)
+
+   Rules a and b turn unfinished or dead-end lookups on peer chains into zeros.
+   That lowers the peer bar and peer coverage, which favours NEAR.
+5. **C1 sensitivity (not registered, added 2026-11-14).** C1 is also computed
+   with the three rows of rule b, and Jito, counted as undetermined instead of
+   zero. The result is reported next to the main verdict
+   (`data/tables/c1_sensitivity.json`).
+6. **Uniswap caps.** The Uniswap programme page gives a different critical
+   maximum per version. Each listing uses its own version's figure (V2
+   $500,000; V3 $2,250,000; V4 $15,500,000), not the page headline. The
+   registered "higher figure" rule is for a page that contradicts itself, which
+   this is not.
+7. **NEAR Bridge scope.** The HackenProof "NEAR Intents: Bridges" programme
+   names the repository `Near-One/omni-bridge`, not the account
+   `omni.bridge.near`. The contract's own source metadata, read by view call for
+   C3, names that repository and a commit, so the row counts as covered. The
+   metadata is self-reported; the build was not reproduced. `pipeline/c1.py`
+   re-checks this against the cached call.
 
 ## Appendix A. What was verified before registering (2026-11-13)
 

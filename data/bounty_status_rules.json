@@ -1,0 +1,34 @@
+{
+ "_comment": "Decisions made on 2026-11-14 AFTER the bounty table was seen (THESIS.md section 10). They say how rows entered as 'not checked' or 'undetermined' count in C1. Applied the same way on every chain. Keys are chain/slug.",
+ "not_live_counts_as_zero": {
+  "label": "not a live public bounty",
+  "rows": {
+   "Near/linear-protocol": "HackenProof programme is paused and not accepting submissions",
+   "Sui/haedal-protocol": "HackenProof programme is invite-only",
+   "Sui/bucket-protocol-v2": "HackenProof programme is invite-only",
+   "Sui/bucket-cdp": "HackenProof programme is invite-only",
+   "Aptos/echelon-market": "programme advertised as coming soon; no programme page exists",
+   "Aptos/trustake": "the programme's scope covers other chains, not Aptos",
+   "Aptos/pancakeswap-amm": "the programme's scope does not name Aptos",
+   "Solana/jito-liquid-staking": "the programme link in the repository returns 404 and no listing exists"
+  }
+ },
+ "none_found_search_incomplete": {
+  "label": "none found, search incomplete",
+  "rows": {
+   "Solana/sanctum-validator-lsts": "nothing found; HackerOne not checked",
+   "Solana/binance-staked-sol": "nothing found; Binance's own security page and GitHub not located",
+   "Aptos/decibel": "nothing found; GitHub SECURITY.md not located"
+  }
+ },
+ "sensitivity_undetermined_instead_of_zero": [
+  "Solana/sanctum-validator-lsts", "Solana/binance-staked-sol", "Aptos/decibel", "Solana/jito-liquid-staking"
+ ],
+ "scope_checks": {
+  "Near/near-bridge": {
+   "claim": "The HackenProof 'NEAR Intents: Bridges' programme names the repository Near-One/omni-bridge, not the account omni.bridge.near.",
+   "check": {"account": "omni.bridge.near", "call": "contract_source_metadata", "link_contains": "github.com/Near-One/omni-bridge"},
+   "result_if_passes": "The contract's own NEP-330 source metadata names that repository and a commit, so the row is treated as covered. The metadata is self-reported; the build was not reproduced."
+  }
+ }
+}

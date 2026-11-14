@@ -129,12 +129,12 @@ function hover(el) {
     el.innerHTML = `<div class="card"><p>${verdict(null)}</p><p>This claim needs the bounty terms of 51 listings, read by hand from Immunefi, HackenProof, Cantina, Sherlock, HackerOne and each protocol's own security page. The table <code>data/bounties.csv</code> is not filled yet, so nothing is computed and no number is shown.</p></div>`;
     return;
   }
-  const rows = D.c1_rows, W = 960, H = 440, m = {l: 64, r: 20, t: 16, b: 78};
-  const live = rows.filter(r => +r.effective_max_usd > 0), none = rows.filter(r => !(+r.effective_max_usd > 0));
+  const rows = D.c1_rows, W = 960, H = 470, m = {l: 84, r: 20, t: 16, b: 108};
+  const live = rows.filter(r => r.status === "live"), none = rows.filter(r => r.status === "none_found"), undet = rows.filter(r => r.status === "undetermined");
   const lx = v => Math.log10(v), x0 = 5.5, x1 = 10.3, y0 = 3.5, y1 = 7.6;
   const X = v => m.l + (lx(v) - x0) / (x1 - x0) * (W - m.l - m.r), Y = v => H - m.b - (lx(v) - y0) / (y1 - y0) * (H - m.b - m.t);
-  const shape = (c, x, y, tipText, fill) => {
-    const a = `data-tip="${tipText}" fill="${fill}" stroke="var(--surface)" stroke-width="2"`;
+  const shape = (c, x, y, tipText, fill, hollow) => {
+    const a = hollow ? `data-tip="${tipText}" fill="var(--surface)" stroke="${fill}" stroke-width="2"` : `data-tip="${tipText}" fill="${fill}" stroke="var(--surface)" stroke-width="2"`;
     if (c === "Near") return `<circle cx="${x}" cy="${y}" r="7" ${a}/>`;
     if (c === "Solana") return `<rect x="${x - 6}" y="${y - 6}" width="12" height="12" ${a}/>`;
     if (c === "Sui") return `<path d="M${x},${y - 8}L${x + 7.5},${y + 6}L${x - 7.5},${y + 6}Z" ${a}/>`;
@@ -142,18 +142,21 @@ function hover(el) {
     return `<path d="M${x - 7},${y - 3}h4v-4h6v4h4v6h-4v4h-6v-4h-4Z" ${a}/>`;
   };
   let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Maximum critical bounty against total TVL, log-log">`;
-  for (let e = 6; e <= 10; e++) s += `<line class="grid" x1="${X(10 ** e)}" x2="${X(10 ** e)}" y1="${m.t}" y2="${H - m.b + 44}"/><text x="${X(10 ** e)}" y="${H - 8}" text-anchor="middle">${usd(10 ** e)}</text>`;
+  for (let e = 6; e <= 10; e++) s += `<line class="grid" x1="${X(10 ** e)}" x2="${X(10 ** e)}" y1="${m.t}" y2="${H - m.b + 74}"/><text x="${X(10 ** e)}" y="${H - 8}" text-anchor="middle">${usd(10 ** e)}</text>`;
   for (let e = 4; e <= 7; e++) s += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${Y(10 ** e)}" y2="${Y(10 ** e)}"/><text x="${m.l - 8}" y="${Y(10 ** e) + 4}" text-anchor="end">${usd(10 ** e)}</text>`;
   const stripY = H - m.b + 30;
-  s += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${stripY}" y2="${stripY}" stroke-dasharray="3 4"/><text x="${m.l - 8}" y="${stripY + 4}" text-anchor="end">none</text>`;
-  const t = r => `<b>${esc(r.protocol)}</b> (${esc(r.chain)})<br>Total TVL ${usd(r.total_tvl_usd)}<br>Max critical ${+r.effective_max_usd > 0 ? usd(r.effective_max_usd) : "none found"}<br>Status: ${esc(r.status)}`;
+  s += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${stripY}" y2="${stripY}" stroke-dasharray="3 4"/><text x="${m.l - 8}" y="${stripY + 4}" text-anchor="end">none found</text>`;
+  const stripU = stripY + 30;
+  s += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${stripU}" y2="${stripU}" stroke-dasharray="3 4"/><text x="${m.l - 8}" y="${stripU + 4}" text-anchor="end">not checked</text>`;
+  const t = r => `<b>${esc(r.protocol)}</b> (${esc(r.chain)})<br>Total TVL ${usd(r.total_tvl_usd)}<br>Max critical ${r.status === "live" ? usd(r.effective_max_usd) : "\u2013"}<br>${esc(r.status_label)}`;
   none.forEach(r => s += shape(r.chain, X(Math.max(+r.total_tvl_usd, 4e5)), stripY, t(r), col(r.chain)));
+  undet.forEach(r => s += shape(r.chain, X(Math.max(+r.total_tvl_usd, 4e5)), stripU, t(r), col(r.chain), true));
   live.forEach(r => s += shape(r.chain, X(Math.max(+r.total_tvl_usd, 4e5)), Y(+r.effective_max_usd), t(r), col(r.chain)));
-  s += `<text x="${(m.l + W - m.r) / 2}" y="${H - 26}" text-anchor="middle">Total TVL of the listing (log scale)</text></svg>`;
-  const c = D.c1;
+  s += `</svg>`;
+  const c = D.c1, sv = D.c1_sensitivity;
   el.innerHTML = `<p>${verdict(c.verdict)}</p>
   <div class="card"><h3>Maximum critical payout against TVL, ${rows.length} listings</h3>
-  <p class="what">Each mark is one protocol: how much it holds (across) and the most it publicly offers for a critical bug (up); listings with no bounty found sit on the bottom strip.</p>
+  <p class="what">Each mark is one protocol: how much it holds (across) and the most it publicly offers for a critical bug (up). Listings with no live public bounty sit on the first strip below the plot; hollow marks on the second strip were not checked and are undetermined.</p>
   <div class="legend">${Object.keys(CH).map(k => `<span><i style="background:${col(k)}"></i>${k}</span>`).join("")}</div>${s}
   ${query("Query behind this chart", "GET https://api.llama.fi/protocols  (total TVL per listing, frozen in data/universe.csv)\ndata/bounties.csv  (hand-filled from the public programme pages; one row per listing)\neffective maximum = min(published cap, percentage of funds at risk x total TVL)\nCode: pipeline/c1.py")}</div>
   <div class="card"><h3>Kill criteria</h3>${table([
@@ -161,7 +164,13 @@ function hover(el) {
     [["C1a coverage share of top-10 TVL", pct(c.near_coverage_pct, 1), "peer median " + pct(c.peer_median_coverage_pct, 1) + " minus 10 points", c.c1a],
      ["C1b share of top-10 TVL at or above the size-matched peer bar", pct(c.near_score_pct, 1), "50%", c.c1b]])}
   <h3>Coverage by chain</h3>${table([{h: "Chain", f: r => esc(r.chain)}, {h: "Top-10 TVL", f: r => usd(r.top10_tvl_usd), num: 1}, {h: "Covered by a live bounty", f: r => pct(r.coverage_pct, 1), num: 1}, {h: "Undetermined", f: r => pct(r.undetermined_pct, 1), num: 1}], D.c1_coverage)}
-  <h3>Size bands and peer bars</h3>${table([{h: "Band (total TVL)", f: r => esc(r.band)}, {h: "Peer listings", f: r => r.peers, num: 1}, {h: "Peer median bounty / TVL", f: r => pct(r.peer_bar_pct, 3), num: 1}, {h: "NEAR listings at or above", f: r => esc(r.near_at_or_above)}, {h: "NEAR listings below", f: r => esc(r.near_below)}], D.c1_bands)}</div>`;
+  <h3>Size bands and peer bars</h3>${table([{h: "Band (total TVL)", f: r => esc(r.band)}, {h: "Peer listings setting the bar", f: r => r.peers, num: 1}, {h: "Of which with a live bounty", f: r => r.peers_with_a_bounty, num: 1}, {h: "Peer median bounty / TVL (the bar)", f: r => pct(r.peer_bar_pct, 4), num: 1}, {h: "NEAR listings at or above", f: r => esc(r.near_at_or_above)}, {h: "NEAR listings below", f: r => esc(r.near_below)}], D.c1_bands)}
+  <p class="note">A bar of 0.0000% means the median peer in that band has no live public bounty, so any NEAR listing clears it, including one with no bounty. NEAR listings that cleared a zero bar with no bounty of their own: ${c.near_zero_bar_cases.map(esc).join(", ") || "none"}.</p></div>
+  <div class="card"><h3>Sensitivity to how unfinished lookups are counted <span class="tag">not registered</span></h3>
+  <p class="what">The bounty table was filled with an AI assistant and several lookups are incomplete. In the main result, rows where nothing was found but one source was not covered (${c.rows_by_rule.b.map(esc).join(", ")}) and Jito (dead programme link) count as zero. Counting those four as undetermined instead gives: <b>${esc(sv.verdict)}</b> under the registered rule, because undetermined rows then exceed 20% of top-10 TVL on ${sv.peer_chains_over_20pct_undetermined.map(esc).join(" and ")}. Ignoring that rule, the two tests would read: C1a ${esc(sv.c1a)}, C1b ${esc(sv.c1b)}. Counting unfinished lookups as zero lowers the peer bar, which favours NEAR.</p>
+  ${table([{h: "Chain", f: r => esc(r.chain)}, {h: "Covered by a live bounty", f: r => pct(r.coverage_pct, 1), num: 1}, {h: "Undetermined share of top-10 TVL", f: r => pct(r.undetermined_pct, 1), num: 1}], sv.coverage)}
+  ${table([{h: "Band (total TVL)", f: r => esc(r.band)}, {h: "Peer listings setting the bar", f: r => r.peers, num: 1}, {h: "Peer median bounty / TVL", f: r => pct(r.peer_bar_pct, 4), num: 1}, {h: "NEAR listings at or above", f: r => esc(r.near_at_or_above)}], sv.bands)}</div>
+  <div class="card"><h3>All ${rows.length} listings</h3>${table([{h: "Chain", f: r => esc(r.chain)}, {h: "Protocol", f: r => r.url ? `<a href="${esc(r.url)}">${esc(r.protocol)}</a>` : esc(r.protocol)}, {h: "Total TVL", f: r => usd(r.total_tvl_usd), num: 1}, {h: "Counted as", f: r => esc(r.status_label)}, {h: "Effective max critical", f: r => r.status === "live" ? usd(r.effective_max_usd) : "\u2013", num: 1}, {h: "Bounty / TVL", f: r => r.ratio_pct ? pct(r.ratio_pct, 4) : "\u2013", num: 1}, {h: "Payout token, vesting", f: r => `<span class="note">${esc([r.payout_token, r.vesting].filter(Boolean).join("; "))}</span>`}], rows)}</div>`;
   hover(el);
 })();
 

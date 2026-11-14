@@ -16,7 +16,7 @@ Aptos, Base), were fixed with kill criteria **before** the data was pulled:
 
 | Claim | Question | Status |
 |---|---|---|
-| C1 Bounty coverage | Are NEAR's ten largest protocols covered by public bug bounties as well as peers', size for size? | pending: needs the hand-filled `data/bounties.csv` |
+| C1 Bounty coverage | Are NEAR's ten largest protocols covered by public bug bounties as well as peers', size for size? | computed, with a sensitivity run (lookups are incomplete, see below) |
 | C2 Incident record | Has NEAR lost no more to hacks over 24 months, relative to the value it held? | computed |
 | C3 Control | Can a single signer upgrade or drain `intents.near` or the largest NEAR protocols, and is there an upgrade delay? | computed |
 
@@ -44,6 +44,8 @@ Requirements: Python 3.9 or newer. Nothing to install, no API keys, no wallet.
    `python -m pipeline build && python -m unittest discover -s tests -q`).
    See: the lines `C2: fails | NEAR lower/upper %/yr: 8.378968 8.378968 | peer
    median: 2.374327 2.765235`, `C3a: fails | C3b: fails | C3: fails`,
+   `C1a: holds | C1b: holds | C1: holds | coverage NEAR 89.06% vs peer median
+   41.79% | score 98.92%`, `C1 sensitivity (not registered): can't tell`,
    `site/data.js written`, and the tests ending in `OK`. `git status` shows no
    changed files: the committed tables and dashboard data are exactly what the
    code produces.
@@ -138,7 +140,8 @@ the `.md` and `.ots` files on https://opentimestamps.org.
 | `pipeline/` | `fetch.py` (`make data`), `universe.py`, `c2.py`, `c3.py`, `timeline.py`, `site.py`, `build.py` |
 | `tests/` | Unit tests of the attribution, threshold and verdict rules |
 | `data/universe.csv` | The 51 listings, frozen at the first data pull |
-| `data/bounties.csv` | Bounty terms, filled by hand by the author (input to C1) |
+| `data/bounties.csv` | Bounty terms per listing (input to C1). Filled on 2026-11-14 by an AI assistant with web access, not by hand; the author checked the four NEAR programme pages himself. 24 of 51 rows were entered as "not checked" |
+| `data/bounty_status_rules.json` | How not-live and unfinished rows count in C1, decided after the table was seen (`THESIS.md` section 10) |
 | `data/c3_targets.json`, `data/c3_findings.json` | Accounts read for C3, and the hand-read control trace |
 | `data/timeline_events.json` | Case-study rows and their sources |
 | `data/raw/` | Cached raw responses and `manifest.json` (source, retrieval time, SHA-256, block height) |
@@ -167,9 +170,12 @@ repository is public; it is not enabled.
 ## How this was built
 
 Claude Code (Anthropic's coding agent) wrote the code and drafted the documents
-in this repository under the author's direction. The author chose the thesis,
-approved the claims and kill criteria, and filled the bounty table by hand.
-Commits carry no co-author line, so this section is the disclosure.
+in this repository under the author's direction. The author chose the thesis
+and approved the claims and kill criteria. The bounty table was filled by an AI
+assistant with web access, not by hand; the author opened the four NEAR
+programme pages himself (Rhea, NEAR Intents, NEAR Intents: Bridges, Meta Pool)
+and the maximums match. Commits carry no co-author line, so this section is the
+disclosure.
 
 ## License
 

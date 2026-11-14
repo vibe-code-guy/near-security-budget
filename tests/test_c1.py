@@ -45,6 +45,34 @@ class Bands(unittest.TestCase):
         self.assertEqual(c1.band_label([1]), "$10M to $100M")
 
 
+RULES = {"not_live_counts_as_zero": {"label": "not a live public bounty", "rows": {"Sui/x": "invite-only", "Solana/j": "dead link"}},
+         "none_found_search_incomplete": {"label": "none found, search incomplete", "rows": {"Solana/s": "one source not checked"}},
+         "sensitivity_undetermined_instead_of_zero": ["Solana/s", "Solana/j"]}
+
+
+class StatusRules(unittest.TestCase):
+    def test_rule_a_not_live_counts_as_zero(self):
+        self.assertEqual(c1.resolve_status("not checked", "Sui/x", RULES)[::2], ("none_found", "a"))
+        self.assertEqual(c1.resolve_status("undetermined", "Sui/x", RULES)[::2], ("none_found", "a"))
+
+    def test_rule_b_incomplete_search_counts_as_zero_with_label(self):
+        status, label, rule = c1.resolve_status("not checked", "Solana/s", RULES)
+        self.assertEqual((status, rule), ("none_found", "b"))
+        self.assertIn("search incomplete", label)
+
+    def test_rule_c_other_unchecked_rows_are_undetermined_never_zero(self):
+        self.assertEqual(c1.resolve_status("not checked", "Base/y", RULES)[::2], ("undetermined", "c"))
+
+    def test_entered_statuses_pass_through(self):
+        self.assertEqual(c1.resolve_status("live", "Near/z", RULES)[0], "live")
+        self.assertEqual(c1.resolve_status("none found", "Near/z", RULES)[0], "none_found")
+
+    def test_sensitivity_turns_rule_b_rows_and_jito_into_undetermined(self):
+        self.assertEqual(c1.resolve_status("not checked", "Solana/s", RULES, sensitivity=True)[0], "undetermined")
+        self.assertEqual(c1.resolve_status("not checked", "Solana/j", RULES, sensitivity=True)[0], "undetermined")
+        self.assertEqual(c1.resolve_status("not checked", "Sui/x", RULES, sensitivity=True)[0], "none_found")
+
+
 class Verdict(unittest.TestCase):
     cov = {"Near": 40.0, "Solana": 60.0, "Sui": 50.0, "Aptos": 20.0, "Base": 90.0}
     none = {"Near": 0.0, "Solana": 0.0, "Sui": 0.0, "Aptos": 0.0, "Base": 0.0}

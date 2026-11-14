@@ -1,0 +1,4 @@
+band,peers,peers_with_a_bounty,peer_bar_pct,near_at_or_above,near_below
+under $100M,11,4,0.0000,"Meta Pool Near, RHEA LST, LiNEAR Protocol, Rhea Dex, KAIO",Jumbo Exchange (undetermined)
+$100M to $1B,11,5,0.0000,"Rhea Lend, NEAR Intents, NEAR Bridge",
+over $1B,7,5,0.0241,,Portal (undetermined)

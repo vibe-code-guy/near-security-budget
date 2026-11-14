@@ -1,0 +1,58 @@
+{
+ "c1a": "holds",
+ "c1b": "holds",
+ "claim": "C1",
+ "near_coverage_pct": 89.06,
+ "near_score_pct": 98.92,
+ "near_undetermined_pct": 1.08,
+ "near_zero_bar_cases": [
+  "LiNEAR Protocol",
+  "KAIO"
+ ],
+ "peer_chains_over_20pct_undetermined": [],
+ "peer_median_coverage_pct": 41.79,
+ "rows_by_rule": {
+  "a": [
+   "Aptos/echelon-market",
+   "Aptos/pancakeswap-amm",
+   "Aptos/trustake",
+   "Near/linear-protocol",
+   "Solana/jito-liquid-staking",
+   "Sui/bucket-cdp",
+   "Sui/bucket-protocol-v2",
+   "Sui/haedal-protocol"
+  ],
+  "b": [
+   "Aptos/decibel",
+   "Solana/binance-staked-sol",
+   "Solana/sanctum-validator-lsts"
+  ],
+  "c": [
+   "Aptos/amnis-finance",
+   "Aptos/hyperion",
+   "Aptos/propbase",
+   "Aptos/thala-lsd",
+   "Aptos/yield-ai",
+   "Base/aera-v3",
+   "Base/aero-slipstream",
+   "Base/aerodrome-slipstream",
+   "Base/grove-finance",
+   "Base/spark-liquidity-layer",
+   "Near/here-wallet-staking",
+   "Near/jumbo-exchange",
+   "Near/portal",
+   "Sui/springsui"
+  ]
+ },
+ "scope_checks": {
+  "Near/near-bridge": {
+   "account": "omni.bridge.near",
+   "block_height": 224359413,
+   "confirmed": true,
+   "note": "The contract's own NEP-330 source metadata names that repository and a commit, so the row is treated as covered. The metadata is self-reported; the build was not reproduced.",
+   "source_link": "https://github.com/Near-One/omni-bridge/tree/83e3ac1eeef6b1330744f53d68dd037fa53aab0f"
+  }
+ },
+ "verdict": "holds",
+ "without_the_cant_tell_rule": "holds"
+}
