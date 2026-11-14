@@ -6,123 +6,143 @@
 <title>NEAR security budget</title>
 <style>
 :root{
-  color-scheme:light;
-  --page:#f6f4ee; --panel:#fbfaf6; --ink:#16161a; --ink2:#45443f; --ink3:#7c7a73; --rule:#d6d3c8; --rule2:#e7e4da; --wash:#eeebe2;
-  --accent:#0b5d66; --accent2:#9fc6c9; --peer:#8f8d85; --peer2:#cfccc2;
-  --fail:#a3301c; --hold:#1e6a3a; --cant:#8a5e00; --failbg:#f6ddd6; --okbg:#e9e6dc; --nabg:#f1efe8;
-  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+  color-scheme:dark;
+  --page:#0d0f15; --panel:#171a23; --panel2:#12141b; --ink:#ffffff; --ink2:#b3b9c9; --ink3:#7a8194; --rule:#272b38; --rule2:#22252f; --wash:#1f2330;
+  --accent:#a3e635; --accent2:#4d6b1d; --peer:#7c8498; --peer2:#3b4050; --cyan:#38bdf8; --orange:#fb923c;
+  --fail:#f43f5e; --hold:#a3e635; --cant:#fbbf24; --failbg:#3a1622; --okbg:#1f2330; --nabg:#1a1d27;
+  --serif:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --mono:ui-monospace,"SF Mono","Cascadia Mono",Consolas,"Liberation Mono",Menlo,monospace;
-}
-@media (prefers-color-scheme:dark){
-  :root{
-    color-scheme:dark;
-    --page:#121211; --panel:#191918; --ink:#ecebe6; --ink2:#c2c0b7; --ink3:#8e8c84; --rule:#35342f; --rule2:#272724; --wash:#1f1f1d;
-    --accent:#5fbcc4; --accent2:#2c5f64; --peer:#8a8880; --peer2:#4b4a45;
-    --fail:#ee8a73; --hold:#6cc08a; --cant:#dbab45; --failbg:#3a1d17; --okbg:#262623; --nabg:#1d1d1b;
-  }
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--page);color:var(--ink);font:16px/1.55 var(--sans)}
-a{color:var(--accent);text-underline-offset:2px}
-h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.2;margin:0}
-h1{font-size:36px;letter-spacing:-.01em}
-h2{font-size:27px}
-h3{font-size:18px;line-height:1.25}
+a{color:var(--cyan);text-underline-offset:2px}
+h1,h2,h3{font-family:var(--sans);font-weight:800;line-height:1.2;margin:0}
+h1{font-size:34px;letter-spacing:-.02em}
+h2{font-size:26px;letter-spacing:-.01em}
+h3{font-size:17px;line-height:1.3;font-weight:700}
 p{margin:8px 0;max-width:74ch}
 .num,td.num,th.num,time,code,pre,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);font-weight:700}
 
-nav{position:sticky;top:0;z-index:10;background:var(--page);border-bottom:1px solid var(--rule)}
-nav .in{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:24px;height:46px;overflow-x:auto;white-space:nowrap}
-nav .brand{font-family:var(--serif);font-weight:700;font-size:16px;color:var(--ink);text-decoration:none}
-nav a.l{font-size:14px;color:var(--ink2);text-decoration:none}
+nav{position:sticky;top:0;z-index:10;background:rgba(13,15,21,.94);border-bottom:1px solid var(--rule)}
+nav .in{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:22px;height:54px;overflow-x:auto;white-space:nowrap}
+nav .brand{font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
+nav .brand span{color:var(--accent);font-size:12px;letter-spacing:.2em;margin-left:8px;font-weight:700}
+nav a.l{font-size:13px;color:var(--ink2);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
 nav a.l:hover{color:var(--accent)}
-main{max-width:1240px;margin:0 auto;padding:22px 24px 96px}
-section{scroll-margin-top:60px}
+nav .date{margin-left:auto;font-size:13px;font-weight:700;letter-spacing:.06em;border:1px solid var(--rule);background:var(--panel);border-radius:999px;padding:5px 14px;color:var(--ink)}
+main{max-width:1280px;margin:0 auto;padding:26px 24px 96px}
+section{scroll-margin-top:68px}
 
-.mast{display:grid;grid-template-columns:1fr auto;gap:8px 32px;align-items:end;padding-bottom:14px;border-bottom:2px solid var(--ink)}
-.mast .finding{font-family:var(--serif);font-size:20px;line-height:1.4;color:var(--ink2);max-width:66ch;margin:8px 0 0}
+.mast{display:grid;grid-template-columns:1fr auto;gap:8px 32px;align-items:end;padding-bottom:6px}
+.mast .finding{font-size:19px;line-height:1.45;color:var(--ink2);max-width:66ch;margin:8px 0 0}
 .byline{font-size:14px;color:var(--ink2);text-align:right;line-height:1.6}
-.byline b{color:var(--ink);font-weight:600}
+.byline b{color:var(--ink);font-weight:700}
+.byline .score{font-size:18px;font-weight:800;color:var(--ink)} .byline .score em{font-style:normal;color:var(--accent)}
 
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--rule);margin-top:16px}
-.kpi{padding:13px 16px 13px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);border-top:1px solid var(--rule);margin-top:-1px;background:var(--panel);min-width:0}
-.kpi .l{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);min-height:2.7em;line-height:1.35}
-.kpi .v{font-family:var(--mono);font-size:34px;font-weight:600;line-height:1.1;margin:4px 0 6px;white-space:nowrap}
-.kpi .v small{font-size:16px;font-weight:400;color:var(--ink2)}
-.kpi .c{font-size:14px;color:var(--ink2);line-height:1.4}
-.kpi.bad .v{color:var(--fail)} .kpi.good .v{color:var(--hold)}
+.hero{display:grid;grid-template-columns:5fr 7fr;gap:18px;margin-top:18px}
+.box{background:var(--panel);border:1px solid var(--rule);border-radius:16px;padding:20px 22px;min-width:0}
+.box .t{font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.box .t span{font-size:13px;letter-spacing:0;text-transform:none;font-weight:600;color:var(--ink3)}
+.rings{display:grid;grid-template-columns:210px 1fr;gap:22px;align-items:center;margin-top:12px}
+.rings svg{width:210px;height:210px}
+.rleg div{margin:10px 0;padding-left:20px;position:relative}
+.rleg i{position:absolute;left:0;top:7px;width:11px;height:11px;border-radius:50%}
+.rleg .n{font-size:13px;font-weight:700} .rleg .v{font-size:22px;font-weight:800;font-family:var(--mono)} .rleg .v small{font-size:13px;font-weight:500;color:var(--ink2);font-family:var(--sans)} .rleg .c{font-size:13px;color:var(--ink2);margin-top:2px}
+.foot{font-size:13px;color:var(--ink3);margin-top:10px}
+.chains{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:14px;text-align:center}
+.chains .cn{font-weight:700;font-size:15px;color:var(--ink2)} .chains .cn.me{color:var(--ink)}
+.chains svg{width:84px;height:84px;margin:6px auto 4px;display:block}
+.chains .pv{font-family:var(--mono);font-size:13px;color:var(--ink2);margin-top:6px;line-height:1.4}
+.pillx{display:inline-block;font-size:12px;font-weight:800;border-radius:999px;padding:3px 12px;color:#0d0f15}
+.streak{display:flex;justify-content:space-between;font-size:14px;margin-top:16px;font-weight:700;color:var(--accent)} .streak span{color:var(--ink2);font-weight:500}
+.meter{height:7px;border-radius:99px;background:var(--wash);margin-top:8px;overflow:hidden} .meter i{display:block;height:100%;background:var(--accent);border-radius:99px}
 
-.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:16px;border:1px solid var(--rule);background:var(--panel)}
-.panel{padding:14px 18px;border-right:1px solid var(--rule);min-width:0}
-.panel:last-child{border-right:0}
-.panel .claim{font-size:14px;color:var(--ink2);margin:4px 0 8px;min-height:3em;line-height:1.45}
-.word{font-family:var(--serif);font-size:36px;font-weight:700;line-height:1}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.kpi{padding:16px 18px;border:1px solid var(--rule);border-radius:14px;background:var(--panel2);min-width:0;position:relative}
+.kpi .l{font-size:13px;color:var(--ink2);font-weight:600;min-height:2.7em;line-height:1.35;padding-right:26px}
+.kpi .v{font-size:36px;font-weight:800;line-height:1.1;margin:4px 0 8px;white-space:nowrap;letter-spacing:-.02em}
+.kpi .v small{font-size:16px;font-weight:600;color:var(--ink2)}
+.kpi .c{font-size:13.5px;color:var(--ink2);line-height:1.4}
+.kpi.bad:after,.kpi.good:after{content:"";position:absolute;right:18px;top:20px;width:12px;height:12px;border-left:2.5px solid var(--ink3);border-top:2.5px solid var(--ink3);transform:rotate(45deg)}
+.kpi.bad:after{border-color:var(--fail);transform:rotate(225deg);top:14px} .kpi.good:after{border-color:var(--accent)}
+.kpi.bad .c{color:var(--fail)} .kpi.good .c{color:var(--accent)} .kpi.bad .c,.kpi.good .c{font-weight:600}
+
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.panel{padding:18px 20px;border:1px solid var(--rule);border-radius:16px;background:var(--panel);min-width:0}
+.panel .claim{font-size:14px;color:var(--ink2);margin:6px 0 10px;min-height:3em;line-height:1.45}
+.word{display:inline-block;font-size:15px;font-weight:800;line-height:1;letter-spacing:.06em;border-radius:999px;padding:7px 18px;color:#0d0f15}
+.word .w-fails,.word .w-holds,.word .w-cant{color:#0d0f15}
+.word:has(.w-fails){background:var(--fail);color:#fff} .word:has(.w-fails) span{color:#fff} .word:has(.w-holds){background:var(--hold)} .word:has(.w-cant){background:var(--cant)}
 .w-fails{color:var(--fail)} .w-holds{color:var(--hold)} .w-cant{color:var(--cant)}
-.caveat{font-size:14px;color:var(--ink);margin:6px 0 0;line-height:1.4}
-.decide{margin-top:10px;font-size:14px;color:var(--ink2);line-height:1.4}
-.decide .big{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--ink);margin-right:8px}
+.caveat{font-size:14px;color:var(--ink);margin:10px 0 0;line-height:1.4}
+.decide{margin-top:10px;font-size:14px;color:var(--ink2);line-height:1.45}
+.decide .big{font-size:28px;font-weight:800;color:var(--ink);margin-right:8px;letter-spacing:-.02em}
 
-.sec{margin-top:64px;padding-top:24px;border-top:2px solid var(--ink)}
+.sec{margin-top:64px;padding-top:6px}
 .sechead{display:grid;grid-template-columns:1.1fr 1fr;gap:10px 44px;align-items:start;margin-bottom:8px}
-.sechead .tagline{display:flex;gap:12px;align-items:baseline;margin-bottom:6px;flex-wrap:wrap}
-.pill{font-family:var(--serif);font-weight:700;font-size:16px;letter-spacing:.04em}
+.sechead .tagline{display:flex;gap:12px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+.pill{font-weight:800;font-size:12.5px;letter-spacing:.08em;border-radius:999px;padding:3px 12px;background:var(--wash)}
 .sechead p{margin:0;color:var(--ink2)}
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:18px}
-.card{grid-column:span 6;background:var(--panel);border:1px solid var(--rule);padding:16px 18px 14px;min-width:0}
+.card{grid-column:span 6;background:var(--panel);border:1px solid var(--rule);border-radius:16px;padding:20px 22px 16px;min-width:0}
 .card.w12{grid-column:span 12} .card.w7{grid-column:span 7} .card.w5{grid-column:span 5} .card.w8{grid-column:span 8} .card.w4{grid-column:span 4}
-.card h3{margin-bottom:3px}
-.card .sub{font-size:14px;color:var(--ink2);margin:0 0 8px;max-width:none;line-height:1.45}
+.card h3{margin-bottom:4px}
+.card .sub{font-size:14px;color:var(--ink3);margin:0 0 8px;max-width:none;line-height:1.45}
 .chart{width:100%}
 .src{font-size:12.5px;color:var(--ink3);margin-top:8px}
 details{margin-top:10px;border-top:1px solid var(--rule2)}
 summary{cursor:pointer;padding:8px 0 2px;font-size:14px;color:var(--ink2)}
-pre{margin:6px 0;padding:12px 14px;background:var(--wash);font-size:13px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
-code{font-size:.9em;background:var(--wash);padding:1px 4px}
+pre{margin:6px 0;padding:12px 14px;background:var(--panel2);border:1px solid var(--rule);border-radius:10px;font-size:13px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--ink2)}
+code{font-size:.9em;background:var(--wash);padding:1px 5px;border-radius:4px}
 .scroll{overflow-x:auto} .tall{max-height:440px;overflow-y:auto}
 table{border-collapse:collapse;width:100%;font-size:14px}
-th,td{text-align:left;padding:7px 14px 7px 0;border-bottom:1px solid var(--rule2);vertical-align:top}
-th{position:sticky;top:0;background:var(--panel);font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--ink3);white-space:nowrap}
-th[data-k]{cursor:pointer} th[data-k]:after{content:" \2195";color:var(--peer2)} th.asc:after{content:" \2191";color:var(--ink)} th.desc:after{content:" \2193";color:var(--ink)}
+th,td{text-align:left;padding:8px 14px 8px 0;border-bottom:1px solid var(--rule2);vertical-align:top}
+th{position:sticky;top:0;background:var(--panel);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--rule);white-space:nowrap}
+th[data-k]{cursor:pointer} th[data-k]:after{content:" \2195";color:var(--peer2)} th.asc:after{content:" \2191";color:var(--accent)} th.desc:after{content:" \2193";color:var(--accent)}
 td.num,th.num{text-align:right;padding-right:20px;padding-left:6px;white-space:nowrap}
 td.num:last-child,th.num:last-child{padding-right:0}
 td time,td .num{white-space:nowrap}
+td.num{color:var(--ink)}
 tr.near td:first-child{box-shadow:inset 3px 0 0 var(--accent);padding-left:9px}
-tr.near td{color:var(--ink);font-weight:600}
+tr.near td{color:var(--accent);font-weight:700}
 .small{font-size:14px;color:var(--ink2)}
-.tag{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cant);border:1px solid currentColor;padding:0 5px;white-space:nowrap;font-family:var(--sans);font-weight:600}
-table.matrix td{padding:10px 12px;border-bottom:3px solid var(--panel);border-right:3px solid var(--panel)}
+.tag{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cant);border:1px solid currentColor;padding:1px 7px;border-radius:999px;white-space:nowrap;font-weight:700}
+table.matrix td{padding:10px 12px;border-bottom:4px solid var(--panel);border-right:4px solid var(--panel)}
 table.matrix td:first-child{padding-left:0}
-td.cell{min-width:150px}
-td.c-one{background:var(--failbg)} td.c-multi{background:var(--okbg)} td.c-na{background:repeating-linear-gradient(135deg,var(--nabg) 0 6px,transparent 6px 10px);border:1px dashed var(--rule)}
-.sig{font-family:var(--mono);font-size:22px;font-weight:700;line-height:1.1;display:block}
-.c-one .sig{color:var(--fail)} .c-na .sig{color:var(--ink3);font-weight:600;font-size:15px;font-family:var(--sans)}
+td.cell{min-width:150px;border-radius:12px}
+td.c-one{background:var(--failbg)} td.c-multi{background:var(--okbg)} td.c-na{background:repeating-linear-gradient(135deg,var(--nabg) 0 6px,transparent 6px 10px);outline:1px dashed var(--rule);outline-offset:-3px}
+.sig{font-size:24px;font-weight:800;line-height:1.1;display:block}
+.c-one .sig{color:var(--fail)} .c-na .sig{color:var(--ink3);font-weight:700;font-size:15px}
 .subl{display:block;font-size:12.5px;color:var(--ink2);font-family:var(--sans);font-weight:400;margin-top:3px;line-height:1.35}
-ul.plain{margin:6px 0;padding-left:18px} ul.plain li{margin:6px 0}
+ul.plain{margin:6px 0;padding-left:18px;color:var(--ink2)} ul.plain li{margin:6px 0} ul.plain b{color:var(--ink)}
 ol.log{margin:6px 0;padding-left:24px;font-size:14px;color:var(--ink2);columns:2;column-gap:40px} ol.log li{margin:4px 0;break-inside:avoid}
 svg.dia{display:block;width:100%;height:auto;min-width:860px}
-svg.dia text{font-family:var(--sans);font-size:14px;fill:var(--ink)} svg.dia text.s{font-size:12.5px;fill:var(--ink2)} svg.dia text.e{font-size:13px;fill:var(--ink)} svg.dia text.bad{fill:var(--fail);font-weight:700}
-.durs{display:grid;grid-template-columns:repeat(3,1fr);gap:0 24px;margin-top:6px}
-.durs .v{font-family:var(--mono);font-size:26px;font-weight:600} .durs .k{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
-footer{margin-top:56px;padding-top:14px;border-top:2px solid var(--ink);font-size:14px;color:var(--ink2)}
-button.copy{font:inherit;font-size:12px;color:var(--accent);background:none;border:1px solid var(--rule);border-radius:3px;padding:0 7px;margin-left:8px;cursor:pointer}
+svg.dia rect{rx:10}
+svg.dia text{font-family:var(--sans);font-size:14px;fill:var(--ink)} svg.dia text.s{font-size:12.5px;fill:var(--ink2)} svg.dia text.e{font-size:13px;fill:var(--ink2)} svg.dia text.bad{fill:var(--fail);font-weight:700}
+.durs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px}
+.durs>div{border:1px solid var(--rule);border-radius:14px;background:var(--panel2);padding:14px 16px}
+.durs .v{font-size:28px;font-weight:800;letter-spacing:-.02em} .durs .k{font-size:13px;color:var(--ink2);font-weight:600}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink3)}
+button.copy{font:inherit;font-size:12px;color:var(--accent);background:none;border:1px solid var(--rule);border-radius:999px;padding:1px 10px;margin-left:8px;cursor:pointer}
 @media (max-width:980px){
-  .kpis{grid-template-columns:repeat(2,1fr)} .strip{grid-template-columns:1fr} .panel{border-right:0;border-bottom:1px solid var(--rule)} .panel:last-child{border-bottom:0} .panel .claim{min-height:0}
-  .card,.card.w7,.card.w5,.card.w8,.card.w4{grid-column:span 12} .sechead{grid-template-columns:1fr} .mast{grid-template-columns:1fr} .byline{text-align:left} ol.log{columns:1} .durs{grid-template-columns:1fr;gap:10px}
+  .kpis{grid-template-columns:repeat(2,1fr)} .strip,.hero{grid-template-columns:1fr} .panel .claim{min-height:0}
+  .card,.card.w7,.card.w5,.card.w8,.card.w4{grid-column:span 12} .sechead{grid-template-columns:1fr} .mast{grid-template-columns:1fr} .byline{text-align:left} ol.log{columns:1} .durs{grid-template-columns:1fr} nav .date{display:none}
 }
-@media (max-width:560px){ main{padding:18px 14px 64px} nav .in{padding:0 14px;gap:16px} h1{font-size:28px} h2{font-size:22px} .kpis{grid-template-columns:1fr} .kpi .l{min-height:0} .sec{margin-top:48px} }
+@media (max-width:560px){ main{padding:18px 14px 64px} nav .in{padding:0 14px;gap:16px} h1{font-size:27px} h2{font-size:22px} .kpis{grid-template-columns:1fr} .kpi .l{min-height:0} .sec{margin-top:48px} .rings{grid-template-columns:1fr} .chains{grid-template-columns:repeat(2,1fr)} }
 @media print{
-  :root{--page:#fff;--panel:#fff;--ink:#000;--ink2:#222;--ink3:#555;--rule:#bbb;--rule2:#ddd;--wash:#f3f3f3}
-  nav,button.copy{display:none} main{max-width:none;padding:0} .card,.kpi,.panel{break-inside:avoid} .tall{max-height:none;overflow:visible} a{color:inherit}
+  :root{--page:#fff;--panel:#fff;--panel2:#fff;--ink:#000;--ink2:#222;--ink3:#555;--rule:#bbb;--rule2:#ddd;--wash:#f3f3f3;--accent:#3f6212;--fail:#be123c;--hold:#3f6212;--cant:#92400e;--cyan:#0369a1;--peer:#777;--peer2:#bbb;--failbg:#fde2e7;--okbg:#eee;--nabg:#f5f5f5}
+  nav,button.copy{display:none} main{max-width:none;padding:0} .card,.kpi,.panel,.box{break-inside:avoid} .tall{max-height:none;overflow:visible} a{color:inherit} .word{color:#000!important;background:none!important;border:1px solid #000}
 }
 </style>
 </head>
 <body>
-<nav><div class="in"><a class="brand" href="#top">NEAR security budget</a><a class="l" href="#kpi">Key figures</a><a class="l" href="#verdicts">Verdicts</a><a class="l" href="#c2">Losses (C2)</a><a class="l" href="#c1">Bounties (C1)</a><a class="l" href="#c3">Control (C3)</a><a class="l" href="#case">1 October</a><a class="l" href="#against">Limits</a><a class="l" href="#prov">Provenance</a></div></nav>
+<nav><div class="in"><a class="brand" href="#top">near<span>SECURITY BUDGET</span></a><a class="l" href="#kpi">Key figures</a><a class="l" href="#verdicts">Verdicts</a><a class="l" href="#c2">Losses (C2)</a><a class="l" href="#c1">Bounties (C1)</a><a class="l" href="#c3">Control (C3)</a><a class="l" href="#case">1 October</a><a class="l" href="#against">Limits</a><a class="l" href="#prov">Provenance</a><span class="date" id="navdate"></span></div></nav>
 <main id="top">
 <header class="mast" id="mast"></header>
+<section id="glance"><div class="hero" id="hero"></div></section>
 <section id="kpi"><div class="kpis" id="kpis"></div></section>
 <section id="verdicts"><div class="strip" id="strip"></div></section>
 <section class="sec" id="c2"></section>
@@ -176,9 +196,10 @@ function base(t) {
   const axis = {axisLine: {lineStyle: {color: t.ink3, width: 1}}, splitLine: {lineStyle: {color: t.rule, width: 1}},
     axisLabel: {color: t.ink2, fontFamily: t.mono, fontSize: 12}, nameTextStyle: {color: t.ink2, fontFamily: t.sans, fontSize: 12}};
   return {axis, cat: {color: t.ink, fontFamily: t.sans, fontSize: 13}, opt: {animation: false, textStyle: {fontFamily: t.sans, color: t.ink2}, grid: {left: 8, right: 24, top: 18, bottom: 6, containLabel: true},
-    tooltip: {trigger: "item", confine: true, backgroundColor: t.ink, borderWidth: 0, padding: [7, 10], textStyle: {color: t.page, fontSize: 13, fontFamily: t.sans}}}};
+    tooltip: {trigger: "item", confine: true, backgroundColor: "#262b3a", borderColor: "#3a4052", borderWidth: 1, padding: [8, 11], textStyle: {color: "#ffffff", fontSize: 13, fontFamily: t.sans}}}};
 }
-const lab = (t, extra) => Object.assign({show: true, color: t.ink, fontFamily: t.mono, fontSize: 12}, extra);
+const lab = (t, extra) => Object.assign({show: true, color: t.ink, fontFamily: t.sans, fontWeight: 700, fontSize: 12.5}, extra);
+const RB = [0, 5, 5, 0];
 const legend = t => ({top: 0, left: 0, itemWidth: 12, itemHeight: 10, textStyle: {color: t.ink2, fontSize: 12.5}});
 function mount(id, height, build) {
   const el = document.getElementById(id); if (!el || typeof echarts === "undefined") return;
@@ -192,7 +213,28 @@ if (window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListen
 /* ---------- masthead, KPI row, verdicts ---------- */
 $("#mast").innerHTML = `<div><div class="kicker">Investment thesis, tested against public data · NEAR Hackathon</div><h1>NEAR security budget</h1>
   <p class="finding">NEAR covers its largest protocols with bug bounties at least as well as its peers. The security discount is in what it has lost to hacks and in who can change the contracts.</p></div>
-  <div class="byline"><b>Vibe Code Guy</b>, bug bounty hunter<br>Data as of <span class="num">${esc(AS_OF)}</span><br>Peers: Solana, Sui, Aptos, Base</div>`;
+  <div class="byline"><span class="score"><em>${[c1.verdict, c2.verdict, c3.C3].filter(v => v === "holds").length} of 3</em> claims hold</span><br><b>Vibe Code Guy</b>, bug bounty hunter<br>Peers: Solana, Sui, Aptos, Base</div>`;
+$("#navdate").textContent = "DATA AS OF " + AS_OF;
+(function () {
+  const ring = (r, frac, color, w) => { const c = 2 * Math.PI * r, f = Math.max(0, Math.min(1, frac)); return `<circle cx="100" cy="100" r="${r}" fill="none" stroke="var(--wash)" stroke-width="${w}"/>` + (f > 0 ? `<circle cx="100" cy="100" r="${r}" fill="none" stroke="${color}" stroke-width="${w}" stroke-linecap="round" stroke-dasharray="${(c * f).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 100 100)"/>` : ""); };
+  const cov = +c1.near_coverage_pct, one = +c3.share_assessed_tvl_one_signer_pct, del = +c3.c3b_share_with_enforced_delay_pct;
+  const covBy = Object.fromEntries(D.c1_coverage.map(r => [r.chain, r]));
+  const chains = D.c2_rates.map(r => { const lo = +r.loss_rate_lower_pct_per_year, up = +r.loss_rate_upper_pct_per_year, above = lo > c2.peer_median_lower && up > c2.peer_median_upper, below = lo <= c2.peer_median_lower && up <= c2.peer_median_upper;
+    return {chain: r.chain, cov: +covBy[r.chain].coverage_pct, lo, up, tag: above ? "above median" : below ? "at or below" : "mixed", col: above ? "var(--fail)" : below ? "var(--accent)" : "var(--cyan)"}; });
+  const failing = [c1.verdict, c2.verdict, c3.C3].filter(v => v === "fails").length;
+  $("#hero").innerHTML = `<div class="box"><div class="t">NEAR security rings <span>share of TVL, %</span></div>
+    <div class="rings"><svg viewBox="0 0 200 200" role="img" aria-label="Three rings: bounty coverage, one-signer path, upgrade delay">${ring(86, cov / 100, "var(--accent)", 15)}${ring(64, one / 100, "var(--fail)", 15)}${ring(42, del / 100, "var(--cyan)", 15)}
+      <text x="100" y="94" text-anchor="middle" fill="var(--ink2)" font-size="10" font-weight="700" letter-spacing="1.5">CLAIMS</text><text x="100" y="116" text-anchor="middle" fill="var(--ink)" font-size="19" font-weight="800">${3 - failing} of 3</text></svg>
+     <div class="rleg">
+      <div><i style="background:var(--accent)"></i><span class="n" style="color:var(--accent)">Bounty coverage</span><br><span class="v">${pct(cov, 1)}</span> <small>of top-10 TVL</small><div class="c">peer median ${pct(c1.peer_median_coverage_pct, 1)}</div></div>
+      <div><i style="background:var(--fail)"></i><span class="n" style="color:var(--fail)">One-signer upgrade path</span><br><span class="v">${pct(one, 1)}</span> <small>of assessed TVL</small><div class="c">the test allowed none on intents.near</div></div>
+      <div><i style="background:var(--cyan)"></i><span class="n" style="color:var(--cyan)">Behind an upgrade delay</span><br><span class="v">${pct(del, 0)}</span> <small>of assessed TVL</small><div class="c">the test needed over 50%</div></div></div></div>
+    <div class="foot">Rings show shares of TVL on NEAR at ${esc(AS_OF)}. Lime is good when full; pink is good when empty.</div></div>
+   <div class="box"><div class="t">Chain by chain <span>Ring: top-10 TVL with a live bounty · Pill: loss rate vs peer median ${medRange}</span></div>
+    <div class="chains">${chains.map(x => `<div><div class="cn ${x.chain === "Near" ? "me" : ""}">${CN(x.chain)}</div><svg viewBox="0 0 200 200" role="img" aria-label="${CN(x.chain)} bounty coverage ${pct(x.cov, 1)}">${ring(78, x.cov / 100, x.chain === "Near" ? "var(--accent)" : "var(--cyan)", 26)}<text x="100" y="109" text-anchor="middle" fill="var(--ink)" font-size="30" font-weight="800">${x.cov.toFixed(0)}%</text></svg><span class="pillx" style="background:${x.col}">${x.tag}</span><div class="pv">${pct(x.lo)}${x.up !== x.lo ? "\u2013" + pct(x.up) : ""}<br>lost per year</div></div>`).join("")}</div>
+    <div class="streak">Detection to pause on 1 October \u00b7 ${T.detection_to_pause_minutes} min <span>fix on mainnet after ${hm(T.detection_to_fix_deployed_minutes)}</span></div>
+    <div class="meter"><i style="width:${(100 * T.detection_to_pause_minutes / T.detection_to_fix_deployed_minutes).toFixed(1)}%"></i></div></div>`;
+})();
 
 $("#kpis").innerHTML = [
   ["bad", "Hack losses per year, share of average TVL", pct(c2.near_lower), `peer median ${medRange}`],
@@ -240,26 +282,26 @@ $("#strip").innerHTML = [
       xAxis: {type: "value", axisLine: b.axis.axisLine, splitLine: b.axis.splitLine, axisLabel: Object.assign({}, b.axis.axisLabel, {formatter: "{value}%"})},
       yAxis: {type: "category", inverse: true, data: cats, axisTick: {show: false}, axisLine: b.axis.axisLine, axisLabel: b.cat},
       tooltip: Object.assign({}, b.opt.tooltip, {formatter: p => { const r = rows[p.dataIndex]; return `<b>${CN(r.chain)}</b><br>${rng(r, "loss_rate_lower_pct_per_year", "loss_rate_upper_pct_per_year", pct)} per year<br>Losses ${rng(r, "losses_lower_usd", "losses_upper_usd", usd)} in ${rng(r, "hacks_lower", "hacks_upper", String)} hacks<br>Mean headline TVL ${usd(r.mean_headline_tvl_usd)}`; }}),
-      series: [{type: "bar", stack: "a", barWidth: 22, data: rows.map(r => ({value: +r.loss_rate_lower_pct_per_year, itemStyle: {color: r.chain === "Near" ? t.accent : t.peer}})),
+      series: [{type: "bar", stack: "a", barWidth: 22, data: rows.map(r => ({value: +r.loss_rate_lower_pct_per_year, itemStyle: {color: r.chain === "Near" ? t.accent : t.peer, borderRadius: RB}})),
         markLine: {symbol: "none", silent: true, z: 1, lineStyle: {color: t.ink, type: "dashed", width: 1.5}, label: {color: t.ink, fontFamily: t.sans, fontSize: 12.5, fontWeight: 600, formatter: p => p.name},
           data: [{xAxis: c2.peer_median_lower, name: "", label: {show: false}}, {xAxis: c2.peer_median_upper, name: `peer median ${medRange}`, label: {position: "start"}}]}},
-       {type: "bar", stack: "a", data: rows.map(r => ({value: +(r.loss_rate_upper_pct_per_year - r.loss_rate_lower_pct_per_year).toFixed(4), itemStyle: {color: r.chain === "Near" ? t.accent2 : t.peer2}, label: {distance: (+r.loss_rate_upper_pct_per_year < c2.peer_median_upper && +r.loss_rate_upper_pct_per_year > c2.peer_median_lower - 0.7) ? 42 : 6}})),
+       {type: "bar", stack: "a", data: rows.map(r => ({value: +(r.loss_rate_upper_pct_per_year - r.loss_rate_lower_pct_per_year).toFixed(4), itemStyle: {color: r.chain === "Near" ? t.accent2 : t.peer2, borderRadius: RB}, label: {distance: (+r.loss_rate_upper_pct_per_year < c2.peer_median_upper && +r.loss_rate_upper_pct_per_year > c2.peer_median_lower - 0.7) ? 42 : 6}})),
         label: lab(t, {position: "right", backgroundColor: t.page, padding: [2, 4], formatter: p => rng(rows[p.dataIndex], "loss_rate_lower_pct_per_year", "loss_rate_upper_pct_per_year", pct)})}]}); });
   mount("ch-usd", 290, t => { const b = base(t);
     return Object.assign(b.opt, {grid: {left: 8, right: 124, top: 34, bottom: 6, containLabel: true},
       xAxis: {type: "value", axisLine: b.axis.axisLine, splitLine: b.axis.splitLine, splitNumber: 4, axisLabel: Object.assign({}, b.axis.axisLabel, {formatter: v => usdA(v)})},
       yAxis: {type: "category", inverse: true, data: cats, axisTick: {show: false}, axisLine: b.axis.axisLine, axisLabel: b.cat},
       tooltip: Object.assign({}, b.opt.tooltip, {formatter: p => { const r = rows[p.dataIndex]; return `<b>${CN(r.chain)}</b><br>${rng(r, "losses_lower_usd", "losses_upper_usd", usd)}<br>${rng(r, "hacks_lower", "hacks_upper", String)} hacks`; }}),
-      series: [{type: "bar", stack: "a", barWidth: 22, data: rows.map(r => ({value: +r.losses_lower_usd, itemStyle: {color: r.chain === "Near" ? t.accent : t.peer}}))},
-       {type: "bar", stack: "a", data: rows.map(r => ({value: r.losses_upper_usd - r.losses_lower_usd, itemStyle: {color: r.chain === "Near" ? t.accent2 : t.peer2}})),
+      series: [{type: "bar", stack: "a", barWidth: 22, data: rows.map(r => ({value: +r.losses_lower_usd, itemStyle: {color: r.chain === "Near" ? t.accent : t.peer, borderRadius: RB}}))},
+       {type: "bar", stack: "a", data: rows.map(r => ({value: r.losses_upper_usd - r.losses_lower_usd, itemStyle: {color: r.chain === "Near" ? t.accent2 : t.peer2, borderRadius: RB}})),
         label: lab(t, {position: "right", formatter: p => rng(rows[p.dataIndex], "losses_lower_usd", "losses_upper_usd", usd)})}]}); });
   mount("ch-fees", 400, t => { const b = base(t);
     return Object.assign(b.opt, {grid: {left: 8, right: 130, top: 34, bottom: 6, containLabel: true}, legend: legend(t),
       xAxis: {type: "value", axisLine: b.axis.axisLine, splitLine: b.axis.splitLine, axisLabel: Object.assign({}, b.axis.axisLabel, {formatter: v => usdA(v)})},
       yAxis: {type: "category", inverse: true, data: fees.map(r => r.protocol), axisTick: {show: false}, axisLine: b.axis.axisLine, axisLabel: b.cat},
       tooltip: Object.assign({}, b.opt.tooltip, {formatter: p => { const r = fees[p.dataIndex]; return `<b>${esc(r.protocol)}</b><br>Window from ${r.fee_window_start}<br>Fees ${usd(r.fees_usd)}<br>Hack losses ${usd(r.hack_losses_in_fee_window_usd)}<br>Losses / fees ${(+r.losses_over_fees).toFixed(2)}×`; }}),
-      series: [{name: "Fees collected", type: "bar", barWidth: 12, barGap: "60%", itemStyle: {color: t.peer}, data: fees.map(r => +r.fees_usd), label: lab(t, {position: "right", formatter: p => usd(p.value)})},
-       {name: "Hack losses", type: "bar", barWidth: 12, itemStyle: {color: t.accent}, data: fees.map(r => +r.hack_losses_in_fee_window_usd), label: lab(t, {position: "right", formatter: p => p.value > 0 ? usd(p.value) + " (" + (+fees[p.dataIndex].losses_over_fees).toFixed(2) + "× fees)" : "$0"})}]}); });
+      series: [{name: "Fees collected", type: "bar", barWidth: 12, barGap: "60%", itemStyle: {color: t.peer, borderRadius: RB}, data: fees.map(r => +r.fees_usd), label: lab(t, {position: "right", formatter: p => usd(p.value)})},
+       {name: "Hack losses", type: "bar", barWidth: 12, itemStyle: {color: cssv("--orange"), borderRadius: RB}, data: fees.map(r => +r.hack_losses_in_fee_window_usd), label: lab(t, {position: "right", formatter: p => p.value > 0 ? usd(p.value) + " (" + (+fees[p.dataIndex].losses_over_fees).toFixed(2) + "× fees)" : "$0"})}]}); });
 })();
 
 /* ---------- C1 ---------- */
@@ -288,7 +330,7 @@ $("#strip").innerHTML = [
   </div>
   ${how("GET https://api.llama.fi/protocols      total TVL per listing, frozen in data/universe.csv\ndata/bounties.csv                        terms per listing, filled by an AI assistant with web access\ndata/bounty_status_rules.json            how not-live and unfinished rows count (decided after the table was seen)\n\neffective maximum = min(published cap, percentage of funds at risk x total TVL)\nratio             = effective maximum / total TVL\nC1a fails if NEAR coverage < peer median coverage - 10 points\nC1b fails if < 50% of NEAR top-10 TVL is at or above its size band's peer median ratio\ncan't tell if unchecked rows exceed 20% of top-10 TVL on NEAR or on two peer chains\n\nCode: pipeline/c1.py    Tables: data/tables/c1_*.csv, c1_verdict.json, c1_sensitivity.json")}`;
   mount("ch-cov", 290, t => { const b = base(t), seg = (name, key, color, dashed) => ({name, type: "bar", stack: "a", barWidth: 24, itemStyle: Object.assign({color}, dashed ? {borderColor: t.peer, borderWidth: 1, borderType: "dashed"} : {}),
-      data: cov.map(r => key === "none" ? +(100 - r.coverage_pct - r.undetermined_pct).toFixed(2) : +r[key]), label: lab(t, {position: "inside", color: key === "coverage_pct" ? t.page : t.ink, formatter: p => p.value >= 8 ? p.value.toFixed(1) + "%" : ""})});
+      data: cov.map(r => key === "none" ? +(100 - r.coverage_pct - r.undetermined_pct).toFixed(2) : +r[key]), label: lab(t, {position: "inside", color: key === "coverage_pct" ? "#0d0f15" : t.ink, formatter: p => p.value >= 8 ? p.value.toFixed(1) + "%" : ""})});
     return Object.assign(b.opt, {grid: {left: 8, right: 18, top: 34, bottom: 6, containLabel: true}, legend: legend(t),
       xAxis: {type: "value", max: 100, axisLine: b.axis.axisLine, splitLine: b.axis.splitLine, axisLabel: Object.assign({}, b.axis.axisLabel, {formatter: "{value}%"})},
       yAxis: {type: "category", inverse: true, data: cov.map(r => CN(r.chain)), axisTick: {show: false}, axisLine: b.axis.axisLine, axisLabel: b.cat},
@@ -315,7 +357,7 @@ $("#strip").innerHTML = [
       xAxis: {type: "log", min: 1000, axisLine: b.axis.axisLine, splitLine: b.axis.splitLine, axisLabel: Object.assign({}, b.axis.axisLabel, {formatter: v => usdA(v)})},
       yAxis: {type: "category", inverse: true, data: ranked.map(r => r.protocol + " · " + CN(r.chain)), axisTick: {show: false}, axisLine: b.axis.axisLine, axisLabel: Object.assign({}, b.cat, {fontSize: 12.5})},
       tooltip: Object.assign({}, b.opt.tooltip, {formatter: p => { const r = ranked[p.dataIndex]; return `<b>${esc(r.protocol)}</b> · ${CN(r.chain)}<br>Max critical ${usd(r.effective_max_usd)}<br>Total TVL ${usd(r.total_tvl_usd)} (${pct(r.ratio_pct, 3)})<br>${esc(r.platform)}`; }}),
-      series: [{type: "bar", barWidth: 15, data: ranked.map(r => ({value: +r.effective_max_usd, itemStyle: {color: r.chain === "Near" ? t.accent : t.peer}})), label: lab(t, {position: "right", formatter: p => usd(p.value)})}]}); });
+      series: [{type: "bar", barWidth: 15, data: ranked.map(r => ({value: +r.effective_max_usd, itemStyle: {color: r.chain === "Near" ? t.accent : t.peer, borderRadius: RB}})), label: lab(t, {position: "right", formatter: p => usd(p.value)})}]}); });
 })();
 
 /* ---------- C3 ---------- */
@@ -330,7 +372,7 @@ $("#strip").innerHTML = [
   const delay = r => r.enforced_upgrade_delay === "unreadable" ? cell("not read", "") : cell(r.enforced_upgrade_delay === "no" ? "none" : "yes", r.delay_evidence.split(";")[0].split(":")[0]);
   const delayCls = r => "cell " + (r.enforced_upgrade_delay === "unreadable" ? "c-na" : r.enforced_upgrade_delay === "no" ? "c-one" : "c-multi");
   /* control path for intents.near */
-  const W = 1180, H = 380, box = (x, y, w, h, t1, t2, t3) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="var(--panel)" stroke="var(--ink3)" stroke-width="1"/><text x="${x + 12}" y="${y + 23}" font-weight="700">${t1}</text><text class="s" x="${x + 12}" y="${y + 42}">${t2}</text>${t3 ? `<text class="s" x="${x + 12}" y="${y + 59}">${t3}</text>` : ""}`;
+  const W = 1180, H = 380, box = (x, y, w, h, t1, t2, t3) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="var(--panel2)" stroke="var(--rule)" stroke-width="1.5"/><text x="${x + 12}" y="${y + 23}" font-weight="700">${t1}</text><text class="s" x="${x + 12}" y="${y + 42}">${t2}</text>${t3 ? `<text class="s" x="${x + 12}" y="${y + 59}">${t3}</text>` : ""}`;
   const arrow = (x1, y1, x2, y2, bad) => `<path d="M${x1},${y1}L${x2},${y2}" stroke="${bad ? "var(--fail)" : "var(--ink2)"}" stroke-width="${bad ? 2.5 : 1.5}" fill="none" marker-end="url(#${bad ? "ab" : "an"})"/>`;
   const dia = `<svg class="dia" viewBox="0 0 ${W} ${H}" role="img" aria-label="Who can change intents.near, with the number of signers on each path">
    <defs><marker id="an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="var(--ink2)"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="var(--fail)"/></marker></defs>
@@ -375,7 +417,7 @@ $("#strip").innerHTML = [
       xAxis: {type: "value", axisLine: b.axis.axisLine, splitLine: b.axis.splitLine, splitNumber: 4, axisLabel: Object.assign({}, b.axis.axisLabel, {formatter: v => usdA(v)})},
       yAxis: {type: "category", inverse: true, data: rows.map(r => r.protocol), axisTick: {show: false}, axisLine: b.axis.axisLine, axisLabel: b.cat},
       tooltip: Object.assign({}, b.opt.tooltip, {formatter: p => { const r = rows[p.dataIndex]; return `<b>${esc(r.protocol)}</b> ${usd(r.listing_tvl_usd)}<br>${esc(r.contracts)}<br>${esc(r.upgrade_holder)}<br>Enforced delay: ${esc(r.enforced_upgrade_delay)}`; }}),
-      series: [{type: "bar", barWidth: 22, data: rows.map(r => ({value: +r.listing_tvl_usd, itemStyle: kind(r) === "one" ? {color: t.fail} : kind(r) === "un" ? {color: t.page, borderColor: t.peer, borderWidth: 1, borderType: "dashed"} : {color: t.peer}})),
+      series: [{type: "bar", barWidth: 22, data: rows.map(r => ({value: +r.listing_tvl_usd, itemStyle: kind(r) === "one" ? {color: t.fail, borderRadius: RB} : kind(r) === "un" ? {color: t.page, borderColor: t.peer, borderWidth: 1, borderType: "dashed"} : {color: t.peer, borderRadius: RB}})),
         label: lab(t, {position: "right", fontFamily: t.sans, fontSize: 12.5, formatter: p => { const r = rows[p.dataIndex], k = kind(r); return usd(r.listing_tvl_usd) + " · " + (k === "one" ? "1 signer (factory key)" : k === "un" ? "source not read" : r.min_signers_upgrade_or_move_funds + " signers (DAO vote)"); }})}]}); });
 })();
 
@@ -397,7 +439,7 @@ $("#strip").innerHTML = [
   </div>
   ${how(Object.values(T.sources).map(x => x.label + ": " + x.url + (x.note ? "\n  " + x.note : "")).join("\n") + "\n\nChain rows: GET https://api.nearblocks.io/v1/account/{intents.near,ctl-intents.near}/txns, cached in data/raw/nearblocks/.\nThe attacker's withdrawals were not checked against chain data.\nCode: pipeline/timeline.py    Rows: data/timeline_events.json")}`;
   mount("ch-tl", 210, t => { const b = base(t), segs = [["Undetected", first, det, T.first_withdrawal_to_detection_minutes], ["Detection to pause", det, pause, T.detection_to_pause_minutes], ["Pause to fix", pause, fix, T.pause_to_fix_minutes]];
-    const colors = [t.peer, t.ink, t.accent], dur = m => m < 60 ? m + " min" : hm(m);
+    const colors = [t.peer, t.fail, t.accent], dur = m => m < 60 ? m + " min" : hm(m);
     return Object.assign(b.opt, {useUTC: true, grid: {left: 20, right: 40, top: 62, bottom: 34, containLabel: true},
       xAxis: {type: "time", min: Date.parse("2026-09-29T12:00:00Z"), max: Date.parse("2026-10-03T00:00:00Z"), axisLine: b.axis.axisLine, splitLine: b.axis.splitLine, axisLabel: Object.assign({}, b.axis.axisLabel, {formatter: "{MM}-{dd} {HH}:{mm}"})},
       yAxis: {type: "value", min: 0, max: 1, show: false},
@@ -407,8 +449,8 @@ $("#strip").innerHTML = [
          markLine: {symbol: "none", silent: true, lineStyle: {color: t.ink3, type: "solid", width: 1}, label: {color: t.ink, fontFamily: t.sans, fontSize: 12.5, position: "end", formatter: p => p.name},
            data: [{xAxis: first, name: "first withdrawal\n" + fmt(first)}, {xAxis: det, name: "detected\n" + fmt(det)}, {xAxis: fix, name: "fix on mainnet\n" + fmt(fix)}]}},
        {type: "scatter", symbolSize: 1, silent: true, itemStyle: {color: "transparent"}, data: [
-         {value: [(first + det) / 2, 0.5], label: {show: true, position: "inside", color: t.page, fontFamily: t.sans, fontSize: 13, fontWeight: 600, formatter: "Undetected · " + hm(T.first_withdrawal_to_detection_minutes)}},
-         {value: [(pause + fix) / 2, 0.5], label: {show: true, position: "inside", color: t.page, fontFamily: t.sans, fontSize: 13, fontWeight: 600, formatter: "Pause to fix · " + hm(T.pause_to_fix_minutes)}},
+         {value: [(first + det) / 2, 0.5], label: {show: true, position: "inside", color: "#ffffff", fontFamily: t.sans, fontSize: 13, fontWeight: 700, formatter: "Undetected · " + hm(T.first_withdrawal_to_detection_minutes)}},
+         {value: [(pause + fix) / 2, 0.5], label: {show: true, position: "inside", color: "#0d0f15", fontFamily: t.sans, fontSize: 13, fontWeight: 700, formatter: "Pause to fix · " + hm(T.pause_to_fix_minutes)}},
          {value: [pause, 0.5], label: {show: true, position: [8, 24], color: t.ink, fontFamily: t.sans, fontSize: 13, fontWeight: 600, formatter: "Detection to pause · " + T.detection_to_pause_minutes + " min (paused " + fmt(pause) + ")"}}]}]}); });
 })();
 
