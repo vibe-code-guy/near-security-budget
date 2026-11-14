@@ -4,6 +4,7 @@ The dashboard is opened from disk (file://), where fetch() of JSON is blocked, s
 is a script that sets one global. No network, no build step.
 """
 import json
+import re
 
 from . import config, universe
 from .util import read_csv, read_json
@@ -19,6 +20,20 @@ def opt_json(name: str):
 def opt_csv(name: str):
     p = T / name
     return read_csv(p) if p.exists() else None
+
+
+def thesis_extracts() -> dict:
+    """Section 8 bullets (limits) and section 10 item titles (amendments), read from THESIS.md."""
+    text = (config.ROOT / "THESIS.md").read_text(encoding="utf-8")
+    sec = lambda n: re.split(r"^## ", text.split(f"\n## {n}. ", 1)[1], maxsplit=1, flags=re.M)[0]
+    flat = lambda s: re.sub(r"\s+", " ", s).replace("`", "").replace("**", "").strip()
+    limits = [flat(b) for b in re.split(r"^- ", sec(8), flags=re.M)[1:]]
+    items = re.split(r"^\d+\. ", sec(10), flags=re.M)[1:]
+    amend = []
+    for it in items:
+        m = re.match(r"\*\*(.+?)\*\*", it, flags=re.S)
+        amend.append(flat(m.group(1)).rstrip(".") if m else flat(it)[:120])
+    return {"limits": limits, "amendments": amend}
 
 
 def run() -> None:
@@ -51,6 +66,7 @@ def run() -> None:
         "c3": opt_json("c3_verdict.json"), "c3_rows": opt_csv("c3_control.csv"), "c3_daos": opt_csv("c3_daos.csv"),
         "audits": opt_csv("audits_by_chain.csv"), "fees": opt_csv("near_losses_vs_fees.csv"),
         "timeline": opt_csv("timeline.csv"), "timeline_derived": opt_json("timeline_derived.json"),
+        "thesis": thesis_extracts(),
     }
     config.SITE.mkdir(exist_ok=True)
     body = "window.DATA = " + json.dumps(data, indent=1, sort_keys=True, ensure_ascii=True) + ";\n"

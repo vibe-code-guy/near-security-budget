@@ -7,284 +7,357 @@
 <style>
 :root{
   color-scheme:light;
-  --bg:#f6f5f2; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --ink3:#8a8984; --rule:#e2e0da;
-  --s-near:#2a78d6; --s-solana:#eb6834; --s-sui:#1baf7a; --s-aptos:#eda100; --s-base:#e87ba4;
-  --good:#0ca30c; --critical:#d03b3b; --warning:#b97c00; --neutral:#8f9aa8; --code:#f0efec;
+  --page:#f7f5ef; --ink:#17171a; --ink2:#4d4c48; --ink3:#86847d; --rule:#d9d6cc; --rule2:#e9e6dd; --wash:#efece3;
+  --accent:#0f5c63; --peer:#9a9890; --peer2:#c9c6bc;
+  --fail:#a3301c; --hold:#1e6a3a; --cant:#8a5e00;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Consolas,"Liberation Mono",Menlo,monospace;
 }
 @media (prefers-color-scheme:dark){
   :root{
     color-scheme:dark;
-    --bg:#121211; --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --ink3:#8d8c84; --rule:#33332f;
-    --s-near:#3987e5; --s-solana:#d95926; --s-sui:#199e70; --s-aptos:#c98500; --s-base:#d55181;
-    --good:#0ca30c; --critical:#e66767; --warning:#fab219; --neutral:#6f7986; --code:#242422;
+    --page:#131312; --ink:#ecebe6; --ink2:#bdbbb2; --ink3:#85837b; --rule:#34332f; --rule2:#262623; --wash:#1c1c1a;
+    --accent:#58b5bd; --peer:#7d7b74; --peer2:#4a4944;
+    --fail:#ec8068; --hold:#6cc08a; --cant:#dbab45;
   }
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-main{max-width:1040px;margin:0 auto;padding:28px 16px 80px}
-h1{font-size:28px;line-height:1.2;margin:0 0 8px}
-h2{font-size:21px;margin:44px 0 6px;padding-top:18px;border-top:1px solid var(--rule)}
-h3{font-size:16px;margin:26px 0 6px}
-p{margin:8px 0;max-width:76ch}
-a{color:var(--s-near)}
-.lede{font-size:17px;color:var(--ink2);max-width:74ch}
-.card{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px;margin:14px 0}
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:18px 0}
-.tile{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:14px}
-.tile .k{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
-.tile .t{font-weight:600;margin:2px 0 8px}
-.tile .n{font-size:13px;color:var(--ink2)}
-.verdict{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:15px;padding:3px 10px;border-radius:999px;border:1.5px solid currentColor}
-.v-fails{color:var(--critical)} .v-holds{color:var(--good)} .v-cant{color:var(--warning)} .v-pending{color:var(--ink3)}
-.what{color:var(--ink2);margin:4px 0 10px}
-details.q{margin:10px 0 0;font-size:13px}
-details.q summary{cursor:pointer;color:var(--ink2)}
-pre,code{font-family:ui-monospace,Consolas,Menlo,monospace;font-size:12.5px}
-pre{background:var(--code);border-radius:8px;padding:10px 12px;overflow-x:auto;margin:8px 0;white-space:pre-wrap;word-break:break-word}
-code{background:var(--code);padding:1px 5px;border-radius:4px}
-.scroll{overflow-x:auto}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--page);color:var(--ink);font:16px/1.55 var(--sans)}
+main{max-width:1100px;margin:0 auto;padding:36px 28px 96px}
+a{color:var(--accent);text-underline-offset:2px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.2;margin:0}
+h1{font-size:38px;letter-spacing:-.01em}
+h2{font-size:27px;max-width:36ch}
+h3{font-size:18px;margin-top:34px}
+p{margin:10px 0;max-width:72ch}
+.num,td.num,th.num,time,code,pre,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.mast{padding-bottom:18px;border-bottom:2px solid var(--ink)}
+.mast .thesis{font-family:var(--serif);font-size:19px;line-height:1.45;color:var(--ink2);max-width:70ch;margin:10px 0 12px}
+.byline{font-size:13.5px;color:var(--ink2);display:flex;flex-wrap:wrap;gap:4px 18px}
+.byline b{font-weight:600;color:var(--ink)}
+
+.strip{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--rule)}
+.panel{padding:20px 22px 18px 0;border-right:1px solid var(--rule);margin-right:22px;min-width:0}
+.panel:last-child{border-right:0;margin-right:0;padding-right:0}
+.panel .claim{font-size:14px;color:var(--ink2);min-height:3.1em;margin:6px 0 8px}
+.word{font-family:var(--serif);font-size:40px;font-weight:700;line-height:1;letter-spacing:.01em}
+.w-fails{color:var(--fail)} .w-holds{color:var(--hold)} .w-cant{color:var(--cant)}
+.caveat{font-size:13px;color:var(--ink2);margin:8px 0 0;max-width:34ch}
+.decide{display:flex;align-items:baseline;gap:10px;margin-top:12px;flex-wrap:wrap}
+.decide .big{font-family:var(--mono);font-size:24px;font-weight:600}
+.decide .bar{font-size:13px;color:var(--ink2)}
+.panel a.more{display:inline-block;margin-top:10px;font-size:13px}
+
+.prov{display:grid;grid-template-columns:repeat(4,1fr);gap:0 22px;padding:14px 0;border-bottom:1px solid var(--rule);font-size:13px;color:var(--ink2)}
+.prov div{min-width:0}
+.prov .k{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:2px}
+.prov .v{overflow-wrap:anywhere}
+button.copy{font:inherit;font-size:11.5px;color:var(--accent);background:none;border:1px solid var(--rule);border-radius:3px;padding:0 6px;margin-left:6px;cursor:pointer}
+.order{grid-column:1/-1;margin-top:10px;padding-top:10px;border-top:1px solid var(--rule2)}
+
+section{padding-top:44px;margin-top:44px;border-top:1px solid var(--ink)}
+section.first{border-top:0;margin-top:0;padding-top:30px}
+.lede{font-family:var(--serif);font-size:19px;line-height:1.5;max-width:68ch;color:var(--ink)}
+.sectag{display:flex;align-items:baseline;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.pill{font-family:var(--serif);font-weight:700;font-size:15px;letter-spacing:.04em}
+.what{color:var(--ink2);font-size:14.5px;margin:6px 0 4px}
+figure{margin:22px 0 6px}
+figcaption{font-size:13px;color:var(--ink3);margin-bottom:6px;letter-spacing:.02em}
+svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--sans);font-size:12px;fill:var(--ink2)}
+svg text.n{font-family:var(--mono)}
+svg text.strong{fill:var(--ink);font-weight:600}
+svg .ax{stroke:var(--ink3);stroke-width:1}
+svg .gr{stroke:var(--rule2);stroke-width:1}
+details{margin:14px 0 0;border-top:1px solid var(--rule2);border-bottom:1px solid var(--rule2)}
+summary{cursor:pointer;padding:8px 0;font-size:13px;color:var(--ink2);letter-spacing:.02em}
+pre{margin:0 0 12px;padding:12px 14px;background:var(--wash);font-size:12.5px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+code{font-size:.88em;background:var(--wash);padding:1px 4px}
+.scroll{overflow-x:auto;margin:10px 0}
 table{border-collapse:collapse;width:100%;font-size:13.5px}
-th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
-th{font-weight:600;color:var(--ink2);font-size:12.5px;white-space:nowrap}
-td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.note{font-size:13px;color:var(--ink2)}
-.tag{font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--warning);border:1px solid currentColor;border-radius:4px;padding:1px 6px}
-svg{display:block;width:100%;height:auto}
-svg text{fill:var(--ink2);font:12px system-ui,-apple-system,"Segoe UI",sans-serif}
-svg text.lbl{fill:var(--ink);font-weight:600}
-svg .grid{stroke:var(--rule);stroke-width:1}
-#tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12.5px;line-height:1.4;padding:7px 9px;border-radius:6px;max-width:300px;opacity:0;transition:opacity .08s;z-index:5}
-.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--ink2);margin:6px 0}
-.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
-.tl{list-style:none;padding:0;margin:10px 0}
-.tl li{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:8px 0;border-bottom:1px solid var(--rule)}
-.tl time{font-variant-numeric:tabular-nums;color:var(--ink2);font-size:13px}
-.tl .src{font-size:12px;color:var(--ink3)}
-@media (max-width:560px){.tl li{grid-template-columns:1fr;gap:2px}}
+th,td{text-align:left;padding:7px 14px 7px 0;border-bottom:1px solid var(--rule2);vertical-align:top}
+th{font-weight:600;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--ink3);white-space:nowrap}
+td.num,th.num{text-align:right;padding-right:22px;padding-left:8px;white-space:nowrap}
+td.num:last-child,th.num:last-child{padding-right:0}
+tr.near td{color:var(--ink)} tr.near td:first-child{box-shadow:inset 3px 0 0 var(--accent);padding-left:10px}
+.small{font-size:13px;color:var(--ink2)}
+.tag{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cant);border:1px solid currentColor;padding:0 5px;white-space:nowrap}
+.sig{font-family:var(--mono);font-size:19px;font-weight:600;line-height:1.1}
+.sig.bad{color:var(--fail)} .sig.na{color:var(--ink3);font-weight:400;font-size:14px}
+.sub{display:block;font-size:11.5px;color:var(--ink3);font-family:var(--sans);font-weight:400;margin-top:2px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 44px}
+.cols h3{margin-top:26px}
+ul.plain{margin:8px 0;padding-left:18px;max-width:72ch} ul.plain li{margin:6px 0}
+ol.log{margin:8px 0;padding-left:22px;font-size:14px;color:var(--ink2)} ol.log li{margin:4px 0}
+.dur{display:grid;grid-template-columns:repeat(3,1fr);gap:0 22px;margin:18px 0 6px}
+.dur .k{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.dur .v{font-family:var(--mono);font-size:24px;font-weight:600}
+.dur .s{font-size:13px;color:var(--ink2)}
+#tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--page);font-size:12.5px;line-height:1.4;padding:7px 9px;max-width:300px;opacity:0;transition:opacity .08s;z-index:5}
+footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--ink);font-size:13px;color:var(--ink2)}
+@media (max-width:820px){
+  main{padding:22px 16px 64px} h1{font-size:30px} h2{font-size:23px}
+  .strip{grid-template-columns:1fr} .panel{border-right:0;margin-right:0;padding-right:0;border-bottom:1px solid var(--rule2)} .panel:last-child{border-bottom:0}
+  .panel .claim{min-height:0}
+  .prov{grid-template-columns:1fr 1fr;gap:10px 18px} .cols{grid-template-columns:1fr} .dur{grid-template-columns:1fr;gap:12px}
+  figure{overflow-x:auto} figure svg{min-width:700px;overflow:hidden}
+  .caveat{max-width:none}
+}
+@media print{
+  :root{--page:#fff;--ink:#000;--ink2:#222;--ink3:#555;--rule:#bbb;--rule2:#ddd;--wash:#f3f3f3;--accent:#0f5c63;--peer:#888;--peer2:#bbb;--fail:#8a1f0e;--hold:#14532b;--cant:#6b4900}
+  body{font-size:11pt} main{max-width:none;padding:0} section{break-inside:auto;margin-top:22pt;padding-top:14pt}
+  figure,table,.panel{break-inside:avoid} button.copy,#tip{display:none} a{color:inherit}
+  .scroll{overflow:visible}
+}
 </style>
 </head>
 <body>
 <main>
-<header>
-  <h1>NEAR security budget</h1>
-  <p class="lede">A test of one investment thesis: NEAR's long-term value rests on being trusted to settle agent money, and that trust is measurable as security budget, relative to the value secured. Three claims were fixed with kill criteria before the data was pulled. Peers: Solana, Sui, Aptos, Base.</p>
-  <div class="tiles" id="tiles"></div>
-  <p class="note" id="stamp"></p>
-</header>
-
-<section id="c1"><h2>C1. Bounty coverage</h2><div id="c1-body"></div></section>
-<section id="c2"><h2>C2. Incident record</h2><div id="c2-body"></div></section>
-<section id="c3"><h2>C3. Control</h2><div id="c3-body"></div></section>
-<section id="case"><h2>Case study: the 1 October 2026 NEAR Intents exploit</h2><div id="case-body"></div></section>
-<section id="desc"><h2>Descriptive tables (no verdict)</h2><div id="desc-body"></div></section>
-<section id="reg"><h2>Pre-registration</h2><div id="reg-body"></div></section>
+<header class="mast" id="mast"></header>
+<div class="strip" id="strip"></div>
+<div class="prov" id="prov"></div>
+<section class="first" id="summary"></section>
+<section id="c1"></section>
+<section id="c2"></section>
+<section id="c3"></section>
+<section id="case"></section>
+<section id="against"></section>
+<footer id="foot"></footer>
 </main>
 <div id="tip"></div>
 <script src="data.js"></script>
 <script>
 "use strict";
 const D = window.DATA, $ = s => document.querySelector(s);
-const CH = {Near:"--s-near", Solana:"--s-solana", Sui:"--s-sui", Aptos:"--s-aptos", Base:"--s-base"};
-const col = c => `var(${CH[c]})`;
 const esc = s => String(s ?? "").replace(/[&<>"]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
 const usd = x => { x = +x; if (!isFinite(x)) return ""; const a = Math.abs(x);
   return a >= 1e9 ? "$" + (x/1e9).toFixed(2) + "B" : a >= 1e6 ? "$" + (x/1e6).toFixed(1) + "M" : a >= 1e3 ? "$" + (x/1e3).toFixed(0) + "K" : "$" + x.toFixed(0); };
 const pct = (x, d = 2) => (+x).toFixed(d) + "%";
 const short = a => a.length > 24 ? a.slice(0, 8) + "…" + a.slice(-4) : a;
-function verdict(v) {
-  const m = {"fails": ["v-fails", "✕ fails"], "holds": ["v-holds", "✓ holds"], "can't tell": ["v-cant", "? can't tell"]};
-  const [c, t] = m[v] || ["v-pending", "… pending"];
-  return `<span class="verdict ${c}">${t}</span>`;
-}
-function table(cols, rows) {
+const hm = m => Math.floor(m / 60) + " h " + String(m % 60).padStart(2, "0") + " min";
+const WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+const word = n => WORDS[n] ?? String(n);
+const VW = {"holds": ["HOLDS", "w-holds"], "fails": ["FAILS", "w-fails"], "can't tell": ["CAN’T TELL", "w-cant"]};
+const vword = v => `<span class="${(VW[v] || ["", ""])[1]}">${(VW[v] || [String(v).toUpperCase()])[0]}</span>`;
+function table(cols, rows, rowClass) {
   return `<div class="scroll"><table><thead><tr>${cols.map(c => `<th class="${c.num ? "num" : ""}">${esc(c.h)}</th>`).join("")}</tr></thead><tbody>` +
-    rows.map(r => `<tr>${cols.map(c => `<td class="${c.num ? "num" : ""}">${c.f(r)}</td>`).join("")}</tr>`).join("") + `</tbody></table></div>`;
+    rows.map(r => `<tr class="${rowClass ? rowClass(r) : ""}">${cols.map(c => `<td class="${c.num ? "num" : ""}">${c.f(r)}</td>`).join("")}</tr>`).join("") + `</tbody></table></div>`;
 }
-const query = (title, text) => `<details class="q"><summary>${esc(title)}</summary><pre>${esc(text)}</pre></details>`;
+const how = text => `<details><summary>How this was computed</summary><pre>${esc(text)}</pre></details>`;
 const tip = $("#tip");
 function hover(el) {
   el.addEventListener("mousemove", e => { const t = e.target.closest("[data-tip]"); if (!t) { tip.style.opacity = 0; return; }
     tip.innerHTML = t.dataset.tip; tip.style.opacity = 1;
-    tip.style.left = Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 8) + "px"; tip.style.top = (e.clientY + 14) + "px"; });
+    tip.style.left = Math.max(8, Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 8)) + "px"; tip.style.top = (e.clientY + 14) + "px"; });
   el.addEventListener("mouseleave", () => tip.style.opacity = 0);
 }
+const c1 = D.c1, c1s = D.c1_sensitivity, c2 = D.c2, c3 = D.c3, R = D.retrieval, reg = D.registration, T = D.timeline_derived;
+const C1_CAVEAT = c1 ? `can’t tell under the stricter reading; the peer bar is zero in ${word(c1.zero_bar_bands)} of ${word(c1.bands_total)} size bands` : "";
+const rate = Object.fromEntries(D.c2_rates.map(r => [r.chain, r]));
+const worse = D.c2_rates.filter(r => r.chain !== "Near" && +r.loss_rate_lower_pct_per_year > c2.near_lower).map(r => r.chain);
 
-/* ---------- header ---------- */
-(function () {
-  const c2 = D.c2, c3 = D.c3, c1 = D.c1;
-  const tiles = [
-    ["C1", "Bounty coverage", c1 ? c1.verdict : null, c1 ? `NEAR coverage ${pct(c1.near_coverage_pct, 1)} vs peer median ${pct(c1.peer_median_coverage_pct, 1)}; size-matched score ${pct(c1.near_score_pct, 1)} (bar: 50%).` : "Waiting for the hand-filled bounty table (data/bounties.csv)."],
-    ["C2", "Incident record", c2 && c2.verdict, c2 ? `NEAR lost ${pct(c2.near_lower)} of average TVL per year over 24 months; peer median ${pct(c2.peer_median_lower)} to ${pct(c2.peer_median_upper)}.` : ""],
-    ["C3", "Control", c3 && c3.C3, c3 ? `Signers (C3a): ${c3.C3a}. Upgrade delay (C3b): ${c3.C3b}. One-signer path on ${pct(c3.share_assessed_tvl_one_signer_pct, 0)} of assessed TVL; enforced delay on ${pct(c3.c3b_share_with_enforced_delay_pct, 0)}.` : ""],
-  ];
-  $("#tiles").innerHTML = tiles.map(t => `<div class="tile"><div class="k">${t[0]}</div><div class="t">${t[1]}</div>${verdict(t[2])}<p class="n">${esc(t[3])}</p></div>`).join("");
-  const r = D.retrieval;
-  $("#stamp").innerHTML = `Data: DefiLlama pulled ${esc(r.defillama_first_pull)}; NEAR view calls ${esc(r.near_view_calls)} at blocks ${r.near_block_min} to ${r.near_block_max}. Snapshot date ${esc(D.snapshot.snapshot_date)}. Each verdict is the registered kill criterion applied to the numbers below; the reasoning and limits are in <code>THESIS.md</code>.`;
-})();
+/* ---------- masthead, verdict strip, provenance ---------- */
+$("#mast").innerHTML = `<div class="kicker">Investment thesis, tested against public data · NEAR Hackathon</div>
+  <h1>NEAR security budget</h1>
+  <p class="thesis">NEAR’s long-term value rests on being trusted to settle agent money. That trust is measurable as security budget: what the ecosystem pays to find bugs, and who can stop or change the contracts, relative to the value they secure.</p>
+  <div class="byline"><span><b>Vibe Code Guy</b>, bug bounty hunter</span><span>Data as of <span class="num">${esc(D.snapshot.snapshot_date)}</span></span><span>NEAR mainnet blocks <span class="num">${R.near_block_min}–${R.near_block_max}</span></span><span>Peers: Solana, Sui, Aptos, Base</span></div>`;
+
+$("#strip").innerHTML = [
+  ["C1", "Bounty coverage", "NEAR’s ten largest protocols are covered by public bug bounties at least as well as peers’.", c1 && c1.verdict, c1 ? C1_CAVEAT : "Not computed: the bounty table is empty.",
+    c1 ? pct(c1.near_coverage_pct, 1) : "", c1 ? `of top-10 TVL covered · bar: peer median ${pct(c1.peer_median_coverage_pct, 1)} less 10 points` : "", "#c1"],
+  ["C2", "Incident record", "Over 24 months NEAR has lost no more to hacks, relative to what it held, than peers.", c2.verdict, worse.length ? `${worse.join(" and ")} lost more than NEAR; the other peers lost less` : "every peer lost less",
+    pct(c2.near_lower), `of average TVL lost per year · bar: peer median ${pct(c2.peer_median_lower)}–${pct(c2.peer_median_upper)}`, "#c2"],
+  ["C3", "Control", "No single signer can upgrade or drain intents.near or the largest NEAR protocols, and upgrades wait out a delay.", c3.C3, `signers test ${c3.C3a}; delay test ${c3.C3b}`,
+    c3.intents_min_signers + (c3.intents_min_signers === 1 ? " signer" : " signers"), `can replace the DAO behind intents.near · bar: more than one · upgrade delay on ${pct(c3.c3b_share_with_enforced_delay_pct, 0)} of TVL, bar: over 50%`, "#c3"],
+].map(p => `<div class="panel"><div class="kicker">${p[0]} · ${p[1]}</div><p class="claim">${p[2]}</p>
+  <div class="word">${p[3] ? vword(p[3]) : "—"}</div><p class="caveat">${esc(p[4])}</p>
+  <div class="decide"><span class="big">${esc(p[5])}</span><span class="bar">${esc(p[6])}</span></div><a class="more" href="${p[7]}">Evidence ↓</a></div>`).join("");
+
+$("#prov").innerHTML = `
+  <div><div class="k">Claims registered</div><div class="v">commit <span class="mono">${reg.commit.slice(0, 7)}</span><br><span class="num">${esc(reg.committed_utc)}</span> UTC</div></div>
+  <div><div class="k">SHA-256 of THESIS.md</div><div class="v"><span class="mono" title="${reg.sha256}">${reg.sha256.slice(0, 12)}…${reg.sha256.slice(-6)}</span><button class="copy" id="copy" type="button">copy</button></div></div>
+  <div><div class="k">OpenTimestamps proof</div><div class="v"><span class="mono">registration/THESIS.f84b548.md.ots</span><br>Bitcoin blocks <span class="num">${reg.ots_bitcoin_blocks.join(", ")}</span></div></div>
+  <div><div class="k">Anchor on NEAR</div><div class="v"><a href="https://nearblocks.io/txns/${reg.anchor_tx}"><span class="mono">${reg.anchor_tx.slice(0, 10)}…</span></a> · <span class="mono">${esc(reg.anchor_account)}</span><br>block <span class="num">${reg.anchor_block}</span></div></div>
+  <div class="order"><b>Order of events (UTC).</b> Claims committed <span class="num">${esc(reg.committed_utc)}</span> → timestamp stamped <span class="num">${esc(reg.ots_stamp_utc)}</span> → first data pull <span class="num">${esc(R.defillama_first_pull.replace("T", " ").replace("Z", ""))}</span> → NEAR anchor <span class="num">${esc(reg.anchor_utc)}</span>. The NEAR anchor came after the first pull; the timestamp proof and the git history are the evidence that the claims came first.</div>`;
+$("#copy").addEventListener("click", e => { const b = e.currentTarget, done = () => { b.textContent = "copied"; setTimeout(() => b.textContent = "copy", 1500); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(reg.sha256).then(done, () => prompt("SHA-256", reg.sha256)); else prompt("SHA-256", reg.sha256); });
+
+/* ---------- summary ---------- */
+$("#summary").innerHTML = `<div class="kicker">What the data shows</div>
+  <p class="lede">On bounty coverage NEAR is at or above these peers. The gap is in the loss record, where NEAR lost ${pct(c2.near_lower)} of its average TVL per year against a peer median of ${pct(c2.peer_median_lower)} to ${pct(c2.peer_median_upper)}, and in control, where one key can replace the DAO behind <span class="mono">intents.near</span> and no assessed protocol enforces an upgrade delay. The security discount comes from those two, not from bounty spending.</p>
+  <p class="small">Three claims and their kill criteria were fixed before the data was pulled. Each verdict below is that rule applied by code to the numbers shown. The author expected C1 to fail; it did not.</p>`;
 
 /* ---------- C1 ---------- */
 (function () {
-  const el = $("#c1-body");
-  if (!D.c1) {
-    el.innerHTML = `<div class="card"><p>${verdict(null)}</p><p>This claim needs the bounty terms of 51 listings, read by hand from Immunefi, HackenProof, Cantina, Sherlock, HackerOne and each protocol's own security page. The table <code>data/bounties.csv</code> is not filled yet, so nothing is computed and no number is shown.</p></div>`;
-    return;
-  }
-  const rows = D.c1_rows, W = 960, H = 470, m = {l: 84, r: 20, t: 16, b: 108};
-  const live = rows.filter(r => r.status === "live"), none = rows.filter(r => r.status === "none_found"), undet = rows.filter(r => r.status === "undetermined");
-  const lx = v => Math.log10(v), x0 = 5.5, x1 = 10.3, y0 = 3.5, y1 = 7.6;
-  const X = v => m.l + (lx(v) - x0) / (x1 - x0) * (W - m.l - m.r), Y = v => H - m.b - (lx(v) - y0) / (y1 - y0) * (H - m.b - m.t);
-  const shape = (c, x, y, tipText, fill, hollow) => {
-    const a = hollow ? `data-tip="${tipText}" fill="var(--surface)" stroke="${fill}" stroke-width="2"` : `data-tip="${tipText}" fill="${fill}" stroke="var(--surface)" stroke-width="2"`;
-    if (c === "Near") return `<circle cx="${x}" cy="${y}" r="7" ${a}/>`;
-    if (c === "Solana") return `<rect x="${x - 6}" y="${y - 6}" width="12" height="12" ${a}/>`;
-    if (c === "Sui") return `<path d="M${x},${y - 8}L${x + 7.5},${y + 6}L${x - 7.5},${y + 6}Z" ${a}/>`;
-    if (c === "Aptos") return `<path d="M${x},${y - 8}L${x + 8},${y}L${x},${y + 8}L${x - 8},${y}Z" ${a}/>`;
-    return `<path d="M${x - 7},${y - 3}h4v-4h6v4h4v6h-4v4h-6v-4h-4Z" ${a}/>`;
-  };
-  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Maximum critical bounty against total TVL, log-log">`;
-  for (let e = 6; e <= 10; e++) s += `<line class="grid" x1="${X(10 ** e)}" x2="${X(10 ** e)}" y1="${m.t}" y2="${H - m.b + 74}"/><text x="${X(10 ** e)}" y="${H - 8}" text-anchor="middle">${usd(10 ** e)}</text>`;
-  for (let e = 4; e <= 7; e++) s += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${Y(10 ** e)}" y2="${Y(10 ** e)}"/><text x="${m.l - 8}" y="${Y(10 ** e) + 4}" text-anchor="end">${usd(10 ** e)}</text>`;
-  const stripY = H - m.b + 30;
-  s += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${stripY}" y2="${stripY}" stroke-dasharray="3 4"/><text x="${m.l - 8}" y="${stripY + 4}" text-anchor="end">none found</text>`;
-  const stripU = stripY + 30;
-  s += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${stripU}" y2="${stripU}" stroke-dasharray="3 4"/><text x="${m.l - 8}" y="${stripU + 4}" text-anchor="end">not checked</text>`;
-  const t = r => `<b>${esc(r.protocol)}</b> (${esc(r.chain)})<br>Total TVL ${usd(r.total_tvl_usd)}<br>Max critical ${r.status === "live" ? usd(r.effective_max_usd) : "\u2013"}<br>${esc(r.status_label)}`;
-  none.forEach(r => s += shape(r.chain, X(Math.max(+r.total_tvl_usd, 4e5)), stripY, t(r), col(r.chain)));
-  undet.forEach(r => s += shape(r.chain, X(Math.max(+r.total_tvl_usd, 4e5)), stripU, t(r), col(r.chain), true));
-  live.forEach(r => s += shape(r.chain, X(Math.max(+r.total_tvl_usd, 4e5)), Y(+r.effective_max_usd), t(r), col(r.chain)));
-  s += `</svg>`;
-  const c = D.c1, sv = D.c1_sensitivity;
-  el.innerHTML = `<p>${verdict(c.verdict)}</p>
-  <div class="card"><h3>Maximum critical payout against TVL, ${rows.length} listings</h3>
-  <p class="what">Each mark is one protocol: how much it holds (across) and the most it publicly offers for a critical bug (up). Listings with no live public bounty sit on the first strip below the plot; hollow marks on the second strip were not checked and are undetermined.</p>
-  <div class="legend">${Object.keys(CH).map(k => `<span><i style="background:${col(k)}"></i>${k}</span>`).join("")}</div>${s}
-  ${query("Query behind this chart", "GET https://api.llama.fi/protocols  (total TVL per listing, frozen in data/universe.csv)\ndata/bounties.csv  (hand-filled from the public programme pages; one row per listing)\neffective maximum = min(published cap, percentage of funds at risk x total TVL)\nCode: pipeline/c1.py")}</div>
-  <div class="card"><h3>Kill criteria</h3>${table([
-    {h: "Test", f: r => esc(r[0])}, {h: "NEAR", f: r => esc(r[1]), num: 1}, {h: "Bar", f: r => esc(r[2]), num: 1}, {h: "Result", f: r => esc(r[3])}],
-    [["C1a coverage share of top-10 TVL", pct(c.near_coverage_pct, 1), "peer median " + pct(c.peer_median_coverage_pct, 1) + " minus 10 points", c.c1a],
-     ["C1b share of top-10 TVL at or above the size-matched peer bar", pct(c.near_score_pct, 1), "50%", c.c1b]])}
-  <h3>Coverage by chain</h3>${table([{h: "Chain", f: r => esc(r.chain)}, {h: "Top-10 TVL", f: r => usd(r.top10_tvl_usd), num: 1}, {h: "Covered by a live bounty", f: r => pct(r.coverage_pct, 1), num: 1}, {h: "Undetermined", f: r => pct(r.undetermined_pct, 1), num: 1}], D.c1_coverage)}
-  <h3>Size bands and peer bars</h3>${table([{h: "Band (total TVL)", f: r => esc(r.band)}, {h: "Peer listings setting the bar", f: r => r.peers, num: 1}, {h: "Of which with a live bounty", f: r => r.peers_with_a_bounty, num: 1}, {h: "Peer median bounty / TVL (the bar)", f: r => pct(r.peer_bar_pct, 4), num: 1}, {h: "NEAR listings at or above", f: r => esc(r.near_at_or_above)}, {h: "NEAR listings below", f: r => esc(r.near_below)}], D.c1_bands)}
-  <p class="note">A bar of 0.0000% means the median peer in that band has no live public bounty, so any NEAR listing clears it, including one with no bounty. NEAR listings that cleared a zero bar with no bounty of their own: ${c.near_zero_bar_cases.map(esc).join(", ") || "none"}.</p></div>
-  <div class="card"><h3>Sensitivity to how unfinished lookups are counted <span class="tag">not registered</span></h3>
-  <p class="what">The bounty table was filled with an AI assistant and several lookups are incomplete. In the main result, rows where nothing was found but one source was not covered (${c.rows_by_rule.b.map(esc).join(", ")}) and Jito (dead programme link) count as zero. Counting those four as undetermined instead gives: <b>${esc(sv.verdict)}</b> under the registered rule, because undetermined rows then exceed 20% of top-10 TVL on ${sv.peer_chains_over_20pct_undetermined.map(esc).join(" and ")}. Ignoring that rule, the two tests would read: C1a ${esc(sv.c1a)}, C1b ${esc(sv.c1b)}. Counting unfinished lookups as zero lowers the peer bar, which favours NEAR.</p>
-  ${table([{h: "Chain", f: r => esc(r.chain)}, {h: "Covered by a live bounty", f: r => pct(r.coverage_pct, 1), num: 1}, {h: "Undetermined share of top-10 TVL", f: r => pct(r.undetermined_pct, 1), num: 1}], sv.coverage)}
-  ${table([{h: "Band (total TVL)", f: r => esc(r.band)}, {h: "Peer listings setting the bar", f: r => r.peers, num: 1}, {h: "Peer median bounty / TVL", f: r => pct(r.peer_bar_pct, 4), num: 1}, {h: "NEAR listings at or above", f: r => esc(r.near_at_or_above)}], sv.bands)}</div>
-  <div class="card"><h3>All ${rows.length} listings</h3>${table([{h: "Chain", f: r => esc(r.chain)}, {h: "Protocol", f: r => r.url ? `<a href="${esc(r.url)}">${esc(r.protocol)}</a>` : esc(r.protocol)}, {h: "Total TVL", f: r => usd(r.total_tvl_usd), num: 1}, {h: "Counted as", f: r => esc(r.status_label)}, {h: "Effective max critical", f: r => r.status === "live" ? usd(r.effective_max_usd) : "\u2013", num: 1}, {h: "Bounty / TVL", f: r => r.ratio_pct ? pct(r.ratio_pct, 4) : "\u2013", num: 1}, {h: "Payout token, vesting", f: r => `<span class="note">${esc([r.payout_token, r.vesting].filter(Boolean).join("; "))}</span>`}], rows)}</div>`;
+  const el = $("#c1");
+  if (!c1) { el.innerHTML = `<div class="sectag"><span class="kicker">C1 · Bounty coverage</span></div><h2>Not computed</h2><p>The bounty table <code>data/bounties.csv</code> has rows without a status, so nothing is shown.</p>`; return; }
+  const rows = D.c1_rows, W = 1040, H = 500, m = {l: 76, r: 150, t: 14, b: 118};
+  const lx = v => Math.log10(v), x0 = 5.6, x1 = 10.25, y0 = 3.5, y1 = 7.5;
+  const X = v => m.l + (lx(Math.max(v, 5e5)) - x0) / (x1 - x0) * (W - m.l - m.r), Y = v => H - m.b - (lx(v) - y0) / (y1 - y0) * (H - m.b - m.t);
+  const stripN = H - m.b + 34, stripU = stripN + 32;
+  const yOf = r => r.status === "live" ? Y(+r.effective_max_usd) : r.status === "none_found" ? stripN : stripU;
+  const tipOf = r => `<b>${esc(r.protocol)}</b> · ${esc(r.chain)}<br>Total TVL ${usd(r.total_tvl_usd)}<br>${r.status === "live" ? "Max critical " + usd(r.effective_max_usd) + " (" + pct(r.ratio_pct, 3) + " of TVL)" : esc(r.status_label)}`;
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Maximum critical bounty against total TVL for 51 listings, both axes logarithmic">`;
+  for (let e = 6; e <= 10; e++) s += `<line class="gr" x1="${X(10 ** e)}" x2="${X(10 ** e)}" y1="${m.t}" y2="${stripU + 12}"/><text class="n" x="${X(10 ** e)}" y="${H - 22}" text-anchor="middle">${usd(10 ** e)}</text>`;
+  for (let e = 4; e <= 7; e++) s += `<line class="gr" x1="${m.l}" x2="${W - m.r}" y1="${Y(10 ** e)}" y2="${Y(10 ** e)}"/><text class="n" x="${m.l - 10}" y="${Y(10 ** e) + 4}" text-anchor="end">${usd(10 ** e)}</text>`;
+  s += `<line class="ax" x1="${m.l}" x2="${W - m.r}" y1="${H - m.b}" y2="${H - m.b}"/><line class="ax" x1="${m.l}" x2="${m.l}" y1="${m.t}" y2="${H - m.b}"/>`;
+  [[stripN, "no live bounty"], [stripU, "not checked"]].forEach(([y, l]) => s += `<line class="gr" x1="${m.l}" x2="${W - m.r}" y1="${y}" y2="${y}" stroke-dasharray="2 4"/><text x="${W - m.r + 10}" y="${y + 4}">${l}</text>`);
+  s += `<text x="${m.l}" y="${H - 4}">Total TVL of the listing, log scale →</text><text x="${W - m.r + 10}" y="${m.t + 10}">↑ max critical</text><text x="${W - m.r + 10}" y="${m.t + 25}">payout, log scale</text>`;
+  const peers = rows.filter(r => r.chain !== "Near"), near = rows.filter(r => r.chain === "Near");
+  peers.forEach(r => s += `<circle cx="${X(+r.total_tvl_usd)}" cy="${yOf(r)}" r="5.5" fill="${r.status === "undetermined" ? "var(--page)" : "var(--peer)"}" stroke="${r.status === "undetermined" ? "var(--peer)" : "var(--page)"}" stroke-width="1.5" data-tip="${tipOf(r)}"/>`);
+  const peerLabels = {"uniswap-v4": [8, 4, "start"], "morpho-blue": [0, -11, "middle"], "cetus-clmm": [8, 4, "start"], "kamino-lend": [0, -11, "middle"], "aave-v3": [-9, 4, "end"]};
+  peers.filter(r => peerLabels[r.slug] && r.status === "live").forEach(r => { const [dx, dy, a] = peerLabels[r.slug]; s += `<text x="${X(+r.total_tvl_usd) + dx}" y="${yOf(r) + dy}" text-anchor="${a}">${esc(r.protocol)}</text>`; });
+  const nearLabels = {"rhea-dex": [-10, 4, "end"], "rhea-lst": [0, 20, "middle"], "rhea-lend": [9, 16, "start"], "near-bridge": [-6, -10, "end"], "near-intents": [8, -8, "start"], "meta-pool-near": [10, 4, "start"], "linear-protocol": [0, -11, "middle"], "kaio": [0, 20, "middle"], "portal": [0, -11, "middle"], "jumbo-exchange": [10, -9, "start"], "here-wallet-staking": [-10, 4, "end"]};
+  near.forEach(r => { const x = X(+r.total_tvl_usd), y = yOf(r), [dx, dy, a] = nearLabels[r.slug] || [9, 4, "start"];
+    s += `<circle cx="${x}" cy="${y}" r="6.5" fill="${r.status === "undetermined" ? "var(--page)" : "var(--accent)"}" stroke="${r.status === "undetermined" ? "var(--accent)" : "var(--page)"}" stroke-width="2" data-tip="${tipOf(r)}"/><text class="strong" x="${x + dx}" y="${y + dy}" text-anchor="${a}">${esc(r.protocol.replace(" Protocol", "").replace(" Near", "").replace(" staking", ""))}</text>`; });
+  s += `<circle cx="${W - m.r + 16}" cy="${H - m.b - 44}" r="6.5" fill="var(--accent)"/><text class="strong" x="${W - m.r + 28}" y="${H - m.b - 40}">NEAR</text><circle cx="${W - m.r + 16}" cy="${H - m.b - 24}" r="5.5" fill="var(--peer)"/><text x="${W - m.r + 28}" y="${H - m.b - 20}">peer chains</text></svg>`;
+  const pl = c1.peer_listings, caps = c1.near_live_caps_usd, by = Object.fromEntries(rows.map(r => [r.chain + "/" + r.slug, r]));
+  const mp = by["Near/meta-pool-near"], mo = by["Base/morpho-blue"], u4 = by["Base/uniswap-v4"];
+  el.innerHTML = `<div class="sectag"><span class="kicker">C1 · Bounty coverage</span><span class="pill">${vword(c1.verdict)}</span><span class="small">${esc(C1_CAVEAT)}</span></div>
+  <h2>NEAR’s largest protocols are covered by bounties at least as well as peers’, against a low bar</h2>
+  <p>${pct(c1.near_coverage_pct, 1)} of NEAR’s top-10 TVL sits in protocols with a live public bug bounty, against a peer median of ${pct(c1.peer_median_coverage_pct, 1)}. Size for size, ${pct(c1.near_score_pct, 1)} of that TVL is at or above the peer median bounty-to-TVL ratio, where the test needed 50%. This is the opposite of what the author expected.</p>
+  <figure><figcaption>Maximum critical payout against total TVL, ${rows.length} listings</figcaption>${s}</figure>
+  <p class="what">Each mark is one protocol: how much it holds (across) and the most it publicly offers for a critical bug (up). Marks on the lower strips have no live public bounty, or were not checked (hollow).</p>
+  ${how("GET https://api.llama.fi/protocols      total TVL per listing, frozen in data/universe.csv\ndata/bounties.csv                        terms per listing; filled by an AI assistant with web access, four NEAR pages checked by the author\ndata/bounty_status_rules.json            how not-live and unfinished rows count (decided after the table was seen)\n\neffective maximum = min(published cap, percentage of funds at risk x total TVL)\nratio             = effective maximum / total TVL\nC1a fails if NEAR coverage < peer median coverage - 10 points\nC1b fails if < 50% of NEAR top-10 TVL is at or above its size band's peer median ratio\ncan't tell if undetermined rows exceed 20% of top-10 TVL on NEAR or on two peer chains\n\nCode: pipeline/c1.py    Tables: data/tables/c1_*.csv, c1_verdict.json, c1_sensitivity.json")}
+  <h3>Why the verdict carries a caveat</h3>
+  <ul class="plain">
+   <li><b>The score comes mostly from zero bars.</b> In ${word(c1.zero_bar_bands)} of ${word(c1.bands_total)} size bands the median peer has no live public bounty, so the bar is zero and any listing clears it. ${c1.near_zero_bar_cases.map(esc).join(" and ")} clear it with no bounty at all. Meta Pool’s ${usd(mp.effective_max_usd)} maximum against ${usd(mp.total_tvl_usd)} of TVL (${pct(mp.ratio_pct, 4)}) clears only because the bar is zero.</li>
+   <li><b>How unfinished lookups count was decided after seeing the data, and favours NEAR.</b> Paused, invite-only, announced, out-of-scope and dead-link programmes count as zero, and so do three peer rows where the search was incomplete. Most of those rows are on peer chains, which lowers the bar.</li>
+   <li><b>Sensitivity <span class="tag">not registered</span>.</b> Counting ${c1s.rows_changed.length} of those rows as undetermined instead of zero puts undetermined TVL above 20% on ${c1s.peer_chains_over_20pct_undetermined.map(esc).join(" and ")}, and the registered rule then says ${vword(c1s.verdict)}. The two tests themselves still read “${esc(c1s.c1a)}” and “${esc(c1s.c1b)}” in that run.</li>
+   <li><b>In dollars NEAR’s caps are small.</b> NEAR’s larger programmes offer ${usd(by["Near/rhea-lend"].effective_max_usd)} to ${usd(caps.max)} for a critical finding, against ${usd(mo.effective_max_usd)} at Morpho and ${usd(u4.effective_max_usd)} for Uniswap V4. They clear the bar because NEAR’s protocols are small.</li>
+  </ul>
+  <p class="small">Not NEAR-specific: of the ${pl.total} peer listings, ${pl.live} have a live public bounty (${pct(pl.live_tvl_pct, 1)} of peer TVL), ${pl.none_found} have none (${pct(pl.none_found_tvl_pct, 1)}) and ${pl.undetermined} were not checked (${pct(pl.undetermined_tvl_pct, 1)}).</p>
+  <div class="cols"><div><h3>Coverage by chain</h3>${table([{h: "Chain", f: r => esc(r.chain)}, {h: "Live bounty", f: r => pct(r.coverage_pct, 1), num: 1}, {h: "Undetermined", f: r => pct(r.undetermined_pct, 1), num: 1}, {h: "Sensitivity: undetermined", f: r => pct(c1s.coverage.find(x => x.chain === r.chain).undetermined_pct, 1), num: 1}], D.c1_coverage, r => r.chain === "Near" ? "near" : "")}</div>
+  <div><h3>Size bands and peer bars</h3>${table([{h: "Total TVL", f: r => esc(r.band)}, {h: "Peers", f: r => r.peers, num: 1}, {h: "With a bounty", f: r => r.peers_with_a_bounty, num: 1}, {h: "Bar (median)", f: r => pct(r.peer_bar_pct, 4), num: 1}, {h: "Sensitivity bar", f: (r, i) => pct((c1s.bands.find(x => x.band === r.band) || {peer_bar_pct: NaN}).peer_bar_pct, 4), num: 1}], D.c1_bands)}</div></div>
+  <details><summary>All ${rows.length} listings</summary>${table([{h: "Chain", f: r => esc(r.chain)}, {h: "Protocol", f: r => r.url ? `<a href="${esc(r.url)}">${esc(r.protocol)}</a>` : esc(r.protocol)}, {h: "Total TVL", f: r => usd(r.total_tvl_usd), num: 1}, {h: "Counted as", f: r => esc(r.status_label)}, {h: "Max critical", f: r => r.status === "live" ? usd(r.effective_max_usd) : "–", num: 1}, {h: "Of TVL", f: r => r.ratio_pct && r.status === "live" ? pct(r.ratio_pct, 4) : "–", num: 1}, {h: "Payout token, vesting", f: r => `<span class="small">${esc([r.payout_token, r.vesting].filter(Boolean).join("; "))}</span>`}], rows, r => r.chain === "Near" ? "near" : "")}</details>`;
   hover(el);
 })();
 
 /* ---------- C2 ---------- */
 (function () {
-  const el = $("#c2-body"), R = D.c2_rates, v = D.c2;
-  const W = 960, rowH = 44, m = {l: 78, r: 70, t: 34, b: 34}, H = m.t + m.b + rowH * R.length;
-  const max = Math.max(...R.map(r => +r.loss_rate_upper_pct_per_year)) * 1.08, X = x => m.l + x / max * (W - m.l - m.r);
-  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Annualised hack loss rate by chain">`;
-  for (let g = 0; g <= max; g += 2) s += `<line class="grid" x1="${X(g)}" x2="${X(g)}" y1="${m.t}" y2="${H - m.b}"/><text x="${X(g)}" y="${H - 12}" text-anchor="middle">${g}%</text>`;
-  R.forEach((r, i) => {
-    const y = m.t + i * rowH + 8, lo = +r.loss_rate_lower_pct_per_year, up = +r.loss_rate_upper_pct_per_year;
-    const tipText = `<b>${r.chain}</b><br>Losses ${usd(r.losses_lower_usd)}${up > lo ? " to " + usd(r.losses_upper_usd) : ""} in ${r.hacks_lower}${up > lo ? " to " + r.hacks_upper : ""} hacks<br>Mean headline TVL ${usd(r.mean_headline_tvl_usd)}<br>Rate ${pct(lo)}${up > lo ? " to " + pct(up) : ""} per year`;
-    s += `<text class="lbl" x="${m.l - 10}" y="${y + 18}" text-anchor="end">${r.chain}</text>`;
-    if (up > lo) s += `<rect x="${X(0)}" y="${y}" width="${X(up) - X(0)}" height="26" rx="4" fill="${col(r.chain)}" opacity=".35" data-tip="${tipText}"/>`;
-    s += `<rect x="${X(0)}" y="${y}" width="${Math.max(X(lo) - X(0), 2)}" height="26" rx="4" fill="${col(r.chain)}" data-tip="${tipText}"/>`;
-    s += `<text x="${X(up) + 8}" y="${y + 18}">${pct(lo)}${up > lo ? " – " + pct(up) : ""}</text>`;
-  });
-  [["peer_median_lower", "peer median, lower"], ["peer_median_upper", "upper"]].forEach(([k, l], i) => {
-    s += `<line x1="${X(v[k])}" x2="${X(v[k])}" y1="${m.t - 6}" y2="${H - m.b}" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="5 4"/><text x="${X(v[k]) + (i ? 4 : -4)}" y="${m.t - 12}" text-anchor="${i ? "start" : "end"}">${l} ${pct(v[k])}</text>`;
-  });
-  s += `</svg>`;
-  const S = D.c2_sensitivity, SR = D.c2_sensitivity_rows;
-  const top = D.c2_hacks.slice().sort((a, b) => (+b.amount_usd || 0) - (+a.amount_usd || 0)).filter(h => h.chain === "Near" || +h.amount_usd >= 2e7);
-  el.innerHTML = `<p>${verdict(v.verdict)}</p>
-  <div class="card"><h3>Hack losses per year as a share of average TVL, last 24 months</h3>
-  <p class="what">Each bar is what a chain lost to hacks per year, as a share of the value it held on average; the solid part counts hacks that hit only that chain, the pale part adds multi-chain hacks in full.</p>${s}
-  ${query("Query behind this chart", "GET https://api.llama.fi/hacks\nGET https://api.llama.fi/v2/historicalChainTvl/{Near,Solana,Sui,Aptos,Base}\nGET https://api.llama.fi/protocols   (to route a hack by protocol id to its largest chain)\n\nWindow: 730 days ending " + v.snapshot_date + ". Exchange (CEX) hacks excluded.\nrate = losses in window x (365/730) / mean daily headline TVL in window\nKill criterion: fails if NEAR is above the peer median on both bounds.\nCode: pipeline/c2.py   Rows: data/tables/c2_hacks_attributed.csv")}</div>
-  <div class="card">${table([
-    {h: "Chain", f: r => esc(r.chain)}, {h: "Losses, lower", f: r => usd(r.losses_lower_usd), num: 1}, {h: "Losses, upper", f: r => usd(r.losses_upper_usd), num: 1},
-    {h: "Hacks", f: r => r.hacks_lower + (r.hacks_upper !== r.hacks_lower ? "–" + r.hacks_upper : ""), num: 1}, {h: "Mean headline TVL", f: r => usd(r.mean_headline_tvl_usd), num: 1},
-    {h: "Rate, lower", f: r => pct(r.loss_rate_lower_pct_per_year), num: 1}, {h: "Rate, upper", f: r => pct(r.loss_rate_upper_pct_per_year), num: 1},
-    {h: "All-time losses", f: r => usd(r.alltime_losses_lower_usd) + (r.alltime_losses_upper_usd !== r.alltime_losses_lower_usd ? "–" + usd(r.alltime_losses_upper_usd) : ""), num: 1}], R)}
-  <h3>NEAR hacks in the window, and peer hacks of $20M or more</h3>${table([
-    {h: "Date", f: r => esc(r.date)}, {h: "Chain", f: r => esc(r.chain)}, {h: "Name", f: r => esc(r.name)}, {h: "Amount", f: r => usd(r.amount_usd), num: 1}, {h: "Bound", f: r => esc(r.bound)}, {h: "Attributed by", f: r => esc(r.route.replace(/_/g, " "))}, {h: "DefiLlama chain tags", f: r => esc(r.chain_tags.replace(/\|/g, ", "))}], top)}</div>
-  <div class="card"><h3>Sensitivity to the denominator <span class="tag">not registered</span></h3>
-  <p class="what">The same loss rates on a wider TVL base that includes liquid staking and double-counted TVL. Added after the C2 numbers were seen (THESIS.md section 10). Under the same rule the outcome on the wider base is: <b>${esc(S.same_rule_on_wide_base)}</b> (NEAR ${pct(S.near_lower)}, peer median ${pct(S.peer_median_lower)} to ${pct(S.peer_median_upper)}).</p>
-  ${table([{h: "Chain", f: r => esc(r.chain)}, {h: "Eligible listing TVL / headline TVL", f: r => r.listing_over_headline + "x", num: 1}, {h: "Mean wider TVL", f: r => usd(r.mean_wide_tvl_usd), num: 1},
-    {h: "Registered rate", f: r => pct(r.registered_rate_lower) + (r.registered_rate_upper !== r.registered_rate_lower ? "–" + pct(r.registered_rate_upper) : ""), num: 1},
-    {h: "Rate on wider base", f: r => pct(r.wide_base_rate_lower) + (r.wide_base_rate_upper !== r.wide_base_rate_lower ? "–" + pct(r.wide_base_rate_upper) : ""), num: 1}], SR)}
-  ${query("Query behind this table", "GET https://api.llama.fi/lite/charts/{Chain}   (series `tvl`, which includes liquid staking and double-counted TVL)\nCode: pipeline/c2.py sensitivity()")}</div>`;
+  const el = $("#c2"), rows = D.c2_rates, W = 1040, rowH = 46, m = {l: 76, r: 170, t: 40, b: 30}, H = m.t + m.b + rowH * rows.length;
+  const max = Math.max(...rows.map(r => +r.loss_rate_upper_pct_per_year)) * 1.04, X = x => m.l + x / max * (W - m.l - m.r);
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Hack losses per year as a share of average TVL, by chain">`;
+  for (let g = 0; g <= max; g += 2) s += `<line class="gr" x1="${X(g)}" x2="${X(g)}" y1="${m.t}" y2="${H - m.b}"/><text class="n" x="${X(g)}" y="${H - 10}" text-anchor="middle">${g}%</text>`;
+  s += `<line class="ax" x1="${X(0)}" x2="${X(0)}" y1="${m.t}" y2="${H - m.b}"/>`;
+  rows.forEach((r, i) => { const y = m.t + i * rowH + 10, lo = +r.loss_rate_lower_pct_per_year, up = +r.loss_rate_upper_pct_per_year, near = r.chain === "Near", f = near ? "var(--accent)" : "var(--peer)";
+    const t = `<b>${r.chain}</b><br>Losses ${usd(r.losses_lower_usd)}${up > lo ? " to " + usd(r.losses_upper_usd) : ""} in ${r.hacks_lower}${up > lo ? " to " + r.hacks_upper : ""} hacks<br>Mean headline TVL ${usd(r.mean_headline_tvl_usd)}`;
+    s += `<text class="${near ? "strong" : ""}" x="${m.l - 10}" y="${y + 17}" text-anchor="end">${r.chain === "Near" ? "NEAR" : r.chain}</text>`;
+    if (up > lo) s += `<rect x="${X(lo)}" y="${y}" width="${X(up) - X(lo)}" height="24" fill="var(--peer2)" data-tip="${t}"/>`;
+    s += `<rect x="${X(0)}" y="${y}" width="${Math.max(X(lo) - X(0), 2)}" height="24" fill="${f}" data-tip="${t}"/>`;
+    s += `<text class="n ${near ? "strong" : ""}" x="${X(up) + 8}" y="${y + 17}">${pct(lo)}${up > lo ? "–" + pct(up) : ""}</text>`; });
+  s += `<line x1="${X(c2.peer_median_lower)}" x2="${X(c2.peer_median_lower)}" y1="${m.t - 6}" y2="${H - m.b}" stroke="var(--ink)" stroke-width="1" stroke-dasharray="4 3"/><line x1="${X(c2.peer_median_upper)}" x2="${X(c2.peer_median_upper)}" y1="${m.t - 6}" y2="${H - m.b}" stroke="var(--ink)" stroke-width="1" stroke-dasharray="4 3"/>`;
+  s += `<text class="strong" x="${X(c2.peer_median_upper) + 6}" y="${m.t - 12}">peer median ${pct(c2.peer_median_lower)}–${pct(c2.peer_median_upper)}</text></svg>`;
+  const S = D.c2_sensitivity, big = D.c2_hacks.slice().sort((a, b) => (+b.amount_usd || 0) - (+a.amount_usd || 0)).filter(h => h.chain === "Near" || +h.amount_usd >= 2e7);
+  const nr = rate.Near;
+  el.innerHTML = `<div class="sectag"><span class="kicker">C2 · Incident record</span><span class="pill">${vword(c2.verdict)}</span></div>
+  <h2>NEAR lost more to hacks, relative to what it held, than ${word(D.c2_rates.length - 1 - worse.length)} of ${word(D.c2_rates.length - 1)} peers</h2>
+  <p>Over the 24 months to ${esc(c2.snapshot_date)} NEAR lost ${usd(nr.losses_lower_usd)} in ${nr.hacks_lower} hacks against an average headline TVL of ${usd(nr.mean_headline_tvl_usd)}: ${pct(c2.near_lower)} per year. The peer median is ${pct(c2.peer_median_lower)} to ${pct(c2.peer_median_upper)}. ${worse.length ? esc(worse.join(" and ")) + " lost more." : ""}</p>
+  <figure><figcaption>Hack losses per year as a share of average TVL, last 24 months</figcaption>${s}</figure>
+  <p class="what">Each bar is what a chain lost to hacks per year as a share of the value it held on average. The dark part counts hacks that hit only that chain; the pale part adds multi-chain hacks in full.</p>
+  ${how("GET https://api.llama.fi/hacks\nGET https://api.llama.fi/v2/historicalChainTvl/{Near,Solana,Sui,Aptos,Base}\nGET https://api.llama.fi/protocols        to route a hack by protocol id to that protocol's largest chain\n\nWindow: 730 days ending " + c2.snapshot_date + ". Exchange (CEX) hacks excluded. Returned funds not netted.\nrate = losses in window x (365/730) / mean daily headline TVL in window\nFails if NEAR is above the peer median on both bounds.\n\nCode: pipeline/c2.py    Rows: data/tables/c2_hacks_attributed.csv, c2_loss_rates.csv")}
+  <div class="cols"><div><h3>The hacks behind it</h3>${table([{h: "Date", f: r => `<span class="num">${esc(r.date)}</span>`}, {h: "Chain", f: r => esc(r.chain)}, {h: "Name", f: r => esc(r.name)}, {h: "Amount", f: r => usd(r.amount_usd), num: 1}], big, r => r.chain === "Near" ? "near" : "")}<p class="small">NEAR’s hacks in the window, and peer hacks of $20M or more.</p></div>
+  <div><h3>Does the denominator decide it? <span class="tag">not registered</span></h3><p class="small">NEAR’s eligible listing TVL is about three times its headline TVL, so the same rates were recomputed on a wider base that includes liquid staking. Under the same rule the outcome is ${vword(S.same_rule_on_wide_base)}: the verdict does not depend on the denominator.</p>
+  ${table([{h: "Chain", f: r => esc(r.chain)}, {h: "Registered", f: r => pct(r.registered_rate_lower) + (r.registered_rate_upper !== r.registered_rate_lower ? "–" + pct(r.registered_rate_upper) : ""), num: 1}, {h: "Wider base", f: r => pct(r.wide_base_rate_lower) + (r.wide_base_rate_upper !== r.wide_base_rate_lower ? "–" + pct(r.wide_base_rate_upper) : ""), num: 1}], D.c2_sensitivity_rows, r => r.chain === "Near" ? "near" : "")}</div></div>
+  <details><summary>Descriptive: audits and losses against fees</summary>
+  <p class="small">Audits recorded on DefiLlama for each chain’s ten largest protocols. The field is a flag, not a count, and the links under-report.</p>
+  ${table([{h: "Chain", f: r => esc(r.chain)}, {h: "With audit flag or link", f: r => r.with_audit_flag_or_link + " of " + r.listings, num: 1}, {h: "Share of top-10 TVL", f: r => pct(r.share_by_listing_tvl_pct, 1), num: 1}], D.audits, r => r.chain === "Near" ? "near" : "")}
+  <p class="small">NEAR protocols with fee data: hack losses against fees over the same window (clipped to the first day of fee data).</p>
+  ${table([{h: "Protocol", f: r => esc(r.protocol)}, {h: "Window from", f: r => `<span class="num">${esc(r.fee_window_start)}</span>`}, {h: "Fees", f: r => usd(r.fees_usd), num: 1}, {h: "Hack losses", f: r => usd(r.hack_losses_in_fee_window_usd), num: 1}, {h: "Losses / fees", f: r => (+r.losses_over_fees).toFixed(2) + "x", num: 1}], D.fees.filter(r => r.fee_data === "yes"))}
+  <pre>GET https://api.llama.fi/protocols (audits, audit_links)\nGET https://api.llama.fi/summary/fees/&lt;slug&gt;?dataType=dailyFees\nCode: pipeline/c2.py audits(), losses_vs_fees()</pre></details>`;
   hover(el);
 })();
 
 /* ---------- C3 ---------- */
 (function () {
-  const el = $("#c3-body"), R = D.c3_rows, v = D.c3;
-  const W = 960, rowH = 40, m = {l: 150, r: 250, t: 10, b: 30}, H = m.t + m.b + rowH * R.length;
-  const max = Math.max(...R.map(r => +r.listing_tvl_usd)), X = x => m.l + x / max * (W - m.l - m.r);
-  const cat = r => r.one_signer_path === "yes" ? ["var(--critical)", "▲ 1 signer (Sputnik factory key)"] : r.one_signer_path === "no" ? ["var(--neutral)", `${r.min_signers_upgrade_or_move_funds} signers (DAO vote)`] : ["url(#hatch)", "source unreadable"];
-  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Assessed NEAR protocols by TVL and minimum signers to upgrade"><defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="var(--surface)"/><line x1="0" y1="0" x2="0" y2="6" stroke="var(--ink3)" stroke-width="2"/></pattern></defs>`;
-  for (let g = 0; g <= max; g += 25e6) s += `<line class="grid" x1="${X(g)}" x2="${X(g)}" y1="${m.t}" y2="${H - m.b}"/><text x="${X(g)}" y="${H - 10}" text-anchor="middle">${usd(g)}</text>`;
-  R.forEach((r, i) => {
-    const y = m.t + i * rowH + 7, [fill, label] = cat(r);
-    const tipText = `<b>${esc(r.protocol)}</b> ${usd(r.listing_tvl_usd)}<br>${esc(r.contracts)}<br>Upgrade: ${esc(r.upgrade_holder)}<br>Enforced delay: ${esc(r.enforced_upgrade_delay)}`;
-    s += `<text class="lbl" x="${m.l - 10}" y="${y + 17}" text-anchor="end">${esc(r.protocol)}</text><rect x="${X(0)}" y="${y}" width="${X(+r.listing_tvl_usd) - X(0)}" height="24" rx="4" fill="${fill}" stroke="${fill.startsWith("url") ? "var(--ink3)" : "none"}" data-tip="${tipText}"/><text x="${X(+r.listing_tvl_usd) + 8}" y="${y + 17}">${esc(label)}</text>`;
-  });
+  const el = $("#c3"), rows = D.c3_rows, f = c3.factory, dao = Object.fromEntries(D.c3_daos.map(d => [d.protocol, d]));
+  const W = 1040, rowH = 40, m = {l: 150, r: 250, t: 8, b: 30}, H = m.t + m.b + rowH * rows.length;
+  const max = Math.max(...rows.map(r => +r.listing_tvl_usd)) * 1.02, X = x => m.l + x / max * (W - m.l - m.r);
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Assessed NEAR protocols by TVL and the fewest signers who can replace their code"><defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="var(--peer)" stroke-width="2"/></pattern></defs>`;
+  for (let g = 0; g <= max; g += 25e6) s += `<line class="gr" x1="${X(g)}" x2="${X(g)}" y1="${m.t}" y2="${H - m.b}"/><text class="n" x="${X(g)}" y="${H - 10}" text-anchor="middle">${usd(g)}</text>`;
+  s += `<line class="ax" x1="${X(0)}" x2="${X(0)}" y1="${m.t}" y2="${H - m.b}"/>`;
+  rows.forEach((r, i) => { const y = m.t + i * rowH + 8, one = r.one_signer_path === "yes", un = r.one_signer_path === "unreadable";
+    const label = one ? "1 signer, via a Sputnik factory key" : un ? "source unreadable" : `${r.min_signers_upgrade_or_move_funds} signers, by DAO vote`;
+    s += `<text class="${one ? "strong" : ""}" x="${m.l - 10}" y="${y + 16}" text-anchor="end">${esc(r.protocol)}</text><rect x="${X(0)}" y="${y}" width="${X(+r.listing_tvl_usd) - X(0)}" height="22" fill="${one ? "var(--fail)" : un ? "url(#hatch)" : "var(--peer)"}" ${un ? 'stroke="var(--peer)"' : ""} data-tip="<b>${esc(r.protocol)}</b> ${usd(r.listing_tvl_usd)}<br>${esc(r.contracts)}<br>${esc(r.upgrade_holder)}"/><text class="${one ? "strong" : ""}" x="${X(+r.listing_tvl_usd) + 8}" y="${y + 16}">${esc(label)}</text>`; });
   s += `</svg>`;
-  const f = v.factory;
-  el.innerHTML = `<p>${verdict(v.C3)} &nbsp; C3a signers: ${verdict(v.C3a)} &nbsp; C3b delay: ${verdict(v.C3b)}</p>
-  <div class="card"><h3>Fewest signers who can upgrade the contract or move funds, by protocol</h3>
-  <p class="what">Each bar is one assessed NEAR protocol sized by the value it holds; the label is the smallest number of keys that can replace its code.</p>
-  <div class="legend"><span><i style="background:var(--critical)"></i>one-signer path</span><span><i style="background:var(--neutral)"></i>needs a DAO vote</span><span><i style="background:repeating-linear-gradient(45deg,var(--ink3) 0 2px,transparent 2px 5px)"></i>source unreadable</span></div>${s}
-  ${query("Calls behind this chart", "NEAR mainnet RPC " + D.retrieval.near_rpc + ", read-only, blocks " + D.retrieval.near_block_min + " to " + D.retrieval.near_block_max + ":\n  query view_account, query view_access_key_list      (every account in data/c3_targets.json)\n  acl_get_permissioned_accounts, pa_all_paused, up_get_delay_status   (near-plugins contracts)\n  get_owner_id / get_owner / get_config / get_metadata   (owner-based contracts)\n  get_policy, get_factory_info, version                 (each Sputnik DAO)\n  get_owner, get_contracts_metadata                     (factory sputnik-dao.near)\nWhat each role can do was read in the open source named per row below.\nCode: pipeline/c3.py   Trace: data/c3_findings.json   Raw answers: data/raw/near/")}</div>
-  <div class="card"><h3>The Sputnik factory path</h3>
-  <p>Five of the seven protocols are owned by a Sputnik DAO that needs 3 council votes. For three of those DAOs the vote is not the only way in. The factory account <code>${esc(f.account)}</code> has <b>${f.full_access_keys} full-access keys</b> (block ${f.block_height}), and the DAO code these DAOs run accepts a code replacement from the factory, with no proposal, when the DAO's <code>auto_update</code> flag is true. That is one signer for the DAO, and so for the contract the DAO owns.</p>
-  ${table([{h: "DAO", f: r => esc(r.dao)}, {h: "Owns", f: r => esc(r.protocol)}, {h: "Council vote", f: r => `${r.votes_needed} of ${r.council_size}`, num: 1}, {h: "auto_update", f: r => esc(r.auto_update === "" ? "no such method (v2.0)" : r.auto_update)}, {h: "Factory full-access keys", f: r => esc(r.factory_full_access_keys || "–"), num: 1}, {h: "Signers via factory", f: r => esc(r.factory_path_signers || "–"), num: 1}], D.c3_daos)}
-  <p class="note">The fix exists: near-daos/sputnik-dao-contract PR #233 (merged 2026-03-24) makes a factory update wait two weeks as a proposal. None of these DAOs runs that code. The public claim for Meta Pool and LiNEAR was first made by the hackathon project <a href="https://github.com/aditi3175/docket">Docket</a>; this trace confirms it from chain state and source and finds the same path for the DAO behind NEAR Intents. A key seen on chain may be a hardware wallet or a shared MPC key; chain state cannot tell.</p></div>
-  <div class="card"><h3>Kill criteria</h3>${table([{h: "Test", f: r => esc(r[0])}, {h: "Measured", f: r => esc(r[1])}, {h: "Result", f: r => esc(r[2])}], [
-    ["C3a: fails if intents.near, or more than 30% of assessed TVL, has a one-signer path to upgrade or move funds", `intents.near minimum signers: ${v.intents_min_signers}; one-signer path on ${pct(v.share_assessed_tvl_one_signer_pct, 1)} of ${usd(v.assessed_tvl_usd)}`, v.C3a],
-    ["C3b: holds if more than half of assessed TVL, excluding intents.near, enforces an on-chain upgrade delay", `${pct(v.c3b_share_with_enforced_delay_pct, 1)} of ${usd(v.c3b_base_tvl_usd)}; unreadable ${pct(v.c3b_share_unreadable_pct, 1)}`, v.C3b]])}
-  <h3>Per protocol</h3>${table([
-    {h: "Protocol", f: r => `<b>${esc(r.protocol)}</b><br><span class="note">${usd(r.listing_tvl_usd)}</span>`}, {h: "Contract", f: r => `<code>${esc(r.contracts)}</code><br><span class="note">full-access keys: ${esc(r.full_access_keys_on_contracts)}</span>`},
-    {h: "Who can upgrade", f: r => esc(r.upgrade_holder)}, {h: "Min signers", f: r => esc(r.min_signers_upgrade_or_move_funds), num: 1}, {h: "Enforced delay", f: r => `${esc(r.enforced_upgrade_delay)}<br><span class="note">${esc(r.delay_evidence)}</span>`},
-    {h: "Pause, and other roles", f: r => `<span class="note">${esc(r.pause)} ${esc(r.restricted_paths)} ${esc(r.other_powers)}</span>`}, {h: "Source read", f: r => `<span class="note">${esc(r.source)}</span>`}], R)}
-  <p class="note">Not assessed (under $10M on NEAR): ${v.not_assessed.map(n => esc(n.protocol) + " " + usd(n.listing_tvl_usd)).join(", ")}.</p></div>`;
+  const sig = (v, sub, bad) => v === "" || v == null ? `<span class="sig na">not read</span>` : `<span class="sig ${bad ? "bad" : ""}">${esc(v)}</span>${sub ? `<span class="sub">${esc(sub)}</span>` : ""}`;
+  const upg = r => { if (r.source_readable !== "yes") return `<span class="sig na">unreadable</span>`; const d = dao[r.protocol], fac = r.signers_via_sputnik_factory;
+    return fac ? sig(fac, `factory key; ${d.votes_needed} of ${d.council_size} by vote`, true) : sig(r.signers_via_dao_vote, `of ${d.council_size}, DAO vote`); };
+  el.innerHTML = `<div class="sectag"><span class="kicker">C3 · Control</span><span class="pill">${vword(c3.C3)}</span><span class="small">signers test ${vword(c3.C3a)} · delay test ${vword(c3.C3b)}</span></div>
+  <h2>One key can replace the DAO behind NEAR Intents, and nothing delays an upgrade</h2>
+  <p>No assessed contract has a full-access key, and every upgrade power sits with a DAO that needs 3 council votes. That is not the shortest path. The Sputnik factory account <span class="mono">${esc(f.account)}</span> holds <b>${f.full_access_keys} full-access keys</b>, and the DAO code that three of these DAOs run accepts a code replacement from the factory with no vote. One factory key therefore reaches ${pct(c3.share_assessed_tvl_one_signer_pct, 1)} of the ${usd(c3.assessed_tvl_usd)} assessed, including <span class="mono">intents.near</span>. An enforced upgrade delay protects ${pct(c3.c3b_share_with_enforced_delay_pct, 0)} of it.</p>
+  <figure><figcaption>Fewest signers who can replace a protocol’s code, by protocol and TVL</figcaption>${s}</figure>
+  <p class="what">Each bar is one assessed NEAR protocol, sized by the value it holds; the label is the smallest number of keys that can change its code.</p>
+  ${how("NEAR mainnet RPC " + R.near_rpc + ", view calls only, blocks " + R.near_block_min + " to " + R.near_block_max + ":\n  query view_account, query view_access_key_list           every account in data/c3_targets.json\n  acl_get_permissioned_accounts, pa_all_paused, up_get_delay_status   near-plugins contracts\n  get_owner_id / get_owner / get_config / get_metadata        owner-based contracts\n  get_policy, get_factory_info, version                       each Sputnik DAO\n  get_owner, get_contracts_metadata                           factory sputnik-dao.near\n\nWhat each role can do was read in open source at named commits (per row in data/tables/c3_control.csv).\nC3a fails if intents.near, or more than 30% of assessed TVL, has a one-signer path to upgrade or move funds.\nC3b holds if more than half of assessed TVL outside intents.near enforces an on-chain upgrade delay.\n\nCode: pipeline/c3.py    Trace: data/c3_findings.json    Raw answers: data/raw/near/")}
+  <h3>Control map</h3>
+  <p class="small">Fewest signers for each power. Moving funds follows from upgrading: new code can do anything. A number in red is a one-signer path.</p>
+  ${table([{h: "Protocol", f: r => `<b>${esc(r.protocol)}</b><span class="sub num">${usd(r.listing_tvl_usd)} · ${esc(r.contracts)}</span>`},
+    {h: "Pause", f: r => sig(r.pause_min_signers, r.pause_holder)}, {h: "Upgrade", f: upg}, {h: "Move funds", f: upg},
+    {h: "Upgrade delay", f: r => r.enforced_upgrade_delay === "unreadable" ? `<span class="sig na">unreadable</span>` : `<span class="sig ${r.enforced_upgrade_delay === "no" ? "bad" : ""}">${r.enforced_upgrade_delay === "no" ? "none" : "yes"}</span><span class="sub">${esc(r.delay_evidence)}</span>`}], rows)}
+  <p class="small">Not assessed (under $10M on NEAR): ${c3.not_assessed.map(n => esc(n.protocol) + " " + usd(n.listing_tvl_usd)).join(", ")}. A key seen on chain may be a hardware wallet or a shared key; chain state cannot tell.</p>
+  <div class="cols"><div><h3>The factory path, DAO by DAO</h3>${table([{h: "DAO", f: r => `<span class="mono">${esc(r.dao.replace(".sputnik-dao.near", ""))}</span><span class="sub">${esc(r.protocol)}</span>`}, {h: "Vote", f: r => `${r.votes_needed} of ${r.council_size}`, num: 1}, {h: "auto_update", f: r => esc(r.auto_update === "" ? "no such method" : r.auto_update.toLowerCase())}, {h: "Via factory", f: r => r.factory_path_signers ? `<span class="sig bad">${esc(r.factory_path_signers)}</span>` : "–", num: 1}], D.c3_daos)}</div>
+  <div><h3>What is known about it</h3><ul class="plain small">
+   <li>The source describes factory updates as a design choice. A fix that makes them wait two weeks as a proposal (near-daos/sputnik-dao-contract PR #233) was merged on 2026-03-24. No DAO in this trace runs it.</li>
+   <li>The claim for Meta Pool and LiNEAR was first made publicly by the hackathon project <a href="https://github.com/aditi3175/docket">Docket</a>. This trace confirms it from chain state and source, and finds the same path for the DAO behind NEAR Intents.</li>
+   <li>The single Updater key on the Intents upgrade controller can only deploy a release the DAO has registered, so it is not counted as a one-signer path.</li>
+   <li>Rhea Dex’s source repository could not be found, so it is unreadable (${pct(c3.share_assessed_tvl_unreadable_pct, 1)} of assessed TVL).</li></ul></div></div>`;
   hover(el);
 })();
 
 /* ---------- case study ---------- */
 (function () {
-  const el = $("#case-body"), d = D.timeline_derived, hm = x => Math.floor(x / 60) + " h " + (x % 60) + " min";
+  const el = $("#case"), tl = D.timeline, t = s => Date.parse(s.slice(0, 10) + "T" + (s.slice(11) || "00:00").padEnd(8, ":00") + "Z");
+  const inp = T.inputs, pt = k => t(inp[k].split(" (")[0]);
+  const first = pt("first_withdrawal"), det = pt("detected"), pause = pt("pause"), fix = pt("fix");
+  const last = t(tl.find(r => r.what.startsWith("Last attacker withdrawal")).time_utc);
+  const W = 1040, H = 210, m = {l: 20, r: 20}, t0 = Date.parse("2026-09-29T12:00:00Z"), t1 = Date.parse("2026-10-03T00:00:00Z"), X = v => m.l + (v - t0) / (t1 - t0) * (W - m.l - m.r), ax = 112;
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Timeline of the 1 October 2026 exploit with three durations">`;
+  for (let d = Date.parse("2026-09-30T00:00:00Z"); d <= t1; d += 864e5) s += `<line class="gr" x1="${X(d)}" x2="${X(d)}" y1="${ax - 6}" y2="${ax + 6}" style="stroke:var(--ink3)"/><text class="n" x="${X(d)}" y="${ax + 22}" text-anchor="middle">${new Date(d).toISOString().slice(5, 10)} 00:00</text>`;
+  s += `<line class="ax" x1="${m.l}" x2="${W - m.r}" y1="${ax}" y2="${ax}"/>`;
+  s += `<rect x="${X(first)}" y="${ax - 5}" width="${X(last) - X(first)}" height="10" fill="var(--peer2)"/><text x="${(X(first) + X(last)) / 2}" y="${ax - 12}" text-anchor="middle">attacker withdrawals</text>`;
+  const bracket = (a, b, y, label, strong, up) => `<path d="M${X(a)},${y + (up ? 8 : -8)}V${y}H${X(b)}V${y + (up ? 8 : -8)}" fill="none" stroke="var(--ink)" stroke-width="1"/><text class="strong" x="${(X(a) + X(b)) / 2}" y="${y + (up ? -8 : 17)}" text-anchor="middle">${label}</text>`;
+  s += bracket(first, det, 44, `Detection gap · ${hm(T.first_withdrawal_to_detection_minutes)}`, true, true);
+  s += bracket(det, fix, 168, `Fix on mainnet · ${hm(T.detection_to_fix_deployed_minutes)} after detection`, true, false);
+  [[det, "detected", "var(--ink)"], [pause, "", "var(--accent)"], [fix, "fix deployed", "var(--accent)"]].forEach(([v, l, c]) => s += `<circle cx="${X(v)}" cy="${ax}" r="5" fill="${c}" stroke="var(--page)" stroke-width="1.5"/>`);
+  s += `<path d="M${X(pause)},${ax - 8}V${ax - 30}H${X(pause) + 26}" fill="none" stroke="var(--accent)" stroke-width="1"/><text class="strong" x="${X(pause) + 30}" y="${ax - 26}">Paused · ${T.detection_to_pause_minutes} min after detection</text>`;
+  s += `<text x="${X(fix)}" y="${ax - 12}" text-anchor="middle">fix deployed</text><text x="${X(first)}" y="${ax + 40}" text-anchor="middle">first withdrawal</text></svg>`;
   const src = {postmortem: "postmortem", statement: "@near_intents", return_request: "GM on X", chain: "chain"};
-  el.innerHTML = `<div class="tiles">
-    <div class="tile"><div class="k">First withdrawal to detection</div><div class="t">${hm(d.first_withdrawal_to_detection_minutes)}</div><p class="n">Postmortem times.</p></div>
-    <div class="tile"><div class="k">Detection to pause</div><div class="t">${d.detection_to_pause_minutes} min</div><p class="n">Paused by one account with a single key (<code>${short(d.pause_caller)}</code>).</p></div>
-    <div class="tile"><div class="k">Detection to fix on mainnet</div><div class="t">${hm(d.detection_to_fix_deployed_minutes)}</div><p class="n">DAO registered the release; one Updater key deployed it ${hm(d.dao_release_registration_to_mainnet_upgrade_minutes)} later.</p></div></div>
-  <div class="card"><p class="what">What happened and when, with the source of every timestamp. Times are UTC.</p>
-  <ul class="tl">${D.timeline.map(r => `<li><time>${esc(r.time_utc)}</time><div>${esc(r.what)}<div class="src">${r.tx ? `${esc(short(r.caller))} → ${esc(r.receiver)} <code>${esc(r.method)}</code> · ` : ""}<a href="${esc(r.source_url)}">${src[r.source]}${r.tx ? " tx " + esc(r.tx.slice(0, 8)) + "…" : ""}</a></div></div></li>`).join("")}</ul>
-  ${query("Sources behind this timeline", Object.values(d.sources).map(x => x.label + ": " + x.url + (x.note ? "\n  " + x.note : "")).join("\n") + "\n\nChain rows: GET https://api.nearblocks.io/v1/account/{intents.near,ctl-intents.near}/txns (cached in data/raw/nearblocks/).\nThe attacker's withdrawals were not checked against chain data.\nCode: pipeline/timeline.py   Rows: data/timeline_events.json")}</div>`;
+  el.innerHTML = `<div class="sectag"><span class="kicker">Case study · 1 October 2026</span></div>
+  <h2>Detected after forty hours, paused in half an hour, fixed a day and a half later</h2>
+  <p>The NEAR Intents exploit took about ${usd((D.c2_hacks.find(h => h.name === "NEAR Intents" && h.chain === "Near") || {}).amount_usd)}, later returned in full according to the postmortem. Reports at the time said it was fixed within an hour. The chain shows the contract was <em>paused</em> within the hour, by one account holding a single key; the fix reached mainnet the next evening.</p>
+  <figure><figcaption>29 September to 2 October 2026, UTC</figcaption>${s}</figure>
+  <div class="dur"><div><div class="k">Detection gap</div><div class="v">${hm(T.first_withdrawal_to_detection_minutes)}</div><div class="s">first withdrawal to detection (postmortem times)</div></div>
+  <div><div class="k">Pause</div><div class="v">${T.detection_to_pause_minutes} min</div><div class="s">after detection, by <span class="mono">${short(T.pause_caller)}</span> (one key)</div></div>
+  <div><div class="k">Fix</div><div class="v">${hm(T.detection_to_fix_deployed_minutes)}</div><div class="s">after detection; the DAO registered the release, one Updater key deployed it ${hm(T.dao_release_registration_to_mainnet_upgrade_minutes)} later</div></div></div>
+  <p class="what">What happened and when; every row carries its source.</p>
+  <details><summary>All ${tl.length} events, with sources</summary>${table([{h: "UTC", f: r => `<time>${esc(r.time_utc)}</time>`}, {h: "Event", f: r => esc(r.what) + (r.tx ? `<span class="sub mono">${esc(short(r.caller))} → ${esc(r.receiver)} ${esc(r.method)}</span>` : "")}, {h: "Source", f: r => `<a href="${esc(r.source_url)}">${src[r.source]}${r.tx ? " " + esc(r.tx.slice(0, 8)) + "…" : ""}</a>`}], tl)}
+  <pre>${esc(Object.values(T.sources).map(x => x.label + ": " + x.url + (x.note ? "\n  " + x.note : "")).join("\n") + "\n\nChain rows: GET https://api.nearblocks.io/v1/account/{intents.near,ctl-intents.near}/txns, cached in data/raw/nearblocks/.\nThe attacker's withdrawals were not checked against chain data.\nCode: pipeline/timeline.py    Rows: data/timeline_events.json")}</pre></details>`;
 })();
 
-/* ---------- descriptive ---------- */
+/* ---------- against, limits, amendments ---------- */
 (function () {
-  $("#desc-body").innerHTML = `<div class="card"><h3>Audits listed on DefiLlama, top 10 per chain</h3>
-  <p class="what">How many of each chain's ten largest protocols have any audit recorded on DefiLlama. The audit field is a flag, not a count, and the links under-report.</p>
-  ${table([{h: "Chain", f: r => esc(r.chain)}, {h: "With audit flag or link", f: r => r.with_audit_flag_or_link + " of " + r.listings, num: 1}, {h: "Share of top-10 TVL", f: r => pct(r.share_by_listing_tvl_pct, 1), num: 1}, {h: "Mean audit links", f: r => r.mean_audit_links, num: 1}], D.audits)}
-  ${query("Query behind this table", "GET https://api.llama.fi/protocols   fields: audits, audit_links\nCode: pipeline/c2.py audits()")}</div>
-  <div class="card"><h3>NEAR protocols: hack losses against fees</h3>
-  <p class="what">For each NEAR protocol with fee data, what it lost to hacks compared with the fees it took in over the same period.</p>
-  ${table([{h: "Protocol", f: r => esc(r.protocol)}, {h: "Fee window", f: r => r.fee_data === "yes" ? esc(r.fee_window_start) + " to " + esc(r.fee_window_end) : "no fee data"}, {h: "Fees", f: r => r.fees_usd ? usd(r.fees_usd) : "", num: 1}, {h: "Hack losses in window", f: r => r.fee_data === "yes" ? usd(r.hack_losses_in_fee_window_usd) : usd(r.hack_losses_24m_usd), num: 1}, {h: "Losses / fees", f: r => r.losses_over_fees ? (+r.losses_over_fees).toFixed(2) + "x" : "", num: 1}], D.fees)}
-  ${query("Query behind this table", "GET https://api.llama.fi/summary/fees/<slug>?dataType=dailyFees   (per NEAR listing)\nGET https://api.llama.fi/hacks   (rows whose defillamaId is the listing)\nWindow: the 24-month C2 window, clipped to the first day of fee data.\nCode: pipeline/c2.py losses_vs_fees()")}</div>`;
+  const sui = rate.Sui, pl = c1 ? c1.peer_listings : null;
+  $("#against").innerHTML = `<div class="sectag"><span class="kicker">Reading this honestly</span></div>
+  <h2>What cuts against the thesis, the limits, and what changed after registration</h2>
+  <div class="cols"><div><h3>What cuts against the author</h3><ul class="plain">
+   <li>The author is a bug bounty hunter who would benefit from higher bounties, and expected C1 to fail. ${c1 ? `It holds: NEAR’s coverage is ${pct(c1.near_coverage_pct, 1)} against a peer median of ${pct(c1.peer_median_coverage_pct, 1)}.` : ""}</li>
+   ${pl ? `<li>A live public bounty is not the norm among peers: ${pl.live} of ${pl.total} peer listings have one.</li>` : ""}
+   <li>NEAR is not the worst on losses: Sui lost ${pct(sui.loss_rate_lower_pct_per_year)} per year. NEAR’s figure rests on ${rate.Near.hacks_lower} hacks.</li>
+   <li>The response on 1 October was fast where it mattered: paused ${T.detection_to_pause_minutes} minutes after detection, and the funds came back.</li>
+   <li>No assessed contract holds a full-access key, and every upgrade needs a 3-vote DAO unless the factory path is used.</li></ul>
+   <h3>What would close the gap</h3><ul class="plain">
+   <li>An enforced upgrade delay. Two contracts already carry the code for it and never switched it on.</li>
+   <li>Removing the factory path: deploy the merged fix, or turn <span class="mono">auto_update</span> off on the three DAOs that have it on.</li>
+   <li>As a lesser point, a larger critical bounty cap.</li></ul></div>
+  <div><h3>Limits</h3><ul class="plain small">${D.thesis.limits.map(l => `<li>${esc(l)}</li>`).join("")}</ul></div></div>
+  <h3>Amendments log</h3><p class="small">Everything added or decided after the claims were registered, as listed in <span class="mono">THESIS.md</span> section 10.</p>
+  <ol class="log">${D.thesis.amendments.map(a => `<li>${esc(a)}</li>`).join("")}</ol>`;
+  $("#foot").innerHTML = `Rebuild every number on this page with <span class="mono">make all</span> (Python standard library only, no network, no keys). Sources: DefiLlama, NEAR mainnet view calls, public source code, published bounty terms. Read-only: no keys, no transactions, nothing sent to any contract. Full text in <span class="mono">THESIS.md</span>.`;
 })();
-
-/* ---------- registration ---------- */
-(function () {
-  const r = D.registration;
-  $("#reg-body").innerHTML = `<div class="card"><p class="what">The order in which the claims were fixed and the data was pulled.</p>${table([{h: "Event", f: x => esc(x[0])}, {h: "UTC", f: x => esc(x[1])}, {h: "Check", f: x => x[2]}], [
-    ["Claims and kill criteria committed", r.committed_utc, `<code>git show ${r.commit.slice(0, 7)}:THESIS.md | sha256sum</code> gives <code>${r.sha256}</code>`],
-    ["OpenTimestamps stamp of that text", r.ots_stamp_utc, `<code>registration/THESIS.f84b548.md.ots</code>, Bitcoin blocks ${r.ots_bitcoin_blocks.join(", ")}`],
-    ["First data pull", D.retrieval.defillama_first_pull.replace("T", " ").replace("Z", ""), `<code>data/raw/manifest.json</code>`],
-    ["Anchor on NEAR (after the first pull)", r.anchor_utc, `<a href="https://nearblocks.io/txns/${r.anchor_tx}">${r.anchor_tx.slice(0, 10)}…</a>, account <code>${r.anchor_account}</code>, block ${r.anchor_block}`]])}
-  <p class="note">The NEAR anchor came about four hours after the first data pull. The evidence that the text preceded the data is the OpenTimestamps proof and the git history.</p></div>`;
-})();
+window.addEventListener("beforeprint", () => document.querySelectorAll("details").forEach(d => d.open = true));
 </script>
 </body>
 </html>

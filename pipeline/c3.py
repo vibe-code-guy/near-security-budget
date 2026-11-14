@@ -89,6 +89,14 @@ def claim_verdicts(rows: list) -> dict:
 
 # ---------- trace ----------
 
+def pause_signers(p: dict, min_signers) -> str:
+    """Fewest signers who can pause: a number read from the trace, or the DAO's own minimum."""
+    v = p.get("pause_signers", {}).get("signers")
+    if v == "dao":
+        return "" if min_signers is None else str(min_signers)
+    return "" if v is None else str(v)
+
+
 def load_raw() -> dict:
     return {p.stem: read_json(p) for p in sorted(RAW.glob("*.json"))}
 
@@ -170,6 +178,8 @@ def run() -> dict:
             "min_signers_upgrade_or_move_funds": min_signers if min_signers else "unreadable",
             "one_signer_path": "unreadable" if min_signers is None else ("yes" if min_signers == 1 else "no"),
             "enforced_upgrade_delay": "unreadable" if delay is None else ("yes" if delay else "no"),
+            "pause_min_signers": pause_signers(p, min_signers),
+            "pause_holder": p.get("pause_signers", {}).get("holder", ""),
             "delay_evidence": p["delay"]["evidence"], "pause": p.get("pause", ""),
             "restricted_paths": " ".join(x["how"] for x in p.get("restricted_paths", [])),
             "other_powers": p.get("other_powers", ""), "source": p["source"],

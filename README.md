@@ -1,24 +1,12 @@
 # near-security-budget
 
-Built at NEAR HACKATHON, track: Investment Thesis (`thesis`).
+Built at NEAR HACKATHON, track: Investment Thesis (`thesis`). A data-backed
+test of one investment thesis for NEAR, with a static dashboard and a pipeline
+anyone can re-run without credentials.
 
-## What it is
-
-A data-backed test of one investment thesis for NEAR, with a static dashboard
-and a pipeline anyone can re-run without credentials.
-
-> NEAR's long-term value rests on being trusted to settle agent money. That
-> trust is measurable as security budget: what the ecosystem pays to find bugs,
-> and who can stop or change the contracts, relative to the value they secure.
-
-Three claims, each written as "NEAR meets the peer bar" (peers: Solana, Sui,
-Aptos, Base), were fixed with kill criteria **before** the data was pulled.
-
-## What the data shows
-
-On bounty coverage NEAR is at or above these peers. The gap is in the loss
-record and in control. The security discount comes from those two, not from
-bounty spending.
+**What the data shows.** On bounty coverage NEAR is at or above these peers
+(Solana, Sui, Aptos, Base). The gap is in the loss record and in control. The
+security discount comes from those two, not from bounty spending.
 
 | Claim | Verdict | Deciding number | Bar it was tested against |
 |---|---|---|---|
@@ -34,6 +22,20 @@ The author expected C1 to fail. It did not. The claims, tests, evidence for and
 against, limits, the author's conflict of interest and every change made after
 registration are in [`THESIS.md`](THESIS.md). Verdicts are the registered kill
 criteria applied by code to the numbers; nothing is scored by hand.
+
+![First screen of the dashboard: three verdict panels](docs/first-screen.png)
+
+## What it is
+
+> NEAR's long-term value rests on being trusted to settle agent money. That
+> trust is measurable as security budget: what the ecosystem pays to find bugs,
+> and who can stop or change the contracts, relative to the value they secure.
+
+Three claims, each written as "NEAR meets the peer bar", were fixed with kill
+criteria **before** the data was pulled. The dashboard (`site/index.html`)
+shows each verdict, the chart behind it and the query or view call that
+produced it. A case study traces the 1 October 2026 NEAR Intents exploit from
+chain data and the official postmortem.
 
 ## The problem
 
