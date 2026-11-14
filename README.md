@@ -20,7 +20,7 @@
 
 Built for the NEAR HACKATHON. Track: `thesis` (Investment Thesis). By Vibe Code Guy, bug bounty hunter.
 
-**Dashboard:** open [`site/index.html`](site/index.html) from a clone (no server needed), or https://vibe-code-guy.github.io/near-security-budget/ once Pages is enabled · **The thesis:** [`THESIS.md`](THESIS.md) · **Screenshots of every section:** [`docs/screens/`](docs/screens/) · **Anchor on NEAR:** [`DsdB2BqH…`](https://nearblocks.io/txns/DsdB2BqHAHxyY2Ud4GYcek7JirLYMJz2tLY1iDNAVXji)
+**Live dashboard:** https://vibe-code-guy.github.io/near-security-budget/ (or open [`site/index.html`](site/index.html) from a clone, no server needed) · **The thesis:** [`THESIS.md`](THESIS.md) · **Screenshots of every section:** [`docs/screens/`](docs/screens/) · **Anchor on NEAR:** [`DsdB2BqH…`](https://nearblocks.io/txns/DsdB2BqHAHxyY2Ud4GYcek7JirLYMJz2tLY1iDNAVXji)
 
 ## In one minute
 
@@ -55,7 +55,7 @@ have it on); and, as a lesser point, a larger critical bounty cap.
 
 | # | Do | See |
 |---|---|---|
-| 1 | Open [`docs/screens/01-top.png`](docs/screens/01-top.png), or clone and open `site/index.html` | Rings for NEAR and each peer chain, eight key figures (8.38%, 89.1%, 1, 0%, $3.8M, 29 min, 36 h 27 min, $300K) and three verdict panels: C1 HOLDS with its caveat, C2 FAILS, C3 FAILS |
+| 1 | Open the live dashboard: https://vibe-code-guy.github.io/near-security-budget/ | Rings for NEAR and each peer chain, eight key figures (8.38%, 89.1%, 1, 0%, $3.8M, 29 min, 36 h 27 min, $300K) and three verdict panels: C1 HOLDS with its caveat, C2 FAILS, C3 FAILS |
 | 2 | On the dashboard, go to **Losses (C2)** and hover the bars | NEAR 8.38% per year, Solana 2.62–2.87%, Sui 9.97%, Aptos 2.13%, Base 0.30–2.66%, with the peer median line at 2.37–2.77%. Below: the 98 hack rows; click **Amount** to sort |
 | 3 | Go to **Control (C3)** | A matrix of seven protocols by pause, upgrade, move funds and delay. Three show a red **1** under upgrade; every row shows **none** under delay. Below it, the control path for `intents.near` with one red arrow: "1 key: replace the DAO's code, no vote" |
 | 4 | Go to **1 October** | The NEAR Intents exploit to scale: undetected 39 h 50 min, paused 29 min after detection, fixed 35 h 58 min after the pause. Every event links to its source |
@@ -224,10 +224,10 @@ hardware wallet or a shared key. The count is of keys that are each sufficient.
 **Can I trust the numbers without running anything?** Run `make all`. It needs
 only Python, takes seconds, and CI fails if the committed outputs differ.
 
-**Is the dashboard hosted?** It works from disk. The workflow
-`.github/workflows/pages.yml` serves `site/` on GitHub Pages once the owner
-turns Pages on (source "GitHub Actions", then run the workflow or set the
-repository variable `PAGES_ENABLED = true`).
+**Is the dashboard hosted?** Yes, on GitHub Pages:
+https://vibe-code-guy.github.io/near-security-budget/. The workflow
+`.github/workflows/pages.yml` redeploys `site/` on every push. It also works
+from disk with no server.
 
 ## Repository layout
 

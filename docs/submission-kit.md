@@ -13,7 +13,7 @@ Bounties: holds, with a caveat
 Hack losses: fails
 Who holds the keys: fails
 
-Built at NEAR HACKATHON. Re-run it yourself: <REPO LINK>
+Built at NEAR HACKATHON. Re-run it yourself: https://github.com/vibe-code-guy/near-security-budget
 
 @NEARProtocol #NEARHackathon
 ```
@@ -35,7 +35,7 @@ Optional extra tags: @NearLegion @NearBuilders.
 
 6/ What NEAR does here: 54 accounts read by view call (keys, roles, DAO policies), contract source read at named commits, a sourced timeline of the 1 October exploit, and the thesis hash anchored on NEAR before the results were written.
 
-7/ Everything rebuilds with `make all`, no keys. What did I get wrong? Repo: <REPO LINK>
+7/ Everything rebuilds with `make all`, no keys. What did I get wrong? Repo: https://github.com/vibe-code-guy/near-security-budget
 ```
 
 ## Demo script (2 to 3 minutes)
