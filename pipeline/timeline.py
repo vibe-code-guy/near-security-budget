@@ -57,10 +57,12 @@ def run() -> dict:
         "first_withdrawal_to_detection_minutes": seconds(first_w, detected) // 60,
         "detection_to_pause_minutes": seconds(detected, pause) // 60,
         "detection_to_fix_deployed_minutes": seconds(detected, fix) // 60,
+        "pause_to_fix_minutes": seconds(pause, fix) // 60,
+        "last_withdrawal_to_detection_minutes": seconds(last_w, detected) // 60,
         "dao_release_registration_to_mainnet_upgrade_minutes": seconds(release, fix) // 60,
         "pause_caller": by_tx["GXpc6rSv"]["caller"], "fix_caller": by_tx["FPLaCtdy"]["caller"],
         "inputs": {"detected": detected + " (postmortem)", "first_withdrawal": first_w + " (postmortem)",
-                   "pause": pause + " (chain)", "fix": fix + " (chain)", "release_registered": release + " (chain)"},
+                   "last_withdrawal": last_w + " (postmortem)", "pause": pause + " (chain)", "fix": fix + " (chain)", "release_registered": release + " (chain)"},
         "sources": spec["sources"],
     }
     write_csv(OUT / "timeline.csv", rows, ["time_utc", "precision", "source", "what", "caller", "receiver", "method", "tx", "source_url"])

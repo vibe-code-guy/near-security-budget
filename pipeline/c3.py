@@ -193,6 +193,22 @@ def run() -> dict:
                           "owner": call_value(factory, "get_owner")[0],
                           "block_height": factory["view_account"].get("block_height")},
               "not_assessed": not_assessed})
+    acl_i = call_value(raw["intents.near"], "acl_get_permissioned_accounts")[0]
+    acl_c = call_value(raw["ctl-intents.near"], "acl_get_permissioned_accounts")[0]
+    keys_i = raw["intents.near"]["view_access_key_list"]["keys"]
+    d_i = next(d for d in daos if d["dao"] == "intents.sputnik-dao.near")
+    v["intents_path"] = {
+        "contract": "intents.near", "contract_full_access_keys": full_access_keys(raw["intents.near"]),
+        "contract_function_call_keys": len(keys_i) - full_access_keys(raw["intents.near"]),
+        "dao": d_i["dao"], "dao_votes_needed": d_i["votes_needed"], "dao_council_size": d_i["council_size"],
+        "dao_auto_update": d_i["auto_update"], "factory": d_i["factory"], "factory_full_access_keys": d_i["factory_full_access_keys"],
+        "controller": acl_i["roles"]["Upgrader"]["grantees"][0],
+        "controller_updaters": len(acl_c["roles"]["Updater"]["grantees"]),
+        "controller_downgraders": len(acl_c["roles"]["Downgrader"]["grantees"]),
+        "controller_releasers": len(acl_c["roles"]["Releaser"]["grantees"]),
+        "pause_managers": len(acl_i["roles"]["PauseManager"]["grantees"]),
+        "unpause_managers": len(acl_i["roles"]["UnpauseManager"]["grantees"]),
+        "block_height": raw["intents.near"]["view_account"].get("block_height")}
     write_csv(OUT / "c3_control.csv", table, list(table[0].keys()))
     write_csv(OUT / "c3_daos.csv", daos, list(daos[0].keys()))
     write_json(OUT / "c3_verdict.json", v)

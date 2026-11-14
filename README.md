@@ -1,5 +1,7 @@
 # near-security-budget
 
+By Vibe Code Guy, bug bounty hunter.
+
 Built at NEAR HACKATHON, track: Investment Thesis (`thesis`). A data-backed
 test of one investment thesis for NEAR, with a static dashboard and a pipeline
 anyone can re-run without credentials.
@@ -51,8 +53,13 @@ Requirements: Python 3.9 or newer. Nothing to install, no API keys, no wallet.
 
 1. **Open the dashboard.** Open `site/index.html` in a browser (double-click; no
    server needed).
-   See: three tiles at the top, one per claim, each with a verdict
-   (holds / fails / can't tell / pending) and the numbers behind it.
+   See: a row of eight key figures, then three verdict panels (C1 HOLDS with
+   its caveat, C2 FAILS, C3 FAILS), each with the number that decided it and
+   the bar it was tested against. Below them, one section per claim with
+   charts (hover for values), a sortable table of the hack rows, the control
+   matrix, the control-path diagram for `intents.near` and the 1 October
+   timeline drawn to scale. Screenshots of every section are in
+   `docs/screens/`.
 2. **Rebuild everything from the cached raw data.** Run `make all` (or
    `python -m pipeline build && python -m unittest discover -s tests -q`).
    See: the lines `C2: fails | NEAR lower/upper %/yr: 8.378968 8.378968 | peer
@@ -150,6 +157,8 @@ the `.md` and `.ots` files on https://opentimestamps.org.
 |---|---|
 | `THESIS.md` | The claims, kill criteria, what was known beforehand, limits, changes after registration |
 | `site/index.html`, `site/data.js` | Static dashboard; `data.js` is generated |
+| `site/vendor/echarts/` | Apache ECharts 5.5.1 (Apache-2.0), vendored with its licence |
+| `docs/first-screen.png`, `docs/screens/` | Screenshots of the dashboard: first screen, and one per section |
 | `pipeline/` | `fetch.py` (`make data`), `universe.py`, `c2.py`, `c3.py`, `timeline.py`, `site.py`, `build.py` |
 | `tests/` | Unit tests of the attribution, threshold and verdict rules |
 | `data/universe.csv` | The 51 listings, frozen at the first data pull |
@@ -167,8 +176,12 @@ repository is public; it is not enabled.
 ## Libraries used
 
 - Python standard library only (`urllib`, `json`, `csv`, `gzip`, `unittest`).
-- The dashboard is plain HTML, CSS and JavaScript with hand-written SVG charts;
-  no framework, no CDN, no build step.
+- The dashboard is plain HTML, CSS and JavaScript with no framework, no CDN and
+  no build step. Its charts use **Apache ECharts 5.5.1**, licensed under the
+  Apache License 2.0 and vendored unmodified in `site/vendor/echarts/` together
+  with its `LICENSE` and `NOTICE` files (taken from the `echarts@5.5.1` npm
+  package, `dist/echarts.min.js`). The page loads nothing from the network, so
+  it works offline from a fresh clone.
 - `opentimestamps-client` (Python) was used once to stamp the registered text.
   It is not needed to run anything.
 

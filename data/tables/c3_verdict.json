@@ -15,6 +15,24 @@
   "owner": "sputnik-dao.near"
  },
  "intents_min_signers": 1,
+ "intents_path": {
+  "block_height": 224359356,
+  "contract": "intents.near",
+  "contract_full_access_keys": 0,
+  "contract_function_call_keys": 9,
+  "controller": "ctl-intents.near",
+  "controller_downgraders": 2,
+  "controller_releasers": 0,
+  "controller_updaters": 1,
+  "dao": "intents.sputnik-dao.near",
+  "dao_auto_update": true,
+  "dao_council_size": 5,
+  "dao_votes_needed": 3,
+  "factory": "sputnik-dao.near",
+  "factory_full_access_keys": 3,
+  "pause_managers": 7,
+  "unpause_managers": 0
+ },
  "not_assessed": [
   {
    "listing_tvl_usd": "4134876.49",

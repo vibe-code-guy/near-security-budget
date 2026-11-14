@@ -2,6 +2,8 @@
  "bands": [
   {
    "band": "under $100M",
+   "hi_usd": "100000000.00",
+   "lo_usd": "0.00",
    "near_at_or_above": "Meta Pool Near, RHEA LST, LiNEAR Protocol, Rhea Dex, KAIO",
    "near_below": "Jumbo Exchange (undetermined)",
    "peer_bar_pct": "0.0000",
@@ -10,6 +12,8 @@
   },
   {
    "band": "$100M to $1B",
+   "hi_usd": "1000000000.00",
+   "lo_usd": "100000000.00",
    "near_at_or_above": "Rhea Lend, NEAR Intents, NEAR Bridge",
    "near_below": "",
    "peer_bar_pct": "0.0324",
@@ -18,6 +22,8 @@
   },
   {
    "band": "over $1B",
+   "hi_usd": "",
+   "lo_usd": "1000000000.00",
    "near_at_or_above": "",
    "near_below": "Portal (undetermined)",
    "peer_bar_pct": "0.0547",

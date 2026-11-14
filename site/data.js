@@ -124,6 +124,8 @@ window.DATA = {
  "c1_bands": [
   {
    "band": "under $100M",
+   "hi_usd": "100000000.00",
+   "lo_usd": "0.00",
    "near_at_or_above": "Meta Pool Near, RHEA LST, LiNEAR Protocol, Rhea Dex, KAIO",
    "near_below": "Jumbo Exchange (undetermined)",
    "peer_bar_pct": "0.0000",
@@ -132,6 +134,8 @@ window.DATA = {
   },
   {
    "band": "$100M to $1B",
+   "hi_usd": "1000000000.00",
+   "lo_usd": "100000000.00",
    "near_at_or_above": "Rhea Lend, NEAR Intents, NEAR Bridge",
    "near_below": "",
    "peer_bar_pct": "0.0000",
@@ -140,6 +144,8 @@ window.DATA = {
   },
   {
    "band": "over $1B",
+   "hi_usd": "",
+   "lo_usd": "1000000000.00",
    "near_at_or_above": "",
    "near_below": "Portal (undetermined)",
    "peer_bar_pct": "0.0241",
@@ -1730,6 +1736,8 @@ window.DATA = {
   "bands": [
    {
     "band": "under $100M",
+    "hi_usd": "100000000.00",
+    "lo_usd": "0.00",
     "near_at_or_above": "Meta Pool Near, RHEA LST, LiNEAR Protocol, Rhea Dex, KAIO",
     "near_below": "Jumbo Exchange (undetermined)",
     "peer_bar_pct": "0.0000",
@@ -1738,6 +1746,8 @@ window.DATA = {
    },
    {
     "band": "$100M to $1B",
+    "hi_usd": "1000000000.00",
+    "lo_usd": "100000000.00",
     "near_at_or_above": "Rhea Lend, NEAR Intents, NEAR Bridge",
     "near_below": "",
     "peer_bar_pct": "0.0324",
@@ -1746,6 +1756,8 @@ window.DATA = {
    },
    {
     "band": "over $1B",
+    "hi_usd": "",
+    "lo_usd": "1000000000.00",
     "near_at_or_above": "",
     "near_below": "Portal (undetermined)",
     "peer_bar_pct": "0.0547",
@@ -3534,6 +3546,24 @@ window.DATA = {
    "owner": "sputnik-dao.near"
   },
   "intents_min_signers": 1,
+  "intents_path": {
+   "block_height": 224359356,
+   "contract": "intents.near",
+   "contract_full_access_keys": 0,
+   "contract_function_call_keys": 9,
+   "controller": "ctl-intents.near",
+   "controller_downgraders": 2,
+   "controller_releasers": 0,
+   "controller_updaters": 1,
+   "dao": "intents.sputnik-dao.near",
+   "dao_auto_update": true,
+   "dao_council_size": 5,
+   "dao_votes_needed": 3,
+   "factory": "sputnik-dao.near",
+   "factory_full_access_keys": 3,
+   "pause_managers": 7,
+   "unpause_managers": 0
+  },
   "not_assessed": [
    {
     "listing_tvl_usd": "4134876.49",
@@ -3979,7 +4009,8 @@ window.DATA = {
    "Correction to the trade-off paragraph in section 5",
    "Addition to section 7 (2026-11-14)",
    "L2BEAT comparison",
-   "Case-study data source"
+   "Case-study data source",
+   "Author line"
   ],
   "limits": [
    "Fifty-one listings and five chains. Nothing here shows that a bounty, an audit or a delay causes fewer losses.",
@@ -4231,10 +4262,13 @@ window.DATA = {
    "detected": "2026-10-01 08:04 (postmortem)",
    "first_withdrawal": "2026-09-29 16:14 (postmortem)",
    "fix": "2026-10-02 20:31:41 (chain)",
+   "last_withdrawal": "2026-10-01 05:54 (postmortem)",
    "pause": "2026-10-01 08:33:13 (chain)",
    "release_registered": "2026-10-02 14:48:31 (chain)"
   },
+  "last_withdrawal_to_detection_minutes": 130,
   "pause_caller": "c98fb45fe2941904f763ff4c2fa2b621b5eb9a57f8daf420679957c08c1a1c34",
+  "pause_to_fix_minutes": 2158,
   "sources": {
    "chain": {
     "label": "NEAR mainnet transaction",

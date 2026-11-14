@@ -1,5 +1,7 @@
 # THESIS.md
 
+Author: Vibe Code Guy, bug bounty hunter.
+
 **Status: pre-registration.** This file was written and committed on 2026-11-13,
 before any bounty terms, hack totals, fee totals or control data were pulled for
 analysis, apart from what section 3 lists. Sections 1 to 8 are fixed at the
@@ -644,6 +646,8 @@ counted, and say which way that leans.
 12. **Case-study data source.** The timeline's on-chain rows come from the
     explorer API `api.nearblocks.io`, which was not among the sources verified
     before registration. The responses are cached in `data/raw/nearblocks/`.
+13. **Author line.** The line "Author: Vibe Code Guy, bug bounty hunter" was
+    added under the title on 2026-11-14. The registered text named no author.
 
 ## Appendix A. What was verified before registering (2026-11-13)
 

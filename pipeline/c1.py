@@ -174,7 +174,9 @@ def compute(rows: list) -> dict:
     band_rows = []
     for k, g in enumerate(groups):
         mine = [r for r in near if group_of[r["band"]] == k]
-        band_rows.append({"band": band_label(g), "peers": sum(1 for r in peers if group_of[r["band"]] == k),
+        band_rows.append({"band": band_label(g), "lo_usd": usd(config.BANDS[g[0]][1]),
+                          "hi_usd": "" if config.BANDS[g[-1]][2] == float("inf") else usd(config.BANDS[g[-1]][2]),
+                          "peers": sum(1 for r in peers if group_of[r["band"]] == k),
                           "peers_with_a_bounty": sum(1 for r in peers if group_of[r["band"]] == k and r["ratio"] > 0),
                           "peer_bar_pct": "" if bars[k] is None else f"{100 * bars[k]:.4f}",
                           "near_at_or_above": ", ".join(r["protocol"] for r in mine if r["meets"]),
