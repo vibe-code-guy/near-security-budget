@@ -2,6 +2,11 @@
 
 By Vibe Code Guy, bug bounty hunter.
 
+**Sibling submission (disclosure).** The same author also submitted
+[Slay the Bear](https://github.com/vibe-code-guy/slay-the-bear) to NEAR HACKATHON (tracks
+`memecoins`, `games`): a memecoin and town game in one NEAR testnet contract. The two
+projects are independent and share no code.
+
 Built at NEAR HACKATHON, track: Investment Thesis (`thesis`). A data-backed
 test of one investment thesis for NEAR, with a static dashboard and a pipeline
 anyone can re-run without credentials.
